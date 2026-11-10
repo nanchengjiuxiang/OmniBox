@@ -125,7 +125,7 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 
 ## 7. 五个容易踩的坑
 
-1. **零 INTERNET 权限可能被依赖偷偷加回**：ML Kit / Firebase 系传递依赖会在 Manifest 合并时注入 `INTERNET`。主 Manifest 已用 `tools:node="remove"` 显式移除，但发布前必须检查 `merged_manifests/release/AndroidManifest.xml`，并选 bundled 模型依赖。注意 `:verifyNoInternetPermission` 门禁**会正确排除** `tools:node="remove"` 的防御性声明，别把它当成违规删掉。
+1. **零 INTERNET 权限可能被依赖偷偷加回**：ML Kit / Firebase 系传递依赖会在 Manifest 合并时注入 `INTERNET`。主 Manifest 已用 `tools:node="remove"` 显式移除，但发布前必须检查合并产物并选 bundled 模型依赖。AGP 8.7 的实际路径是 `app/build/intermediates/merged_manifest/<variant>/process…Manifest/AndroidManifest.xml`（**单数 `merged_manifest`**），用 §6 的 `find -path '*merged*'` 通配最稳。注意 `:verifyNoInternetPermission` 门禁**会正确排除** `tools:node="remove"` 的防御性声明，别把它当成违规删掉。
 2. **离线资源必须随包**：Roboto Flex 变量字体、Material Symbols 图标、农历表（1900–2100）、离线汇率快照、WHO 噪声对照表、ML Kit bundled 模型全部进 `assets/res`，禁止运行时下载。设计包的 32 张 `screen.png` 是验收素材，**不要打进 APK**。
 3. **NDK `.so` 分包**：若 P2 验证后保留 FFmpeg-Kit / libwebp，用 `splits.abi` 出分 ABI 包；交 AAB 时由 Play 自动拆分。
 4. **R8 keep 规则**：Hilt 生成类、Room 实体、kotlinx/ZXing 反射、JNI 方法名都要写进 `proguard-rules.pro`，否则混淆后功能与界面对不上。
