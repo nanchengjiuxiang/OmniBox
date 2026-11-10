@@ -3,5 +3,6 @@
     <!-- 与 core:designsystem/Color.kt 的 light scheme 保持一致，取自 tonal_utility/DESIGN.md -->
     <color name="omnibox_surface">#FFFDF8FF</color>
     <color name="omnibox_primary">#FF4F378A</color>
-    <color name="ic_launcher_background">#FF4F378A</color>
+    <!-- 图标底色：与 Logo 原图纯白底一致，前景位图渐隐边无缝衔接 -->
+    <color name="ic_launcher_background">#FFFFFFFF</color>
 </resources>
