@@ -24,8 +24,8 @@ android {
         applicationId = "com.omnibox"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // ABI 过滤必须放在 defaultConfig 内：AGP 8.7 的 Kotlin DSL 不接受 android{} 顶层的 ndk{}
         ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
