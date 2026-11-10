@@ -30,7 +30,7 @@ fun DevToolsRoute(
     val state by viewModel.uiState.collectAsState()
     val clipboard = LocalClipboardManager.current
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(title = "代码与格式化", subtitle = "离线模式 · 零网络依赖",
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)

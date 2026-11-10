@@ -93,6 +93,8 @@ fun ExploreRoute(
     }
 
     Scaffold(
+        // 上下留白交给 OmniTopBar / OmniBottomBar 自己避让，这里只保留左右安全区
+        contentWindowInsets = OmniScaffoldInsets,
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
         bottomBar = {
@@ -110,7 +112,8 @@ fun ExploreRoute(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .background(MaterialTheme.colorScheme.surface),
+                .background(MaterialTheme.colorScheme.surface)
+                .omniStatusBarInset(),
             contentPadding = PaddingValues(bottom = OmniDimens.Grid3)
         ) {
             item {

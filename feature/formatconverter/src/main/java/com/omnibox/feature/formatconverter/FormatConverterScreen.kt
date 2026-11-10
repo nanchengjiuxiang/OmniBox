@@ -79,6 +79,8 @@ private fun FormatConverterContent(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.surface)
+            // 无底栏的工具页：滚动内容在手势条上方收住，最后一屏不会被小白条压住
+            .omniStatusBarInset().omniNavBarInset()
     ) {
         item {
             OmniTopBar(

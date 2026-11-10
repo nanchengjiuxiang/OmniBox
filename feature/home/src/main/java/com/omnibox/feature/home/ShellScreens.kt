@@ -36,10 +36,12 @@ fun FavoritesRoute(
     val launches by shell.totalLaunches.collectAsState()
 
     Scaffold(
+        contentWindowInsets = OmniScaffoldInsets,
         bottomBar = { OmniBottomBar(2) { i -> when (i) { 0 -> onBack(); 1 -> onNavigate(Routes.EXPLORE); 3 -> onNavigate(Routes.SETTINGS); else -> Unit } } }
     ) { padding ->
         LazyColumn(
-            Modifier.fillMaxSize().padding(padding).background(MaterialTheme.colorScheme.surface),
+            Modifier.fillMaxSize().padding(padding).background(MaterialTheme.colorScheme.surface)
+                .omniStatusBarInset(),
             contentPadding = PaddingValues(bottom = OmniDimens.Grid3)
         ) {
             item {
@@ -148,10 +150,12 @@ fun SettingsRoute(
     val permissions = remember(message) { shell.permissionStatuses() }
 
     Scaffold(
+        contentWindowInsets = OmniScaffoldInsets,
         bottomBar = { OmniBottomBar(3) { i -> when (i) { 0 -> onBack(); 1 -> onNavigate(Routes.EXPLORE); 2 -> onNavigate(Routes.FAVORITES); else -> Unit } } }
     ) { padding ->
         LazyColumn(
-            Modifier.fillMaxSize().padding(padding).background(MaterialTheme.colorScheme.surface),
+            Modifier.fillMaxSize().padding(padding).background(MaterialTheme.colorScheme.surface)
+                .omniStatusBarInset(),
             contentPadding = PaddingValues(bottom = OmniDimens.Grid3)
         ) {
             item { OmniTopBar(title = "设置", subtitle = "偏好、权限与关于") }
@@ -246,7 +250,7 @@ fun ToolSettingsRoute(
 ) {
     val state by shell.uiState.collectAsState()
     var message by remember { mutableStateOf("") }
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(title = "工具设置", subtitle = "OmniEngine · 原生协程异步驱动 · 零云端通信",
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)
@@ -320,7 +324,7 @@ fun ToolHistoryRoute(
     var filter by remember { mutableStateOf<String?>(null) }
     val shown = history.filter { filter == null || it.toolId == filter }
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(title = "使用历史", subtitle = "本地沙盒持久化 (Room DB) · 零数据上传 · 强离线",
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)
@@ -413,7 +417,7 @@ fun SearchResultRoute(
     val shown = results.filter { category == ToolCategory.ALL || it.category == category }
     val hotWords = listOf("二维码生成", "单位换算", "Unix 时间戳", "环境分贝计", "考研倒计时", "Base64 编解码")
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(title = "工具检索", subtitle = "本地关键词索引 · 无需联网", offlineBadge = false,
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)

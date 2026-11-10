@@ -31,7 +31,7 @@ fun UnitConverterRoute(
     val clipboard = LocalClipboardManager.current
     val list = UnitEngine.units.getValue(state.kind)
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(title = "单位换算", subtitle = "离线模式 · BigDecimal 零损耗",
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)

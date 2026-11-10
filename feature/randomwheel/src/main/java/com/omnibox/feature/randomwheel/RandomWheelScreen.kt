@@ -42,6 +42,8 @@ import com.omnibox.core.designsystem.OmniMetricCard
 import com.omnibox.core.designsystem.OmniPrimaryButton
 import com.omnibox.core.designsystem.OmniShape
 import com.omnibox.core.designsystem.OmniTopBar
+import com.omnibox.core.designsystem.omniNavBarInset
+import com.omnibox.core.designsystem.omniStatusBarInset
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -109,7 +111,7 @@ private fun WheelMainScreen(
         }
     }
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = "幸运转盘 · 随机转盘抽签",
@@ -418,7 +420,7 @@ private fun WheelEditorScreen(
         }
     }
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = "转盘决策编辑",

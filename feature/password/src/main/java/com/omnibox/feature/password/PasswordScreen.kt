@@ -29,7 +29,7 @@ fun PasswordRoute(
     val state by viewModel.uiState.collectAsState()
     val clipboard: ClipboardManager = LocalClipboardManager.current
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = "安全密码生成器 (Password Generator)",

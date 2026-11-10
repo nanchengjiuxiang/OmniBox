@@ -1,6 +1,6 @@
-# 实现进度与已知偏差（2026-11-10，P8 探索页收口）
+# 实现进度与已知偏差（2026-11-10，P9 系统栏适配收口）
 
-**结论：13 款工具全部真实可用，P6（前台服务、Glance 小组件）、P7（release 签名包、单测、覆盖比对）与 P8（探索 · 精选导航）已收口。**
+**结论：13 款工具全部真实可用，P6（前台服务、Glance 小组件）、P7（release 签名包、单测、覆盖比对）、P8（探索 · 精选导航）与 P9（edge-to-edge 系统栏适配）已收口。**
 本机 JDK 17 + Android SDK 35 + Gradle 8.9 环境下 `assembleDebug` / `assembleRelease` / `bundleRelease` / `test` 全部通过。
 
 ## 里程碑
@@ -15,7 +15,8 @@
 | P5 | 转盘 / 倒计时与 Room 持久化 | ✅ 完成 |
 | **P6** | **前台服务、Glance 小组件** | **✅ 本次完成（转码前台服务 + 倒计时/二维码两个小组件）** |
 | P7 | 单测、release 签名包、覆盖比对报告 | ✅ 完成（144 条单测 / 签名 APK + AAB / 32 屏文案覆盖报告） |
-| **P8** | **探索 · 精选导航（新增需求）** | **✅ 本次完成（30 个站点 / 10 个分类 / 收藏与自建站点 / Custom Tabs / 无痕模式）** |
+| P8 | 探索 · 精选导航（新增需求） | ✅ 完成（30 个站点 / 10 个分类 / 收藏与自建站点 / Custom Tabs / 无痕模式） |
+| **P9** | **系统栏适配（缺陷修复）** | **✅ 本次完成（21 处根容器 inset / 4 处 Scaffold / 底栏手势条 / 图标明暗跟随主题）** |
 
 ## 13 款工具
 
@@ -129,6 +130,23 @@
 2. 条目标签只写可核验属性（免费 / 免费额度 / 开源 / 需登录），不使用「最强」「神器」类无法证伪的营销词；
 3. 「无痕」只承诺本机不留痕，不承诺浏览器侧无痕——Custom Tabs 没有公开的隐私模式开关，写清楚比写得爽重要。
 
+## P9：系统栏适配（edge-to-edge）
+
+`MainActivity` 一直调用 `enableEdgeToEdge()`，targetSdk 35 在 Android 15 上更是强制全屏绘制，但页面从没消费过 WindowInsets——
+结果就是顶栏标题压在时间/电量底下、底部内容被手势条挡住。
+
+修法（**只有一处**负责某一侧 inset，避免系统 inset 与组件 padding 叠出双倍空白）：
+
+| 位置 | 做法 |
+|---|---|
+| 页面根容器（21 处） | `omniStatusBarInset().omniNavBarInset()`，`background()` 写在 inset 之前，状态栏那条区域由页面底色补上 |
+| `Scaffold`（4 处） | `contentWindowInsets = OmniScaffoldInsets`，只保留左右安全区，上下交给根容器与底栏 |
+| `OmniBottomBar` | 圆角 Surface 内部加 `windowInsetsBottomHeight(navigationBars)`，底色铺到屏幕底边、Tab 本体上移 |
+| 状态栏图标 | `SystemBarIconAppearance(darkTheme)` 跟随 **App 主题**而非系统深色开关，避免强制浅色时白底白图标 |
+
+选型说明：没有把 inset 加在 `OmniTopBar` 上。顶栏在多数页面是 `LazyColumn` 的首个 item，加了 inset 只能保证首屏对齐，
+滚动后卡片仍会滑到状态栏图标下面；放在根容器上则任何时候都不重叠。
+
 ## 新增依赖与体积
 
 | 依赖 | 版本 | 用途 | 是否引入网络权限 |
@@ -155,10 +173,10 @@
 | `aapt dump permissions` | INTERNET、ACCESS_NETWORK_STATE、CAMERA、RECORD_AUDIO、ACCESS_FINE/COARSE_LOCATION、POST_NOTIFICATIONS、VIBRATE、SCHEDULE_EXACT_ALARM、USE_EXACT_ALARM、RECEIVE_BOOT_COMPLETED、FOREGROUND_SERVICE、FOREGROUND_SERVICE_DATA_SYNC、WAKE_LOCK；无 ACCESS_WIFI_STATE 等额外网络权限 |
 | release 包内组件 | `CountdownReminderReceiver` / `CountdownBootReceiver` / 两个 Glance `*WidgetReceiver`（带 `android.appwidget.provider` 元数据）/ `TranscodeService`（`foregroundServiceType=dataSync`）均存活 |
 | 签名 | `CN=OmniBox, OU=Offline Tool Suite, O=OmniBox, L=Hangzhou, ST=Zhejiang, C=CN`，RSA 4096，有效期 10000 天 |
-| debug 产物 | `app-debug.apk` 23,388,104 字节（含探索页后 +385 KB），`CN=Android Debug`，包名 `com.omnibox.debug` |
-| release 产物 | `app-release.apk` **4,999,076 字节**（R8 后约为 debug 的 21%）、`app-release.aab` 8,842,244 字节，包名 `com.omnibox` |
-| SHA-256（release APK） | `cfce1662acb626d5f7383dfca2a3d346cc43e4b72417429a38780361bad4f9f3` |
-| SHA-256（release AAB） | `370aebaf8c11a03aff2e8bc831ae347e39dd01436fd1d83e36c7a95e9cfb33d3` |
+| debug 产物 | `app-debug.apk` 23,388,168 字节，`CN=Android Debug`，包名 `com.omnibox.debug` |
+| release 产物 | `app-release.apk` **4,999,076 字节**（R8 后约为 debug 的 21%）、`app-release.aab` 8,846,685 字节，包名 `com.omnibox` |
+| SHA-256（release APK） | `0caa5988ef382cdf2393fb788e46c40f71d5091a79bb23eab8194bb7480b1036` |
+| SHA-256（release AAB） | `94c5f0fe917bf8157b7ace71e6df28b84cb557c08409bcd0d096db0b2340cf78` |
 
 ## 已知偏差与取舍（均可复现、均有代码注释）
 

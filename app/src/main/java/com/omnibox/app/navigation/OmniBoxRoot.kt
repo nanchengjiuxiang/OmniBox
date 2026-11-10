@@ -49,6 +49,8 @@ fun OmniBoxRoot(startToolId: String? = null) {
         else -> systemDark
     }
     OmniBoxTheme(darkTheme = dark, dynamicColor = dynamic) {
+        // 状态栏/导航栏图标明暗跟随 App 主题，避免强制浅色时图标「隐形」
+        SystemBarIconAppearance(darkTheme = dark)
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             AppNavHost(navController, startToolId)
         }
@@ -168,7 +170,8 @@ private fun PendingToolScreen(toolId: String, onBack: () -> Unit) {
     val appVm: AppViewModel = hiltViewModel()
     val tool = appVm.catalog.byId(toolId)
     Column(
-        Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface),
+        Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)
+            .omniStatusBarInset().omniNavBarInset(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         OmniTopBar(

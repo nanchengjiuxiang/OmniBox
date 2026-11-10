@@ -37,6 +37,7 @@ fun HomeRoute(
     val state by viewModel.uiState.collectAsState()
 
     Scaffold(
+        contentWindowInsets = OmniScaffoldInsets,
         bottomBar = {
             OmniBottomBar(currentTab = 0) { index ->
                 when (index) {
@@ -52,7 +53,8 @@ fun HomeRoute(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .background(MaterialTheme.colorScheme.surface),
+                .background(MaterialTheme.colorScheme.surface)
+                .omniStatusBarInset(),
             contentPadding = PaddingValues(bottom = OmniDimens.Grid3)
         ) {
             item {

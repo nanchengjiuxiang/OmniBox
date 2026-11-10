@@ -29,6 +29,8 @@ import com.omnibox.core.designsystem.OmniLabel
 import com.omnibox.core.designsystem.OmniPrimaryButton
 import com.omnibox.core.designsystem.OmniShape
 import com.omnibox.core.designsystem.OmniTopBar
+import com.omnibox.core.designsystem.omniNavBarInset
+import com.omnibox.core.designsystem.omniStatusBarInset
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import java.text.SimpleDateFormat
@@ -148,7 +150,7 @@ private fun CountdownEmptyScreen(
     onEvent: (CountdownEvent) -> Unit,
     onBack: () -> Unit
 ) {
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = "倒计时 / 纪念日",
@@ -257,7 +259,7 @@ private fun CountdownListScreen(
         )
     }
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = "置顶目标 · 倒计时",
@@ -452,7 +454,7 @@ private fun CountdownEditorScreen(
     val parsed = CountdownEngine.parse(d.dateText, d.timeText)
     val preview = if (parsed != null) CountdownEngine.remaining(state.nowMillis, parsed) else null
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = if (d.id == 0L) "新建目标事件" else "编辑目标事件",

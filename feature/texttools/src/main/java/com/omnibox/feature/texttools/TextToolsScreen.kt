@@ -34,7 +34,7 @@ fun TextToolsRoute(
     val state by viewModel.uiState.collectAsState()
     val clipboard = LocalClipboardManager.current
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(
                 title = "文本全能箱",

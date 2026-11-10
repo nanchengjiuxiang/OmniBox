@@ -92,7 +92,7 @@ fun CompassRoute(onBack: () -> Unit) {
     }
     val requestLocation: () -> Unit = { locationLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION) }
 
-    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         OmniTopBar(
             title = "指南针与水平仪",
             subtitle = "磁北 / 真北 · 双轴倾斜水平仪",

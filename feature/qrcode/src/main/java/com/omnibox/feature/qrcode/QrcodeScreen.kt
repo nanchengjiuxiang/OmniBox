@@ -144,7 +144,7 @@ fun QrcodeRoute(onBack: () -> Unit) {
         context.startActivity(intent)
     }
 
-    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         OmniTopBar(
             title = "扫码识别",
             subtitle = "纯本地解析 · 零网络请求",

@@ -266,40 +266,44 @@ fun OmniBottomBar(currentTab: Int, onTabSelected: (Int) -> Unit) {
         color = MaterialTheme.colorScheme.surfaceContainerHigh,
         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(OmniDimens.BottomBarHeight)
-                .padding(horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            items.forEach { (icon, label, index) ->
-                val active = currentTab == index
-                Column(
-                    modifier = Modifier
-                        .weight(1f)
-                        .clip(OmniShape.Pill)
-                        .clickable { onTabSelected(index) }
-                        .padding(vertical = 8.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Surface(
-                        color = if (active) MaterialTheme.colorScheme.primaryContainer else Color.Transparent,
-                        shape = OmniShape.Pill
+        // 手势条安全区：Surface 底色一路铺到屏幕底边，Tab 本体上移，不再被小白条压住
+        Column(Modifier.fillMaxWidth()) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(OmniDimens.BottomBarHeight)
+                    .padding(horizontal = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                items.forEach { (icon, label, index) ->
+                    val active = currentTab == index
+                    Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clip(OmniShape.Pill)
+                            .clickable { onTabSelected(index) }
+                            .padding(vertical = 8.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Icon(
-                            OmniIcon.of(icon), contentDescription = label,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp).size(22.dp),
-                            tint = if (active) MaterialTheme.colorScheme.onPrimaryContainer
-                            else MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                        Surface(
+                            color = if (active) MaterialTheme.colorScheme.primaryContainer else Color.Transparent,
+                            shape = OmniShape.Pill
+                        ) {
+                            Icon(
+                                OmniIcon.of(icon), contentDescription = label,
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp).size(22.dp),
+                                tint = if (active) MaterialTheme.colorScheme.onPrimaryContainer
+                                else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                        Spacer(Modifier.height(2.dp))
+                        Text(label, fontSize = 12.sp,
+                            color = if (active) MaterialTheme.colorScheme.primary
+                            else MaterialTheme.colorScheme.onSurfaceVariant)
                     }
-                    Spacer(Modifier.height(2.dp))
-                    Text(label, fontSize = 12.sp,
-                        color = if (active) MaterialTheme.colorScheme.primary
-                        else MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
+            Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
         }
     }
 }

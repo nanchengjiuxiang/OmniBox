@@ -33,7 +33,7 @@ fun TimestampRoute(
     val seconds = state.parsed?.let { TimestampEngine.secondsOf(it.epochMillis) } ?: 0L
     val millis = state.parsed?.epochMillis ?: state.epochFromDate ?: 0L
 
-    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         item {
             OmniTopBar(title = "时间戳转换与计算", subtitle = "Local Epoch System · 0ms 延迟 · 离线",
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)

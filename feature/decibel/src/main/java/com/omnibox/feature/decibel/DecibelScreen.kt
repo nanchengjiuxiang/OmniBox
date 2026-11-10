@@ -81,7 +81,7 @@ fun DecibelRoute(onBack: () -> Unit) {
         context.startActivity(intent)
     }
 
-    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
+    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).omniStatusBarInset().omniNavBarInset()) {
         OmniTopBar(
             title = "环境分贝计",
             subtitle = "44.1kHz · PCM_16BIT · 本地估算",
