@@ -55,6 +55,35 @@ def find_java_home_java(home):
     return str(exe) if exe.is_file() else None
 
 
+def decode_java_properties(value: str) -> str:
+    """还原 Java Properties 的反斜杠转义（含 \\uXXXX）。
+
+    local.properties 位于含中文的路径时，sdk.dir 必须写成 Unicode 转义，
+    否则 Gradle 按 ISO-8859-1 读取会乱码。自检脚本若按字面量使用会得到
+    '...\\u8F6F\\u4EF6...' 这种不存在的目录，从而误报 SDK 缺失。
+    """
+    simple = {"t": "\t", "r": "\r", "n": "\n", "f": "\f"}
+    out, i = [], 0
+    while i < len(value):
+        ch = value[i]
+        if ch == "\\" and i + 1 < len(value):
+            nxt = value[i + 1]
+            if nxt == "u" and i + 6 <= len(value):
+                try:
+                    out.append(chr(int(value[i + 2:i + 6], 16)))
+                    i += 6
+                    continue
+                except ValueError:
+                    pass
+            if nxt in ("\\", ":", "=", " ", "#", "!") or nxt in simple:
+                out.append(simple.get(nxt, nxt))
+                i += 2
+                continue
+        out.append(ch)
+        i += 1
+    return "".join(out)
+
+
 def read_gradle_java_home(path):
     if not path.is_file():
         return None
@@ -74,6 +103,7 @@ def main():
     print("=" * 68)
 
     issues, warnings = [], []
+    java_home_ok = False
 
     # 1) JAVA_HOME
     java_home = os.environ.get("JAVA_HOME", "").strip('"')
@@ -84,7 +114,7 @@ def main():
         print(f"{verdict} JAVA_HOME = {java_home}")
         print(f"{INFO}JDK 版本 = {raw} (major {major})")
         if major == 17:
-            pass
+            java_home_ok = True
         elif major in (21, 22):
             warnings.append(f"JAVA_HOME 是 JDK {major}：Gradle 8.9 可运行，但 AGP 8.7.3 官方默认 JDK 17，建议改 17")
         elif major and major >= 23:
@@ -100,8 +130,14 @@ def main():
     # 2) PATH 中的 java
     pmajor, praw = java_version("java")
     if pmajor is None:
-        print(f"{BAD} PATH 中的 java 不可用：{praw}")
-        issues.append("未检测到可用的 java 命令，请安装 JDK 17")
+        # Gradle 由 JAVA_HOME 选 JVM，PATH 里没有 java 并不影响 gradlew；
+        # 只有当 JAVA_HOME 也不可用时才算阻塞。
+        if java_home_ok:
+            print(f"{WARN} PATH 中的 java 不可用：{praw}（JAVA_HOME 已指向 JDK 17，Gradle 不受影响）")
+            warnings.append("PATH 中缺少 java；建议把 %JAVA_HOME%\\bin 追加到 Path，便于直接调用 java/keytool")
+        else:
+            print(f"{BAD} PATH 中的 java 不可用：{praw}")
+            issues.append("未检测到可用的 java 命令，请安装 JDK 17")
     else:
         print(f"{INFO}PATH 中 java = {praw} (major {pmajor})")
 
@@ -113,7 +149,7 @@ def main():
     if effective_override:
         src = "工程 gradle.properties" if override else str(user_props)
         print(f"{INFO}org.gradle.java.home 覆盖值 = {effective_override}（来自 {src}）")
-        exe = find_java_home_java(effective_override.replace("\\:", ":").replace("\\\\", "\\"))
+        exe = find_java_home_java(decode_java_properties(effective_override))
         if exe:
             m, r = java_version(exe)
             print(f"{INFO}覆盖值指向 JDK {r} (major {m})" + ("  <- Gradle daemon 实际会用这个" if m else ""))
@@ -130,7 +166,7 @@ def main():
     if not sdk and local_props.is_file():
         for line in local_props.read_text(encoding="utf-8", errors="replace").splitlines():
             if line.startswith("sdk.dir="):
-                sdk = line.split("=", 1)[1].strip().replace("\\\\", "\\").replace("\\:", ":")
+                sdk = decode_java_properties(line.split("=", 1)[1].strip())
                 break
     if not sdk:
         warnings.append("未检测到 Android SDK（ANDROID_HOME / ANDROID_SDK_ROOT / local.properties 均未设置）")

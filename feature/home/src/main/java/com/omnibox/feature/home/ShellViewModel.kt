@@ -3,6 +3,7 @@ package com.omnibox.feature.home
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -108,7 +109,12 @@ class ShellViewModel @Inject constructor(
     /** 权限审计：读取系统真实授权状态，而非设计稿里的静态「已按需授权」。 */
     fun permissionStatuses(): List<Pair<String, Boolean>> = listOf(
         "相机权限状态" to isGranted(Manifest.permission.CAMERA),
-        "麦克风权限状态" to isGranted(Manifest.permission.RECORD_AUDIO)
+        "麦克风权限状态" to isGranted(Manifest.permission.RECORD_AUDIO),
+        // 位置仅用于指南针真北校正，未授权时工具自动降级为磁北，不算缺失
+        "定位权限（真北校正 · 可选）" to isGranted(Manifest.permission.ACCESS_FINE_LOCATION),
+        // Android 13 起通知属运行时权限；低版本默认放行
+        "通知权限（倒计时提醒）" to (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+            isGranted(Manifest.permission.POST_NOTIFICATIONS))
     )
 
     private fun isGranted(permission: String): Boolean =

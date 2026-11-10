@@ -20,8 +20,16 @@ import androidx.navigation.navArgument
 import com.omnibox.BuildConfig
 import com.omnibox.core.designsystem.*
 import com.omnibox.core.model.Routes
+import com.omnibox.feature.compass.CompassRoute
+import com.omnibox.feature.countdown.CountdownRoute
+import com.omnibox.feature.decibel.DecibelRoute
+import com.omnibox.feature.exif.ExifRoute
+import com.omnibox.feature.formatconverter.FormatConverterRoute
 import com.omnibox.feature.home.*
+import com.omnibox.feature.imagecompress.ImageCompressRoute
 import com.omnibox.feature.password.PasswordRoute
+import com.omnibox.feature.qrcode.QrcodeRoute
+import com.omnibox.feature.randomwheel.RandomWheelRoute
 import com.omnibox.feature.texttools.DevToolsRoute
 import com.omnibox.feature.texttools.TextToolsRoute
 import com.omnibox.feature.timestamp.TimestampRoute
@@ -121,6 +129,14 @@ private fun AppNavHost(navController: NavHostController, startToolId: String?) {
                     onOpenDevTools = { navController.navigate(Routes.tool("dev_tools")) }
                 )
                 "dev_tools" -> DevToolsRoute(onBack = { navController.popBackStack() })
+                "qrcode" -> QrcodeRoute(onBack = { navController.popBackStack() })
+                "image_compress" -> ImageCompressRoute(onBack = { navController.popBackStack() })
+                "exif" -> ExifRoute(onBack = { navController.popBackStack() })
+                "format_converter" -> FormatConverterRoute(onBack = { navController.popBackStack() })
+                "compass" -> CompassRoute(onBack = { navController.popBackStack() })
+                "decibel" -> DecibelRoute(onBack = { navController.popBackStack() })
+                "random_wheel" -> RandomWheelRoute(onBack = { navController.popBackStack() })
+                "countdown" -> CountdownRoute(onBack = { navController.popBackStack() })
                 else -> PendingToolScreen(toolId) { navController.popBackStack() }
             }
         }

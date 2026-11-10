@@ -10,8 +10,20 @@
     <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
 
+    <!-- 运行时权限：全部为「按需申请 + 拒绝即降级」，任意一项被拒都不影响其他工具 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 倒计时到点提醒；无此权限时降级为仅页内倒计时，不做假提醒 -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
     <!-- 硬件特性全部声明为可选：缺失传感器的设备需走设计稿中的降级页 -->
     <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
     <uses-feature android:name="android.hardware.sensor.compass" android:required="false" />
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
@@ -45,5 +57,10 @@
                 <data android:scheme="omnibox" android:host="tool" />
             </intent-filter>
         </activity>
+
+        <!-- 倒计时到点提醒。exported=false：仅本应用的显式 PendingIntent 能触发 -->
+        <receiver
+            android:name="com.omnibox.feature.countdown.CountdownReminderReceiver"
+            android:exported="false" />
     </application>
 </manifest>

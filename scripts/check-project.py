@@ -20,6 +20,60 @@ def rel(p):
     return os.path.relpath(p, ROOT).replace('\\', '/')
 
 
+def strip_kotlin_literals(src: str) -> str:
+    """剥离注释与字符串/字符字面量，只留可执行代码，供括号配平粗检。
+
+    必须用状态机而不是逐条正则：`//` 会出现在字符串里（URL、正则），
+    而 `{` `}` 会出现在字符串模板与 JSON 示例里；纯正则剥离会互相破坏，
+    导致明明能编译通过的源文件被误报「括号不配对」。
+    """
+    out, i, n = [], 0, len(src)
+    while i < n:
+        ch = src[i]
+        # 行注释
+        if ch == '/' and i + 1 < n and src[i + 1] == '/':
+            j = src.find('\n', i)
+            i = n if j < 0 else j
+            continue
+        # 块注释（Kotlin 支持嵌套，这里按最外层配对处理已足够）
+        if ch == '/' and i + 1 < n and src[i + 1] == '*':
+            j = src.find('*/', i + 2)
+            i = n if j < 0 else j + 2
+            continue
+        # 三引号原始字符串
+        if src.startswith('"""', i):
+            j = src.find('"""', i + 3)
+            i = n if j < 0 else j + 3
+            continue
+        # 普通字符串（含 \ 转义与 ${} 模板，整段丢弃不会破坏配平）
+        if ch == '"':
+            i += 1
+            while i < n:
+                if src[i] == '\\':
+                    i += 2
+                    continue
+                if src[i] == '"':
+                    i += 1
+                    break
+                i += 1
+            continue
+        # 字符字面量
+        if ch == "'":
+            i += 1
+            while i < n:
+                if src[i] == '\\':
+                    i += 2
+                    continue
+                if src[i] == "'":
+                    i += 1
+                    break
+                i += 1
+            continue
+        out.append(ch)
+        i += 1
+    return ''.join(out)
+
+
 # 1. settings.gradle.kts 的模块与目录一致性
 settings = open('settings.gradle.kts', encoding='utf-8').read()
 includes = re.findall(r'include\("([^"]+)"\)', settings)
@@ -79,10 +133,7 @@ for p in kt_files:
     if m.group(1) != expected:
         issues.append(f'{rel(p)} package={m.group(1)} 但路径推断为 {expected}')
     # 去掉字符串与注释后做括号粗检
-    stripped = re.sub(r'//.*', '', s)
-    stripped = re.sub(r'/\*.*?\*/', '', stripped, flags=re.S)
-    stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', stripped)
-    stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", stripped)
+    stripped = strip_kotlin_literals(s)
     for op, cl, name in [('{', '}', '花括号'), ('(', ')', '圆括号'), ('[', ']', '方括号')]:
         if stripped.count(op) != stripped.count(cl):
             issues.append(f'{rel(p)} {name}不配对: {stripped.count(op)} vs {stripped.count(cl)}')
