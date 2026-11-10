@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 与 core:designsystem/Color.kt 的 light scheme 保持一致，取自 tonal_utility/DESIGN.md -->
+    <color name="omnibox_surface">#FFFDF8FF</color>
+    <color name="omnibox_primary">#FF4F378A</color>
+    <color name="ic_launcher_background">#FF4F378A</color>
+</resources>

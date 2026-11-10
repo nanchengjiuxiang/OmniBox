@@ -1,0 +1,184 @@
+[
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/ToolRegistry.kt",
+    "header": "1.1 工具注册模型与注册中心 (`ToolRegistry.kt`)",
+    "package": "com.omnibox.core.model",
+    "lines": 51
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/AppNavHost.kt",
+    "header": "1.2 全局导航分发 (`AppNavHost.kt`)",
+    "package": "com.omnibox.app.navigation",
+    "lines": 109
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/HomeDashboardScreen.kt",
+    "header": "2. 主基座首页 (HomeDashboardScreen)",
+    "package": "com.omnibox.feature.home",
+    "lines": 249
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/FormatConverterContract.kt",
+    "header": "3.1 领域模型与转换状态契约 (`FormatConverterContract.kt`)",
+    "package": "com.omnibox.feature.formatconverter",
+    "lines": 57
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/FormatConverterScreen.kt",
+    "header": "3.2 离线转码主界面 (`FormatConverterScreen.kt`)",
+    "package": "com.omnibox.feature.formatconverter",
+    "lines": 261
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/TranscodingProgressScreen.kt",
+    "header": "3.3 转码实时流式进度与前台通知页 (`TranscodingProgressScreen.kt`)",
+    "package": "com.omnibox.feature.formatconverter",
+    "lines": 170
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/ConversionReportScreen.kt",
+    "header": "3.4 转换完成报告与文件分享结果页 (`ConversionReportScreen.kt`)",
+    "package": "com.omnibox.feature.formatconverter",
+    "lines": 180
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/AudioDecibelEngine.kt",
+    "header": "4.1 音频录制与分贝解算引擎 (`AudioDecibelEngine.kt`)",
+    "package": "com.omnibox.feature.soundmeter",
+    "lines": 54
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/SoundMeterScreen.kt",
+    "header": "4.2 环境分贝计主页面与波形动效 (`SoundMeterScreen.kt`)",
+    "package": "com.omnibox.feature.soundmeter",
+    "lines": 150
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/CompassScreen.kt",
+    "header": "5. 指南针与水平仪及传感器缺失降级 (CompassFeature)",
+    "package": "com.omnibox.feature.compass",
+    "lines": 168
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/CountdownEntity.kt",
+    "header": "6.1 Room 数据实体与持久化 (`CountdownEntity.kt`)",
+    "package": "com.omnibox.feature.countdown.data",
+    "lines": 28
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/RandomWheelScreen.kt",
+    "header": "7.1 Compose Canvas 动态扇区与触觉马达 (`RandomWheelScreen.kt`)",
+    "package": "com.omnibox.feature.randomwheel",
+    "lines": 134
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/ExifCleanerEngine.kt",
+    "header": "8. EXIF 隐私擦除与脱敏配置 (ExifCleanFeature)",
+    "package": "com.omnibox.feature.exif",
+    "lines": 29
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/PasswordConfig.kt",
+    "header": "9. 安全密码生成器 (PasswordGeneratorFeature)",
+    "package": "com.omnibox.feature.password",
+    "lines": 42
+  },
+  {
+    "doc": "jetpack_compose.txt",
+    "file": "jetpack_compose/TimestampCalculator.kt",
+    "header": "10. 时间戳与开发者全能箱",
+    "package": "com.omnibox.feature.timestamp",
+    "lines": 22
+  },
+  {
+    "doc": "compose.md",
+    "file": "compose/QrScanContract.kt",
+    "header": "1. MVI 状态与事件契约 (`QrScanContract.kt`)",
+    "package": "com.omnibox.feature.qrcode",
+    "lines": 55
+  },
+  {
+    "doc": "compose.md",
+    "file": "compose/QrScanViewModel.kt",
+    "header": "2. ViewModel 架构实现 (`QrScanViewModel.kt`)",
+    "package": "com.omnibox.feature.qrcode",
+    "lines": 152
+  },
+  {
+    "doc": "compose.md",
+    "file": "compose/QrScanScreen.kt",
+    "header": "3. 主界面 Compose 实现 (`QrScanScreen.kt`)",
+    "package": "com.omnibox.feature.qrcode",
+    "lines": 161
+  },
+  {
+    "doc": "compose.md",
+    "file": "compose/PermissionRationaleView.kt",
+    "header": "4. 权限未授予与优雅降级视图 (`PermissionRationaleView.kt`)",
+    "package": "com.omnibox.feature.qrcode",
+    "lines": 294
+  },
+  {
+    "doc": "compose.md",
+    "file": "compose/ScanningActiveView.kt",
+    "header": "5. 扫码活跃态与 CameraX 帧分析接入 (`ScanningActiveView.kt`)",
+    "package": "com.omnibox.feature.qrcode",
+    "lines": 174
+  },
+  {
+    "doc": "oom_2.md",
+    "file": "oom_2/ImageCompressContract.kt",
+    "header": "1. MVI 状态与事件契约 (`ImageCompressContract.kt`)",
+    "package": "com.omnibox.feature.imagecompress",
+    "lines": 89
+  },
+  {
+    "doc": "oom_2.md",
+    "file": "oom_2/ImageCompressEngine.kt",
+    "header": "2. 防 OOM 核心流式引擎 (`ImageCompressEngine.kt`)",
+    "package": "com.omnibox.feature.imagecompress",
+    "lines": 253
+  },
+  {
+    "doc": "oom_2.md",
+    "file": "oom_2/ImageCompressViewModel.kt",
+    "header": "3. ViewModel 架构实现 (`ImageCompressViewModel.kt`)",
+    "package": "com.omnibox.feature.imagecompress",
+    "lines": 174
+  },
+  {
+    "doc": "oom_2.md",
+    "file": "oom_2/ImageCompressScreen.kt",
+    "header": "4. 主界面 Compose 实现 (`ImageCompressScreen.kt`)",
+    "package": "com.omnibox.feature.imagecompress",
+    "lines": 530
+  },
+  {
+    "doc": "oom_2.md",
+    "file": "oom_2/CompareSplitView.kt",
+    "header": "5. 自定义前后画质拖拽对比组件 (`CompareSplitView.kt`)",
+    "package": "com.omnibox.feature.imagecompress",
+    "lines": 132
+  },
+  {
+    "doc": "_16.md",
+    "file": "_16/ToolDefinition.kt",
+    "header": "四、工具动态注册机制 (Tool Registry)",
+    "package": null,
+    "lines": 24
+  }
+]

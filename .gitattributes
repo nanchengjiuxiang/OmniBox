@@ -1,0 +1,18 @@
+# 统一入库为 LF：Windows 本机 core.autocrlf=true 会把 YAML / Kotlin / .kts 也转成 CRLF，
+# 对 Linux CI runner 不必要且容易踩坑。具体规则放在后面，优先级更高。
+* text=auto eol=lf
+
+# GitHub Actions 的 Linux runner 上，gradlew 必须是 LF。
+# 若被 Windows 提交时转成 CRLF，会出现 "/bin/sh^M: bad interpreter: No such file or directory"。
+gradlew text eol=lf
+*.sh text eol=lf
+gradlew.bat text eol=crlf
+*.bat text eol=crlf
+
+# 二进制资产不做换行转换
+*.jar binary
+*.png binary
+*.jpg binary
+*.jks binary
+*.keystore binary
+*.zip binary
