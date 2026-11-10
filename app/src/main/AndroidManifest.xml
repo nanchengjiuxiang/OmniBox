@@ -5,7 +5,7 @@
       网络权限：仅服务于「探索 · 精选导航」。
       - INTERNET：加载站点 favicon；外链本身由系统浏览器 / Chrome Custom Tabs 打开，App 不代理页面。
       - ACCESS_NETWORK_STATE：离线时给出提示，而不是让用户对着一张点了没反应的卡片猜。
-      除这两项外，工具本体（13 款）全部离线运行，不上传任何数据。
+      除这两项外，工具本体（15 款）中除电池页读本机 sysfs 外全部离线运行，不上传任何数据。
     -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

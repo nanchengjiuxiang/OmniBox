@@ -72,6 +72,9 @@ object ScreenId {
     const val COUNTDOWN_EMPTY = "countdown_empty"
     const val COUNTDOWN_LIST = "countdown_list"
     const val COUNTDOWN_EDITOR = "countdown_editor"
+    // P10：硬件诊断两件套
+    const val DISPLAY_LAB = "display_lab"
+    const val BATTERY = "battery"
 }
 
 object Routes {

@@ -20,9 +20,11 @@ import androidx.navigation.navArgument
 import com.omnibox.BuildConfig
 import com.omnibox.core.designsystem.*
 import com.omnibox.core.model.Routes
+import com.omnibox.feature.battery.BatteryRoute
 import com.omnibox.feature.compass.CompassRoute
 import com.omnibox.feature.countdown.CountdownRoute
 import com.omnibox.feature.decibel.DecibelRoute
+import com.omnibox.feature.displaylab.DisplayLabRoute
 import com.omnibox.feature.explore.ExploreRoute
 import com.omnibox.feature.exif.ExifRoute
 import com.omnibox.feature.formatconverter.FormatConverterRoute
@@ -143,6 +145,8 @@ private fun AppNavHost(navController: NavHostController, startToolId: String?) {
                 "decibel" -> DecibelRoute(onBack = { navController.popBackStack() })
                 "random_wheel" -> RandomWheelRoute(onBack = { navController.popBackStack() })
                 "countdown" -> CountdownRoute(onBack = { navController.popBackStack() })
+                "display_lab" -> DisplayLabRoute(onBack = { navController.popBackStack() })
+                "battery" -> BatteryRoute(onBack = { navController.popBackStack() })
                 else -> PendingToolScreen(toolId) { navController.popBackStack() }
             }
         }

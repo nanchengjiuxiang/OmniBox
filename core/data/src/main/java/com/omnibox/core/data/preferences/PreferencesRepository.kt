@@ -40,6 +40,12 @@ class PreferencesRepository @Inject constructor(
         val HISTORY_LIMIT = intPreferencesKey("history_limit")
         val ROUNDING_MODE = stringPreferencesKey("rounding_mode")
         val FORCE_ALL_CATEGORIES = booleanPreferencesKey("force_all_categories")
+        // 电池守护（feature:battery）：三条提醒开关 + 两个阈值，全部由 BatteryGuardService 读取生效
+        val BATTERY_TARGET_ALERT = booleanPreferencesKey("battery_target_alert")
+        val BATTERY_TARGET_LEVEL = intPreferencesKey("battery_target_level")
+        val BATTERY_TEMP_ALERT = booleanPreferencesKey("battery_temp_alert")
+        val BATTERY_TEMP_THRESHOLD = intPreferencesKey("battery_temp_threshold")
+        val BATTERY_FULL_VIBRATE = booleanPreferencesKey("battery_full_vibrate")
     }
 
     val themeMode: Flow<String> = context.dataStore.data.map { it[Keys.THEME_MODE] ?: "system" }
@@ -55,6 +61,13 @@ class PreferencesRepository @Inject constructor(
     val historyRetentionDays: Flow<Int> = context.dataStore.data.map { it[Keys.HISTORY_RETENTION_DAYS] ?: 30 }
     val historyLimit: Flow<Int> = context.dataStore.data.map { it[Keys.HISTORY_LIMIT] ?: 1000 }
     val forceAllCategories: Flow<Boolean> = context.dataStore.data.map { it[Keys.FORCE_ALL_CATEGORIES] ?: true }
+    /** 屏幕检测页的「保持屏幕常亮」；此前是死键，现由 feature:displaylab 真实生效。 */
+    val keepScreenOn: Flow<Boolean> = context.dataStore.data.map { it[Keys.KEEP_SCREEN_ON] ?: false }
+    val batteryTargetAlert: Flow<Boolean> = context.dataStore.data.map { it[Keys.BATTERY_TARGET_ALERT] ?: false }
+    val batteryTargetLevel: Flow<Int> = context.dataStore.data.map { it[Keys.BATTERY_TARGET_LEVEL] ?: 80 }
+    val batteryTempAlert: Flow<Boolean> = context.dataStore.data.map { it[Keys.BATTERY_TEMP_ALERT] ?: false }
+    val batteryTempThreshold: Flow<Int> = context.dataStore.data.map { it[Keys.BATTERY_TEMP_THRESHOLD] ?: 40 }
+    val batteryFullVibrate: Flow<Boolean> = context.dataStore.data.map { it[Keys.BATTERY_FULL_VIBRATE] ?: false }
 
     suspend fun setThemeMode(value: String) { context.dataStore.edit { it[Keys.THEME_MODE] = value } }
     suspend fun setDynamicColor(value: Boolean) { context.dataStore.edit { it[Keys.DYNAMIC_COLOR] = value } }
@@ -70,6 +83,12 @@ class PreferencesRepository @Inject constructor(
     suspend fun setHistoryRetentionDays(value: Int) { context.dataStore.edit { it[Keys.HISTORY_RETENTION_DAYS] = value } }
     suspend fun setHistoryLimit(value: Int) { context.dataStore.edit { it[Keys.HISTORY_LIMIT] = value } }
     suspend fun setForceAllCategories(value: Boolean) { context.dataStore.edit { it[Keys.FORCE_ALL_CATEGORIES] = value } }
+    suspend fun setKeepScreenOn(value: Boolean) { context.dataStore.edit { it[Keys.KEEP_SCREEN_ON] = value } }
+    suspend fun setBatteryTargetAlert(value: Boolean) { context.dataStore.edit { it[Keys.BATTERY_TARGET_ALERT] = value } }
+    suspend fun setBatteryTargetLevel(value: Int) { context.dataStore.edit { it[Keys.BATTERY_TARGET_LEVEL] = value.coerceIn(50, 100) } }
+    suspend fun setBatteryTempAlert(value: Boolean) { context.dataStore.edit { it[Keys.BATTERY_TEMP_ALERT] = value } }
+    suspend fun setBatteryTempThreshold(value: Int) { context.dataStore.edit { it[Keys.BATTERY_TEMP_THRESHOLD] = value.coerceIn(35, 50) } }
+    suspend fun setBatteryFullVibrate(value: Boolean) { context.dataStore.edit { it[Keys.BATTERY_FULL_VIBRATE] = value } }
 
     /** 恢复所有工具默认设置：清空本仓库管理的全部键。 */
     suspend fun resetAll() { context.dataStore.edit { it.clear() } }

@@ -167,12 +167,13 @@ for p in modules:
     s = open(p, encoding='utf-8').read()
     for i in re.findall(r'id\s*=\s*"([^"]+)"', s):
         ids.append(i)
-if len(ids) != 13:
-    issues.append(f'工具注册表应为 13 条，实际 {len(ids)} 条: {sorted(ids)}')
-elif len(set(ids)) != 13:
+EXPECTED_TOOLS = 15  # P2 13 款 + P10 硬件诊断 2 款（display_lab / battery）
+if len(ids) != EXPECTED_TOOLS:
+    issues.append(f'工具注册表应为 {EXPECTED_TOOLS} 条，实际 {len(ids)} 条: {sorted(ids)}')
+elif len(set(ids)) != EXPECTED_TOOLS:
     issues.append(f'工具 ID 重复: {ids}')
 else:
-    info.append(f'工具注册表 13 条齐全（{len(modules)} 个 Hilt Module）')
+    info.append(f'工具注册表 {EXPECTED_TOOLS} 条齐全（{len(modules)} 个 Hilt Module）')
 
 # 6. 设计基线覆盖
 baseline = os.path.join(os.path.dirname(ROOT), 'stitch_', 'stitch_')

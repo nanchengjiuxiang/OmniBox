@@ -119,6 +119,8 @@ dependencies {
     implementation(project(":feature:countdown"))
     implementation(project(":feature:decibel"))
     implementation(project(":feature:explore"))
+    implementation(project(":feature:displaylab"))
+    implementation(project(":feature:battery"))
 
     testImplementation(libs.junit)
     testImplementation(libs.truth)

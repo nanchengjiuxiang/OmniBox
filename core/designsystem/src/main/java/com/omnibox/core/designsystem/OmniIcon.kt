@@ -130,6 +130,21 @@ object OmniIcon {
         "format_align_justify" -> Icons.Filled.List
         "delete_sweep", "delete_forever" -> Icons.Filled.Delete
         "content_paste_search" -> Icons.Filled.ContentPaste
+        // feature:displaylab / feature:battery（P10）
+        "smartphone" -> Icons.Filled.Smartphone
+        "touch_app" -> Icons.Filled.TouchApp
+        "gradient" -> Icons.Filled.Gradient
+        "filter_vintage" -> Icons.Filled.FilterVintage
+        "gesture" -> Icons.Filled.Gesture
+        "pinch" -> Icons.Filled.Pinch
+        "battery_full", "battery_charging_full" -> Icons.Filled.BatteryFull
+        "battery_std" -> Icons.Filled.BatteryStd
+        "show_chart" -> Icons.Filled.ShowChart
+        "autorenew" -> Icons.Filled.Autorenew
+        "electrical_services" -> Icons.Filled.ElectricalServices
+        "table_chart" -> Icons.Filled.TableChart
+        "play_circle" -> Icons.Filled.PlayCircle
+        "remove" -> Icons.Filled.Remove
         else -> Icons.Filled.GridView
     }
 }

@@ -4,7 +4,7 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- 工具箱栅格：四个圆角方块，呼应首页 13 款工具卡片 -->
+    <!-- 工具箱栅格：四个圆角方块，呼应首页工具卡片栅格 -->
     <path
         android:fillColor="#FFFFFFFF"
         android:pathData="M32,32h18v18h-18z" />

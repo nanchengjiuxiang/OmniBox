@@ -37,7 +37,7 @@ val OmniScaffoldInsets: WindowInsets
 fun Modifier.omniStatusBarInset(): Modifier =
     windowInsetsPadding(WindowInsets.statusBars)
 
-/** 无底栏的页面（13 款工具页）用它在滚动内容底部避让手势条。 */
+/** 无底栏的页面（15 款工具页）用它在滚动内容底部避让手势条。 */
 @Composable
 fun Modifier.omniNavBarInset(): Modifier =
     windowInsetsPadding(WindowInsets.navigationBars)

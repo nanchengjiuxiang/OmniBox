@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      电池守护前台服务：注册 ACTION_BATTERY_CHANGED（粘性广播只能动态注册），
+      在用户开启「充电目标 / 高温 / 充满」任一提醒时常驻，全部关闭时由 ViewModel 停掉。
+      specialUse 类型 + 子类型声明，不涉及任何网络与定位。
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <application>
+        <service
+            android:name="com.omnibox.feature.battery.BatteryGuardService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="battery_monitor_local_alerts" />
+        </service>
+    </application>
+</manifest>
