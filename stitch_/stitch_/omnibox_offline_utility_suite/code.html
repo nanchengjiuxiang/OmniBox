@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#ddd8e3", "background": "#fdf8ff", "primary-container": "#6750a4", "on-primary": "#ffffff", "surface-variant": "#e6e0eb", "error-container": "#ffdad6", "outline": "#7a7582", "tertiary-fixed-dim": "#eeb8c8", "on-primary-container": "#e0d2ff", "inverse-surface": "#312f37", "surface": "#fdf8ff", "on-primary-fixed-variant": "#4f378a", "error": "#ba1a1a", "inverse-primary": "#cfbcff", "inverse-on-surface": "#f4eff9", "outline-variant": "#cbc4d2", "on-tertiary-container": "#ffcbda", "tertiary": "#633b48", "on-surface": "#1c1b22", "secondary-fixed-dim": "#ccc2dc", "primary-fixed-dim": "#cfbcff", "primary": "#4f378a", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "surface-container-highest": "#e6e0eb", "tertiary-fixed": "#ffd9e3", "on-secondary-fixed": "#1e192b", "primary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#633b48", "tertiary-container": "#7d5260", "on-primary-fixed": "#22005d", "surface-container": "#f1ecf7", "on-tertiary-fixed": "#31111d", "secondary-container": "#e8def9", "on-secondary-container": "#686177", "surface-container-high": "#ece6f1", "secondary-fixed": "#e8def9", "on-secondary-fixed-variant": "#4a4358", "surface-tint": "#6750a4", "on-background": "#1c1b22", "on-error": "#ffffff", "surface-container-low": "#f7f1fc", "on-surface-variant": "#494551", "on-error-container": "#93000a", "secondary": "#625b71", "on-tertiary": "#ffffff", "surface-bright": "#fdf8ff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "gutter": "1rem", "space-lg": "1.5rem", "gutter-tablet": "1.5rem", "margin-desktop": "2rem", "space-xs": "0.25rem", "space-xl": "2rem", "margin-tablet": "1.5rem", "space-sm": "0.5rem", "gutter-desktop": "1.5rem", "space-md": "1rem" }, fontFamily: { "body-sm": ["Roboto Flex"], "label-md": ["Roboto Flex"], "title-md": ["Roboto Flex"], "title-lg": ["Roboto Flex"], "headline-md": ["Roboto Flex"], "display-lg": ["Roboto Flex"], "headline-lg": ["Roboto Flex"], "display-md": ["Roboto Flex"], "body-lg": ["Roboto Flex"], "body-md": ["Roboto Flex"], "label-sm": ["Roboto Flex"], "headline-lg-mobile": ["Roboto Flex"], "title-sm": ["Roboto Flex"], "label-lg": ["Roboto Flex"], "headline-sm": ["Roboto Flex"] }, fontSize: { "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.4px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }], "title-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "0px", "fontWeight": "500" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "0px", "fontWeight": "400" }], "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0px", "fontWeight": "400" }], "display-md": ["45px", { "lineHeight": "52px", "letterSpacing": "0px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0px", "fontWeight": "400" }], "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }], "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full flex items-center justify-between px-space-md pt-1.5 pb-0.5 text-on-surface select-none"><span class="font-label-md text-label-md font-medium tracking-tight">09:41</span><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[17px]">wifi</span><span class="material-symbols-outlined text-[17px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><div class="h-16 px-space-md flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="OmniBox App Icon" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnpJFp3S4dkftCne8agwZReryBozOiU92e_9UenTZD2hcb2_Z2-fMKiXRqDL7W1t1ZV1OwtEu37jMuzK_RL52g45SwcIC_K1vbxnA1Ld6RHJn4jZLnI-ji4OdqOpJ46QSY6LyVO5ImW68r-2Zu_-TiyEy5lrfOkGARR6_QxbLXt57aBCV2wTzT8S1dYorl5NSZv-TS3SMAGXyeUj8yFreuEQgs87obKaycwCQ0PQ"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="font-title-sm text-title-sm text-primary font-medium tracking-wide truncate">万能工具箱</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container flex-shrink-0">离线</span></div><span class="font-title-lg text-title-lg text-on-surface font-medium truncate">Explore</span></div></div><div class="flex items-center gap-1 flex-shrink-0"><button aria-label="搜索工具" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[24px]">search</span></button><button aria-label="更多选项" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 ml-1 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full flex-1 pt-24 pb-28 px-margin bg-background"><div class="flex flex-col w-full gap-y-6">
+<!-- 1. Top Search & Offline Assurance Section -->
+<section class="flex flex-col gap-2.5">
+<!-- M3 SearchBar Component -->
+<div class="relative flex items-center w-full h-14 px-4 bg-surface-container-high rounded-full shadow-[0px_1px_3px_1px_rgba(103,80,164,0.06),0px_1px_2px_0px_rgba(0,0,0,0.08)] transition-all focus-within:bg-surface-container-lowest focus-within:shadow-[0px_4px_8px_3px_rgba(103,80,164,0.12)]">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px] mr-3 select-none">search</span>
+<input class="w-full bg-transparent border-0 outline-none text-on-surface font-body-lg text-body-lg placeholder:text-outline select-none" id="toolSearchInput" placeholder="搜索工具、快捷功能 (如: 二维码, 换算...)" type="search"/>
+<div class="flex items-center gap-1 ml-2">
+<button aria-label="语音或快捷识别" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button aria-label="筛选视图" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Sub-headline Status Assurance Pill -->
+<div class="flex items-center justify-between px-2 py-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">纯本地离线优先 · 12 款精选工具就绪</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-emerald-600">verified_user</span>
+<span class="font-label-sm text-label-sm">零网络权限</span>
+</div>
+</div>
+</section>
+<!-- 2. Category Filter Chips (Horizontal Scrollable) -->
+<section class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin px-margin select-none no-scrollbar">
+<!-- Active Chip -->
+<button class="filter-chip active flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex-shrink-0 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>全部 (12)</span>
+</button>
+<!-- Inactive Chips -->
+<button class="filter-chip flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex-shrink-0 transition-colors hover:bg-surface-container-highest active:scale-95">
+<span class="material-symbols-outlined text-[16px]">wb_sunny</span>
+<span>日常生活 (4)</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex-shrink-0 transition-colors hover:bg-surface-container-highest active:scale-95">
+<span class="material-symbols-outlined text-[16px]">photo_camera</span>
+<span>媒体图像 (2)</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex-shrink-0 transition-colors hover:bg-surface-container-highest active:scale-95">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+<span>传感器硬件 (2)</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex-shrink-0 transition-colors hover:bg-surface-container-highest active:scale-95">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>开发调试 (4)</span>
+</button>
+</section>
+<!-- 3. Recent & Favorites Section -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">magic_button</span>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold tracking-wide">常用推荐</h2>
+</div>
+<button class="font-label-lg text-label-lg text-primary font-medium px-2 py-1 rounded-full hover:bg-surface-container-high active:scale-95 transition-all">
+        管理
+      </button>
+</div>
+<!-- Horizontal Quick-Access Carousel -->
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Quick Card 1 -->
+<div class="flex flex-col justify-between p-3 rounded-[20px] bg-secondary-container text-on-secondary-container h-28 relative overflow-hidden active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">快捷扫码</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm font-semibold truncate">二维码与扫码</span>
+<span class="font-label-sm text-label-sm text-on-secondary-variant opacity-80 truncate">CameraX 高速解析</span>
+</div>
+</div>
+<!-- Quick Card 2 -->
+<div class="flex flex-col justify-between p-3 rounded-[20px] bg-surface-container-high text-on-surface h-28 relative overflow-hidden active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-medium">离线高熵</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm font-semibold truncate">密码生成器</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">高强度防碰撞</span>
+</div>
+</div>
+<!-- Quick Card 3 -->
+<div class="flex flex-col justify-between p-3 rounded-[20px] bg-surface-container-high text-on-surface h-28 relative overflow-hidden active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">compress</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-medium">防 OOM</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm font-semibold truncate">图片压缩</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">无损局部采样</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Categorized Tools Section -->
+<!-- Group 1: 🧰 日常生活 -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">widgets</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">日常生活</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(4)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Tool 1: 二维码 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">qr_code_2</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">CameraX</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">二维码</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">扫码与本地高清生成</span>
+</div>
+</div>
+<!-- Tool 2: 单位换算 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">swap_horiz</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">离线引擎</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">单位换算</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">物理/汇率/计算换算</span>
+</div>
+</div>
+<!-- Tool 3: 随机转盘/抽签 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">casino</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">触感振动</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">随机转盘抽签</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">选择困难决策神器</span>
+</div>
+</div>
+<!-- Tool 4: 倒计时/纪念日 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">event</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">本地提醒</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">倒计时/纪念日</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">日程无常驻通知打扰</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 2: 🖼️ 媒体图像与硬件 -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[16px]">perm_media</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">媒体图像与硬件</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(4)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Tool 5: 图片压缩 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">image</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">零 OOM</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">图片无损压缩</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">双重采样保持画质</span>
+</div>
+</div>
+<!-- Tool 6: EXIF 管理 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">location_off</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">隐私保护</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">EXIF 隐私擦除</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">清除相机参数与GPS</span>
+</div>
+</div>
+<!-- Tool 7: 指南针与水平仪 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">自适应</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">指南针/水平仪</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">磁阻与加速度解算</span>
+</div>
+</div>
+<!-- Tool 8: 分贝计 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">graphic_eq</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">瞬时采样</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">环境分贝计</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">高敏麦克风声压波形</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 3: 💻 开发者与文本箱 -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">开发者与文本箱</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(4)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Tool 9: 密码生成器 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">Secure</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">安全密码生成</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">密码学真随机数引擎</span>
+</div>
+</div>
+<!-- Tool 10: 时间戳转换 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">schedule</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">双向计算</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">时间戳转换</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">毫秒转化与跨时区</span>
+</div>
+</div>
+<!-- Tool 11: 文本工具箱 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">text_fields</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">多维处理</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">文本全能箱</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">哈希/Base64/去重</span>
+</div>
+</div>
+<!-- Tool 12: 开发者箱 -->
+<div class="flex flex-col justify-between p-3.5 rounded-[20px] bg-surface-container-low hover:bg-surface-container active:scale-[0.98] transition-all shadow-[0px_1px_3px_1px_rgba(103,80,164,0.05)] cursor-pointer">
+<div class="flex items-start justify-between gap-1 mb-2">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">data_object</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">语法格式</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-medium text-on-surface truncate">代码与格式化</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">JSON/正则/进制转换</span>
+</div>
+</div>
+</div>
+</section>
+<!-- M3 Floating Action Info Banner (Delight/Offline Performance State) -->
+<div class="flex items-center justify-between p-4 rounded-[24px] bg-secondary-container text-on-secondary-container mt-1">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm font-medium">毫秒级冷启动引擎</span>
+<span class="font-body-sm text-body-sm text-on-secondary-variant opacity-80">本地二进制加载，告别云端等待</span>
+</div>
+</div>
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-medium active:scale-95 transition-all flex-shrink-0">
+      自测
+    </button>
+</div>
+</div>
+<script>
+  // Simple responsive interactive toggle for Material 3 Chips
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.filter-chip').forEach(c => {
+        c.classList.remove('bg-primary-container', 'text-on-primary-container');
+        c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        const icon = c.querySelector('.material-symbols-outlined');
+        if (icon && icon.textContent === 'check') {
+          icon.remove();
+        }
+      });
+      this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      this.classList.add('bg-primary-container', 'text-on-primary-container');
+      if (!this.querySelector('.material-symbols-outlined') || this.querySelector('.material-symbols-outlined').textContent !== 'check') {
+        const checkIcon = document.createElement('span');
+        checkIcon.className = 'material-symbols-outlined text-[18px] mr-1';
+        checkIcon.textContent = 'check';
+        this.prepend(checkIcon);
+      }
+    });
+  });
+
+  // Search filter interaction
+  const searchInput = document.getElementById('toolSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const val = e.target.value.toLowerCase().trim();
+      const toolCards = document.querySelectorAll('section:nth-of-type(4) .grid > div, section:nth-of-type(5) .grid > div, section:nth-of-type(6) .grid > div');
+      toolCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!val || text.includes(val)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(79,55,138,0.06)]" data-active-classes="[&amp;_.m3-pill]:bg-secondary-container [&amp;_.m3-pill]:text-on-secondary-container [&amp;_.m3-pill]:w-16 [&amp;_.m3-label]:text-on-surface [&amp;_.m3-label]:font-semibold [&amp;_.m3-icon]:font-[700]"><div class="flex justify-around items-center h-20 px-space-sm max-w-md mx-auto"><a aria-current="page" class="group flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-all select-none [&amp;_.m3-pill]:bg-secondary-container [&amp;_.m3-pill]:text-on-secondary-container [&amp;_.m3-pill]:w-16 [&amp;_.m3-label]:text-on-surface [&amp;_.m3-label]:font-semibold [&amp;_.m3-icon]:font-[700]" data-path="explore" href="#"><div class="m3-pill w-12 h-8 rounded-full flex items-center justify-center transition-all duration-200 text-on-surface-variant group-hover:bg-surface-container-highest"><span class="material-symbols-outlined m3-icon text-[24px]">grid_view</span></div><span class="m3-label font-label-md text-label-md mt-1 text-on-surface-variant tracking-wide transition-colors">发现</span></a><a class="group flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-all select-none" data-path="favorites" href="#"><div class="m3-pill w-12 h-8 rounded-full flex items-center justify-center transition-all duration-200 text-on-surface-variant group-hover:bg-surface-container-highest"><span class="material-symbols-outlined m3-icon text-[24px]">star</span></div><span class="m3-label font-label-md text-label-md mt-1 text-on-surface-variant tracking-wide transition-colors">常用</span></a><a class="group flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-all select-none" data-path="settings" href="#"><div class="m3-pill w-12 h-8 rounded-full flex items-center justify-center transition-all duration-200 text-on-surface-variant group-hover:bg-surface-container-highest"><span class="material-symbols-outlined m3-icon text-[24px]">tune</span></div><span class="m3-label font-label-md text-label-md mt-1 text-on-surface-variant tracking-wide transition-colors">设置</span></a></div><div class="w-full flex justify-center pb-2 pt-1 pointer-events-none"><div class="w-32 h-1 rounded-full bg-on-surface/25"></div></div></nav></body></html>

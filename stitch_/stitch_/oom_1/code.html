@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#633b48", "surface-container-high": "#ece6f1", "primary": "#4f378a", "secondary-container": "#e8def9", "outline-variant": "#cbc4d2", "tertiary-fixed-dim": "#eeb8c8", "inverse-on-surface": "#f4eff9", "surface-variant": "#e6e0eb", "primary-fixed": "#e9ddff", "primary-fixed-dim": "#cfbcff", "on-background": "#1c1b22", "on-error-container": "#93000a", "surface-container-low": "#f7f1fc", "on-tertiary": "#ffffff", "on-primary-container": "#e0d2ff", "surface-tint": "#6750a4", "on-tertiary-fixed": "#31111d", "tertiary-fixed": "#ffd9e3", "secondary-fixed-dim": "#ccc2dc", "on-surface-variant": "#494551", "outline": "#7a7582", "inverse-primary": "#cfbcff", "on-secondary-fixed-variant": "#4a4358", "on-secondary-container": "#686177", "on-surface": "#1c1b22", "surface-dim": "#ddd8e3", "surface-bright": "#fdf8ff", "on-primary": "#ffffff", "on-secondary": "#ffffff", "background": "#fdf8ff", "surface": "#fdf8ff", "on-secondary-fixed": "#1e192b", "secondary-fixed": "#e8def9", "surface-container-highest": "#e6e0eb", "error": "#ba1a1a", "tertiary-container": "#7d5260", "on-tertiary-container": "#ffcbda", "tertiary": "#633b48", "inverse-surface": "#312f37", "error-container": "#ffdad6", "on-error": "#ffffff", "on-primary-fixed-variant": "#4f378a", "primary-container": "#6750a4", "surface-container": "#f1ecf7", "on-primary-fixed": "#22005d", "secondary": "#625b71", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-tablet": "1.5rem", "margin": "1rem", "space-xl": "2rem", "margin-desktop": "2rem", "space-sm": "0.5rem", "margin-tablet": "1.5rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1rem" }, "fontFamily": { "body-sm": ["Roboto Flex"], "headline-lg": ["Roboto Flex"], "label-sm": ["Roboto Flex"], "title-md": ["Roboto Flex"], "body-lg": ["Roboto Flex"], "body-md": ["Roboto Flex"], "display-lg": ["Roboto Flex"], "label-lg": ["Roboto Flex"], "headline-lg-mobile": ["Roboto Flex"], "headline-sm": ["Roboto Flex"], "title-sm": ["Roboto Flex"], "title-lg": ["Roboto Flex"], "display-md": ["Roboto Flex"], "label-md": ["Roboto Flex"], "headline-md": ["Roboto Flex"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.4px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }], "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0px", "fontWeight": "400" }], "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0px", "fontWeight": "400" }], "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }], "title-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "0px", "fontWeight": "500" }], "display-md": ["45px", { "lineHeight": "52px", "letterSpacing": "0px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "0px", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-low/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center min-w-0 flex-1"><button aria-label="返回" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface hover:bg-surface-variant/50 active:bg-secondary-container transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 ml-1"><h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">图片无损压缩</h1><p class="font-body-sm text-body-sm text-on-surface-variant truncate flex items-center gap-1 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span class="truncate">SecureRandom 强随机 · 离线密码学</span></p></div></div><div class="flex items-center gap-1 shrink-0"><button aria-label="历史记录" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 active:bg-secondary-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">history</span></button><button aria-label="重新生成" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-primary hover:bg-primary-fixed/40 active:bg-primary-fixed transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">casino</span></button><button aria-label="设置" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 active:bg-secondary-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">settings</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1 shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-20 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-8 space-y-4">
+<!-- 顶部内存安全沙盒状态条 (Tonal Status Banner) -->
+<div class="w-full bg-secondary-container/60 rounded-2xl p-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary text-[18px]">verified_user</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-secondary-container truncate font-medium">硬件级内存沙盒保护 · inJustDecodeBounds 流式处理</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          零 OOM 防御 · 峰值常驻管控 &lt; 16MB
+        </span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-medium shrink-0">本地隔离</span>
+</div>
+<!-- 核心图片预览与双模对比卡片 (Elevated Comparison Viewport) -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-4 shadow-sm space-y-3">
+<!-- 头部信息与比例高亮 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">compare</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">无损画质实时预览</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-2.5 py-1 rounded-full font-bold tracking-tight">
+        减小 90.5% (省 11.2 MB)
+      </span>
+</div>
+<!-- 交互式对比视窗 -->
+<div class="relative w-full h-56 rounded-xl overflow-hidden bg-surface-container-highest select-none group touch-none" id="compareContainer">
+<!-- 压缩后图像 (底图) -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="A cinematic 4K landscape photograph of snow-capped alpine mountains reflected in a crystal-clear turquoise glacial lake during golden hour. Soft purple and warm twilight colors harmonize with deep violet shadows. Ultra sharp detailing in rock crags and misty pine trees, representing the compressed clean WebP preview." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAojvJqgcldd2eNkvpUb7eGXcrhRkUUu_O6-HqUBtBcHWmyA5ApnbZs3UouslQlIlJiS3vggIPBfKqbYR24XaWWlqkIA8oZhrUIhQXDuD8G7F_0Vx-0eta16OGniwjiF38-1bE8E-RoiIyZvdZ3ofjotrlPXQbmddpaaVwE8B0zP1CMC9cSVg6-ydqfyoaszD3jVmra3HFwCN-XxEcap2ZYFx-4zKlmH-JmfHOAxw')"></div>
+<!-- 原图 (顶图，通过裁剪层对比) -->
+<div class="absolute inset-y-0 left-0 overflow-hidden" id="compareOverlay" style="width: 52%;">
+<div class="w-full h-full" style="width: 350px;">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic 4K landscape photograph of snow-capped alpine mountains reflected in a crystal-clear turquoise glacial lake during golden hour. Soft purple and warm twilight colors harmonize with deep violet shadows. Ultra sharp detailing in rock crags and misty pine trees, representing the raw uncompressed 48MP JPEG photograph." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxBt_pS31cvLfeIMPOqFCQ4kXECWR2P1BuAzJDe9x6AQLr6pl8RYFFdeIpsNv4hUdgCG-2irjYihPhELMEuXvI_1h-aFNMhj1iX8ggWkcpWFZUN1fq24LyixZOg377ZYjuFFOAIJFu_Ord1_ZUE5MMGaciE3NcZvappwWNNwGDFCAy8_bsFuXweXBnz63w_LaU6IBzlwX-g3G_7lnNcwSGha0pmIdk78o_2iTxDw')"></div>
+</div>
+</div>
+<!-- 分隔线滑杆与拖拽把手 -->
+<div class="absolute top-0 bottom-0 pointer-events-none flex items-center justify-center" id="compareHandle" style="left: 52%;">
+<div class="w-0.5 h-full bg-surface-container-lowest shadow-[0_0_8px_rgba(0,0,0,0.4)]"></div>
+<div class="absolute w-7 h-7 rounded-full bg-surface-container-lowest text-primary shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">drag_indicator</span>
+</div>
+</div>
+<!-- 悬浮角标 -->
+<div class="absolute top-2 left-2 bg-inverse-surface/75 text-inverse-on-surface px-2 py-0.5 rounded-full font-label-sm text-label-sm backdrop-blur-md pointer-events-none">
+        原图 (48MP)
+      </div>
+<div class="absolute top-2 right-2 bg-primary/90 text-on-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm backdrop-blur-md pointer-events-none font-medium">
+        已优化 (WebP)
+      </div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between pointer-events-none">
+<span class="font-label-sm text-label-sm text-inverse-on-surface bg-inverse-surface/60 backdrop-blur-sm px-2 py-0.5 rounded">左右拖动滑动器比对噪点与细节</span>
+</div>
+</div>
+<!-- 规格并排量化指标栏 -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="bg-surface-container-low rounded-xl p-2.5">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mb-0.5">
+<span class="">原始文件</span>
+<span class="text-error font-medium">JPEG</span>
+</div>
+<div class="font-title-md text-title-md text-on-surface font-semibold">12.4 MB</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">4032 × 3024 · 4:3 原生</div>
+</div>
+<div class="bg-secondary-container/50 rounded-xl p-2.5">
+<div class="flex items-center justify-between text-on-secondary-container font-label-sm text-label-sm mb-0.5">
+<span class="">目标文件</span>
+<span class="text-primary font-bold">WebP</span>
+</div>
+<div class="font-title-md text-title-md text-primary font-bold">1.18 MB</div>
+<div class="font-body-sm text-body-sm text-on-secondary-container truncate">2016 × 1512 · QHD+</div>
+</div>
+</div>
+<!-- 关键性能指标横条 (Telemetry Benchmarks) -->
+<div class="bg-surface-container-high/60 rounded-xl px-3 py-2 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">memory</span>
+<span class="">堆内存峰值: <strong class="text-on-surface font-medium">8.4 MB</strong> <span class="text-[10px] text-outline line-through">(48.7 MB)</span></span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">bolt</span>
+<span class="">耗时: <strong class="text-on-surface font-medium">128ms</strong></span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">high_quality</span>
+<span class="">PSNR: <strong class="text-on-surface font-medium">42.1 dB</strong></span>
+</div>
+</div>
+</div>
+<!-- 主要与次要操作按钮组 -->
+<div class="space-y-2">
+<!-- 主动作按钮 -->
+<button class="w-full h-12 bg-primary text-on-primary rounded-full font-label-lg text-label-lg font-medium shadow-sm active:scale-[0.99] transition-transform flex items-center justify-center gap-2 hover:bg-primary/95" type="button">
+<span class="material-symbols-outlined text-[20px]">download_done</span>
+      保存无损压缩图至系统相册
+    </button>
+<!-- 次级工具栏 -->
+<div class="grid grid-cols-3 gap-2">
+<button class="h-10 bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 active:bg-secondary-fixed transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">photo_library</span>
+<span class="">批量 (5张)</span>
+</button>
+<button class="h-10 bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 active:bg-secondary-fixed transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">zoom_in</span>
+<span class="">像素放大镜</span>
+</button>
+<button class="h-10 bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 active:bg-secondary-fixed transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">share</span>
+<span class="">直接分享</span>
+</button>
+</div>
+</div>
+<!-- 压缩模式与参数精细调控 (M3 Cards) -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-4 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">压缩策略调优</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">即时重算</span>
+</div>
+<!-- 策略模式横向滚动标签组 (Segmented Mode Chips) -->
+<div class="flex gap-1.5 overflow-x-auto pb-0.5">
+<button class="h-8 px-3 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-medium shrink-0 flex items-center gap-1 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+        智能推荐 (无损平衡)
+      </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm shrink-0 flex items-center gap-1 hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined text-[14px]">data_usage</span>
+        按目标大小
+      </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm shrink-0 flex items-center gap-1 hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined text-[14px]">aspect_ratio</span>
+        按缩放比例
+      </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm shrink-0 flex items-center gap-1 hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+        极限紧凑
+      </button>
+</div>
+<!-- 质量滑杆区块 -->
+<div class="space-y-2 bg-surface-container-low rounded-xl p-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium flex items-center gap-1">
+<span class="">画质保留系数</span>
+<span class="text-outline text-[11px]">(Quality factor)</span>
+</span>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-primary font-bold" id="qualityValue">82%</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded">最佳眼球保真</span>
+</div>
+</div>
+<!-- 滑动条组件 -->
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface active:bg-secondary-container" onclick="adjustQuality(-5)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="flex-1 relative flex items-center">
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="qualityRange" max="100" min="10" oninput="updateQuality(this.value)" type="range" value="82">
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface active:bg-secondary-container" onclick="adjustQuality(5)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline px-1">
+<span class="">小文件 (10%)</span>
+<span class="">推荐 (80-85%)</span>
+<span class="">纯原质 (100%)</span>
+</div>
+</div>
+<!-- 格式与分辨率预设分类网格 -->
+<div class="space-y-3">
+<!-- 格式选择 -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">编码封装格式</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="h-9 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-medium flex items-center justify-center gap-1 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+            WebP 格式
+          </button>
+<button class="h-9 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md font-medium flex items-center justify-center hover:bg-surface-variant" type="button">
+            JPEG 兼容
+          </button>
+<button class="h-9 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md font-medium flex items-center justify-center hover:bg-surface-variant" type="button">
+            PNG 无损
+          </button>
+</div>
+</div>
+<!-- 分辨率等比缩放预设 -->
+<div class="space-y-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">分辨率等比下采样 (Downsampling)</span>
+<div class="grid grid-cols-4 gap-1.5">
+<button class="h-8 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-variant" type="button">原图 (100%)</button>
+<button class="h-8 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-variant" type="button">2K (75%)</button>
+<button class="h-8 rounded-lg bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold flex items-center justify-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">check</span>
+            1080P
+          </button>
+<button class="h-8 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-variant" type="button">自适应</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 高级防 OOM 与隐私安全设置卡片 (M3 Switched List) -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-4 shadow-sm space-y-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">shield_with_heart</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">防 OOM 机制与信息安全</span>
+</div>
+<div class="space-y-2.5">
+<!-- 选项 1 -->
+<label class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low cursor-pointer">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">采样率自动计算 (inSampleSize 阶乘匹配)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">计算最适二次幂比例，防止超额分配百万像素位图</span>
+</div>
+<div class="w-11 h-6 bg-primary rounded-full relative p-0.5 flex items-center justify-end shrink-0">
+<div class="w-5 h-5 bg-on-primary rounded-full shadow-sm"></div>
+</div>
+</label>
+<!-- 选项 2 -->
+<label class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low cursor-pointer">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">抹除 EXIF 敏感地理位置信息 (GPS 清理)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">净化经纬度、海拔与拍摄设备序列号，捍卫隐私</span>
+</div>
+<div class="w-11 h-6 bg-primary rounded-full relative p-0.5 flex items-center justify-end shrink-0">
+<div class="w-5 h-5 bg-on-primary rounded-full shadow-sm"></div>
+</div>
+</label>
+<!-- 选项 3 -->
+<label class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low cursor-pointer">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">保留拍摄摄影参数 (ISO / 光圈 / 快门)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">无害摄影参数封装至新生成的 WebP/JPEG 头部中</span>
+</div>
+<div class="w-11 h-6 bg-primary rounded-full relative p-0.5 flex items-center justify-end shrink-0">
+<div class="w-5 h-5 bg-on-primary rounded-full shadow-sm"></div>
+</div>
+</label>
+<!-- 选项 4 -->
+<label class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low cursor-pointer">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">广色域保真 (Display P3 / sRGB ICC Profile)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">色彩映射无偏差，避免色彩变淡失真</span>
+</div>
+<div class="w-11 h-6 bg-primary rounded-full relative p-0.5 flex items-center justify-end shrink-0">
+<div class="w-5 h-5 bg-on-primary rounded-full shadow-sm"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- 底部技术规范与合规保证卡片 (M3 Surface Container Low) -->
+<div class="w-full bg-surface-container-low rounded-2xl p-4 shadow-sm space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">architecture</span>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Android 10+ ImageDecoder 原生流式管道</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      采用分块流式解码 (Streaming Decode Chunking) 与硬件级直接显存传输，绝不一次性将原始完整位图装载进应用堆内存 (App Heap Memory)，杜绝任何可能触发的 <code class="text-primary font-mono font-medium">java.lang.OutOfMemoryError</code>。全流程基于协程 <code class="text-primary font-mono font-medium">Dispatchers.IO</code> 本地执行，不产生任何联网传输流量，保护您的数据主权。
+    </p>
+<div class="pt-1 flex items-center gap-4 text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cloud_off</span> 纯离线执行
+      </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terminal</span> Kotlin Native C++ 核心
+      </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 无内存泄漏验证
+      </span>
+</div>
+</div>
+</div>
+<script>
+  // 简易画质控制逻辑
+  function updateQuality(val) {
+    const qualityLabel = document.getElementById('qualityValue');
+    if (qualityLabel) {
+      qualityLabel.textContent = val + '%';
+    }
+  }
+
+  function adjustQuality(delta) {
+    const range = document.getElementById('qualityRange');
+    if (range) {
+      let current = parseInt(range.value, 10);
+      let updated = Math.min(100, Math.max(10, current + delta));
+      range.value = updated;
+      updateQuality(updated);
+    }
+  }
+
+  // 图像对比滑动器轻量级交互
+  (function initCompareSlider() {
+    const container = document.getElementById('compareContainer');
+    const overlay = document.getElementById('compareOverlay');
+    const handle = document.getElementById('compareHandle');
+    if (!container || !overlay || !handle) return;
+
+    let isDragging = false;
+
+    function setPosition(x) {
+      const rect = container.getBoundingClientRect();
+      let offsetX = x - rect.left;
+      if (offsetX < 0) offsetX = 0;
+      if (offsetX > rect.width) offsetX = rect.width;
+      const percentage = (offsetX / rect.width) * 100;
+      overlay.style.width = percentage + '%';
+      handle.style.left = percentage + '%';
+    }
+
+    container.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      setPosition(e.clientX);
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      setPosition(e.clientX);
+    });
+
+    window.addEventListener('pointerup', () => {
+      isDragging = false;
+    });
+  })();
+</script></main>
+
+</body></html>

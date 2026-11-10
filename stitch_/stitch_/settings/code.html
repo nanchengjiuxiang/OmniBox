@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "inverse-on-surface": "#f4eff9", "surface-variant": "#e6e0eb", "secondary-fixed": "#e8def9", "tertiary-fixed-dim": "#eeb8c8", "surface-container-highest": "#e6e0eb", "on-background": "#1c1b22", "primary-fixed-dim": "#cfbcff", "on-tertiary-fixed": "#31111d", "secondary-container": "#e8def9", "surface-container-low": "#f7f1fc", "on-tertiary": "#ffffff", "on-primary": "#ffffff", "tertiary-fixed": "#ffd9e3", "error-container": "#ffdad6", "on-error": "#ffffff", "secondary-fixed-dim": "#ccc2dc", "tertiary": "#633b48", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#4f378a", "outline-variant": "#cbc4d2", "inverse-primary": "#cfbcff", "on-tertiary-fixed-variant": "#633b48", "on-error-container": "#93000a", "error": "#ba1a1a", "on-surface": "#1c1b22", "on-secondary-container": "#686177", "surface-container-high": "#ece6f1", "secondary": "#625b71", "surface-container": "#f1ecf7", "on-secondary": "#ffffff", "on-tertiary-container": "#ffcbda", "outline": "#7a7582", "surface-dim": "#ddd8e3", "primary": "#4f378a", "surface-bright": "#fdf8ff", "on-primary-fixed": "#22005d", "background": "#fdf8ff", "tertiary-container": "#7d5260", "on-surface-variant": "#494551", "inverse-surface": "#312f37", "surface": "#fdf8ff", "on-secondary-fixed-variant": "#4a4358", "on-secondary-fixed": "#1e192b", "surface-tint": "#6750a4", "on-primary-container": "#e0d2ff", "primary-fixed": "#e9ddff", "primary-container": "#6750a4" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "gutter": "1rem", "space-xl": "2rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "margin-tablet": "1.5rem", "space-sm": "0.5rem", "gutter-tablet": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-desktop": "2rem" }, fontFamily: { "label-sm": ["Roboto Flex"], "headline-md": ["Roboto Flex"], "display-md": ["Roboto Flex"], "label-lg": ["Roboto Flex"], "title-sm": ["Roboto Flex"], "body-lg": ["Roboto Flex"], "title-md": ["Roboto Flex"], "display-lg": ["Roboto Flex"], "headline-lg-mobile": ["Roboto Flex"], "headline-sm": ["Roboto Flex"], "label-md": ["Roboto Flex"], "headline-lg": ["Roboto Flex"], "body-md": ["Roboto Flex"], "title-lg": ["Roboto Flex"], "body-sm": ["Roboto Flex"] }, fontSize: { "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.5px", fontWeight: "500" }], "headline-md": ["28px", { lineHeight: "36px", letterSpacing: "0px", fontWeight: "400" }], "display-md": ["45px", { lineHeight: "52px", letterSpacing: "0px", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.1px", fontWeight: "500" }], "title-sm": ["14px", { lineHeight: "20px", letterSpacing: "0.1px", fontWeight: "500" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0.5px", fontWeight: "400" }], "title-md": ["16px", { lineHeight: "24px", letterSpacing: "0.15px", fontWeight: "500" }], "display-lg": ["57px", { lineHeight: "64px", letterSpacing: "-0.25px", fontWeight: "400" }], "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "0px", fontWeight: "400" }], "headline-sm": ["24px", { lineHeight: "32px", letterSpacing: "0px", fontWeight: "400" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.5px", fontWeight: "500" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "0px", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0.25px", fontWeight: "400" }], "title-lg": ["22px", { lineHeight: "28px", letterSpacing: "0px", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.4px", fontWeight: "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-6 px-margin flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><span>09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container"><span class="material-symbols-outlined text-[24px]">widgets</span></div><div><h1 class="font-title-lg text-title-lg text-on-surface leading-tight">Settings</h1><p class="font-label-sm text-label-sm text-on-surface-variant">OmniBox · 离线极速引擎</p></div></div><div class="flex items-center gap-space-xs"><button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="More Options" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><div class="w-8 h-8 ml-space-xs rounded-full bg-primary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-[88px] pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-6 gap-space-lg">
+<!-- Architecture & System Identity Card -->
+<section class="flex flex-col bg-surface-container rounded-[24px] p-5 shadow-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-primary-fixed/20 pointer-events-none blur-2xl"></div>
+<div class="flex items-start justify-between z-10">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-[16px] bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<h2 class="font-title-lg text-title-lg text-on-surface">OmniBox</h2>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">v1.0.0-release</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-0.5">原生极速工具箱 · 纯本地沙盒架构</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+</div>
+<!-- Tech Specs Badges -->
+<div class="flex flex-wrap gap-2 mt-4 z-10">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">offline_bolt</span>
+<span>纯本地离线优先</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">wifi_off</span>
+<span>零 INTERNET 权限</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">palette</span>
+<span>Material You 动态色彩</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">android</span>
+<span>Android 14 就绪</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t-0 bg-surface-container-low rounded-xl p-3 z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">layers</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">基于 Jetpack Compose + Hilt + Room 的纯原生架构工具箱</p>
+</div>
+</section>
+<!-- Module Management Section -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex flex-col px-1">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary">toggle_on</span>
+<span>模块启停与自治配置</span>
+</h3>
+<span class="font-label-sm text-label-sm text-primary font-medium">4/4 已激活</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">按需开关功能模块，隐藏不常用工具，释放轻量运存</p>
+</div>
+<div class="flex flex-col bg-surface-container-low rounded-[20px] p-2 gap-1.5 shadow-sm">
+<!-- Module 1 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-high/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">photo_camera_back</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">媒体图像工具包</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">二维码、图片无损压缩、EXIF 元数据擦除</span>
+</div>
+</div>
+<button aria-checked="true" class="module-switch relative inline-flex h-8 w-[52px] flex-shrink-0 cursor-pointer rounded-full bg-primary p-1 transition-colors duration-200" role="switch" type="button">
+<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-primary shadow-sm transition-transform duration-200 translate-x-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">check</span>
+</span>
+</button>
+</div>
+<!-- Module 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-high/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">硬件传感器工具包</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">电子指南针、精密水平仪、环境分贝计</span>
+</div>
+</div>
+<button aria-checked="true" class="module-switch relative inline-flex h-8 w-[52px] flex-shrink-0 cursor-pointer rounded-full bg-primary p-1 transition-colors duration-200" role="switch" type="button">
+<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-primary shadow-sm transition-transform duration-200 translate-x-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">check</span>
+</span>
+</button>
+</div>
+<!-- Module 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-high/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">code_blocks</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">开发者与文本工具包</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">JSON 校验着色、进制换算、密码哈希、时间戳</span>
+</div>
+</div>
+<button aria-checked="true" class="module-switch relative inline-flex h-8 w-[52px] flex-shrink-0 cursor-pointer rounded-full bg-primary p-1 transition-colors duration-200" role="switch" type="button">
+<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-primary shadow-sm transition-transform duration-200 translate-x-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">check</span>
+</span>
+</button>
+</div>
+<!-- Module 4 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-high/40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">日常效率与决策</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">度量单位换算、专注倒计时、微决断轮盘</span>
+</div>
+</div>
+<button aria-checked="true" class="module-switch relative inline-flex h-8 w-[52px] flex-shrink-0 cursor-pointer rounded-full bg-primary p-1 transition-colors duration-200" role="switch" type="button">
+<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-primary shadow-sm transition-transform duration-200 translate-x-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">check</span>
+</span>
+</button>
+</div>
+</div>
+<div class="flex justify-end px-1">
+<button class="flex items-center gap-1.5 text-primary font-label-lg text-label-lg py-1 px-3 rounded-full hover:bg-primary-fixed/20 active:scale-95 transition-all" id="reset-modules-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>恢复全部模块默认开启</span>
+</button>
+</div>
+</section>
+<!-- Storage & Sandbox Clean Section -->
+<section class="flex flex-col bg-surface-container-low rounded-[24px] p-5 shadow-sm gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-primary">inventory_2</span>
+<h3 class="font-title-md text-title-md text-on-surface">存储与系统沙盒管理</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-full">应用隔离沙盒</span>
+</div>
+<!-- Storage Visual Progress -->
+<div class="flex flex-col gap-2 bg-surface-container-lowest p-4 rounded-xl">
+<div class="flex justify-between items-baseline">
+<span class="font-label-md text-label-md text-on-surface-variant">本地占有空间总计</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">1.68 MB</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden flex">
+<div class="h-full bg-primary rounded-l-full" style="width: 71.4%"></div>
+<div class="h-full bg-secondary-container rounded-r-full" style="width: 28.6%"></div>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm pt-1">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<span class="text-on-surface-variant">临时缓存 (位图/条码): <strong class="text-on-surface font-medium" id="cache-size-text">1.2 MB</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-container"></div>
+<span class="text-on-surface-variant">Room 数据库: <strong class="text-on-surface font-medium">480 KB</strong></span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-2 gap-3">
+<button class="h-10 px-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg flex items-center justify-center gap-1.5 hover:bg-secondary-fixed transition-colors active:scale-95" id="clear-cache-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">clean_hands</span>
+<span>清空沙盒缓存</span>
+</button>
+<button class="h-10 px-4 rounded-full bg-surface-container-high text-primary font-label-lg text-label-lg flex items-center justify-center gap-1.5 hover:bg-surface-variant transition-colors active:scale-95" id="backup-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span>导出配置备份</span>
+</button>
+</div>
+</section>
+<!-- Permissions & System Integration -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex flex-col px-1">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary">security_update_good</span>
+<span>权限审计与系统集成</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">透明审计系统权限，无越权调用与静默常驻</p>
+</div>
+<div class="flex flex-col bg-surface-container-low rounded-[20px] p-2 gap-1.5 shadow-sm">
+<!-- Camera Perm -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">相机权限状态</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">仅二维码取景时调用，内存即时分析销毁</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>已按需授权</span>
+</span>
+</div>
+<!-- Mic Perm -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">麦克风权限状态</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">环境分贝计处于基准对照降级模式</span>
+</div>
+</div>
+<button class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold hover:bg-secondary-fixed active:scale-95 transition-all" type="button">
+          授权调用
+        </button>
+</div>
+<!-- Glance Widget -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">space_dashboard</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">桌面 Glance 小组件</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">支持桌面 2×2 / 4×2 快速启动与传感器预览</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+<!-- Quick Settings Tile -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">dashboard_customize</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">控制中心快捷磁贴</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">下拉通知栏快速扫码与轻量密码生成</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">可添加</span>
+</div>
+</div>
+</section>
+<!-- Haptic Feedback & Interaction -->
+<section class="flex flex-col bg-surface-container-low rounded-[20px] p-4 gap-3 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">vibration</span>
+<span class="font-title-sm text-title-sm text-on-surface">触觉反馈强度 (Haptic Feedback)</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold" id="haptic-label">默认</span>
+</div>
+<div class="flex flex-col gap-2">
+<input class="w-full accent-primary h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" id="haptic-slider" max="2" min="0" step="1" type="range" value="1"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant px-1">
+<span>微弱 (Subtle)</span>
+<span>默认 (Normal)</span>
+<span>强劲 (Firm)</span>
+</div>
+</div>
+</section>
+<!-- Privacy, Open Source & Manifesto -->
+<section class="flex flex-col bg-surface-container-low rounded-[24px] p-5 gap-4 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-primary">local_police</span>
+<h3 class="font-title-md text-title-md text-on-surface">离线纯粹性承诺 (Offline Manifesto)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      OmniBox 在 AndroidManifest.xml 中<strong>完全未声明</strong> <code class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono text-label-sm">android.permission.INTERNET</code> 权限，物理杜绝网络请求。系统无任何第三方统计分析、云端跟踪或行为打点 SDK，保证完全的数据主权与零泄漏。
+    </p>
+<!-- Open Source info -->
+<div class="flex flex-col gap-2 pt-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">开源协议与核心组件</span>
+<div class="flex flex-wrap gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest">Apache 2.0 License</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest">ZXing Core</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest">CameraX 1.3</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest">Jetpack Room</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest">Google Material 3</span>
+</div>
+</div>
+<!-- Bottom Footer Meta -->
+<div class="flex items-center justify-between pt-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>设备已进入本地安全沙盒模式</span>
+</div>
+<span>Build 2024.11.R1</span>
+</div>
+</section>
+<!-- Feedback Toast Notification Mock -->
+<div class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full font-label-md text-label-md shadow-lg pointer-events-none transition-all duration-300 opacity-0 translate-y-4 flex items-center gap-2 z-50" id="toast-notify">
+<span class="material-symbols-outlined text-[18px] text-inverse-primary" id="toast-icon">check_circle</span>
+<span id="toast-message">临时缓存已清空</span>
+</div>
+</div>
+<script>
+  (function() {
+    // Switch interaction toggle
+    const switches = document.querySelectorAll('.module-switch');
+    switches.forEach(sw => {
+      sw.addEventListener('click', () => {
+        const isChecked = sw.getAttribute('aria-checked') === 'true';
+        sw.setAttribute('aria-checked', (!isChecked).toString());
+        const knob = sw.querySelector('span');
+        const icon = knob.querySelector('span');
+        
+        if (isChecked) {
+          sw.classList.remove('bg-primary');
+          sw.classList.add('bg-surface-container-highest');
+          knob.classList.remove('translate-x-5', 'bg-on-primary');
+          knob.classList.add('translate-x-0', 'bg-outline');
+          icon.textContent = 'close';
+          icon.classList.remove('text-primary');
+          icon.classList.add('text-surface');
+          showToast('模块已停用，释放运存');
+        } else {
+          sw.classList.remove('bg-surface-container-highest');
+          sw.classList.add('bg-primary');
+          knob.classList.remove('translate-x-0', 'bg-outline');
+          knob.classList.add('translate-x-5', 'bg-on-primary');
+          icon.textContent = 'check';
+          icon.classList.remove('text-surface');
+          icon.classList.add('text-primary');
+          showToast('模块已激活就绪');
+        }
+      });
+    });
+
+    // Reset Modules Button
+    const resetBtn = document.getElementById('reset-modules-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        switches.forEach(sw => {
+          sw.setAttribute('aria-checked', 'true');
+          sw.classList.remove('bg-surface-container-highest');
+          sw.classList.add('bg-primary');
+          const knob = sw.querySelector('span');
+          const icon = knob.querySelector('span');
+          knob.classList.remove('translate-x-0', 'bg-outline');
+          knob.classList.add('translate-x-5', 'bg-on-primary');
+          icon.textContent = 'check';
+          icon.classList.remove('text-surface');
+          icon.classList.add('text-primary');
+        });
+        showToast('全部模块已恢复默认开启状态');
+      });
+    }
+
+    // Cache clean micro-interaction
+    const clearBtn = document.getElementById('clear-cache-btn');
+    const cacheText = document.getElementById('cache-size-text');
+    if (clearBtn && cacheText) {
+      clearBtn.addEventListener('click', () => {
+        cacheText.textContent = '0 KB';
+        showToast('沙盒临时缓存已彻底抹除 (释放 1.2 MB)');
+      });
+    }
+
+    // Backup button micro-interaction
+    const backupBtn = document.getElementById('backup-btn');
+    if (backupBtn) {
+      backupBtn.addEventListener('click', () => {
+        showToast('本地配置已加密导出至 Download 目录');
+      });
+    }
+
+    // Haptic feedback slider label change
+    const hapticSlider = document.getElementById('haptic-slider');
+    const hapticLabel = document.getElementById('haptic-label');
+    const levels = ['微弱', '默认', '强劲'];
+    if (hapticSlider && hapticLabel) {
+      hapticSlider.addEventListener('input', (e) => {
+        hapticLabel.textContent = levels[parseInt(e.target.value, 10)];
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate(parseInt(e.target.value, 10) * 15 + 10);
+        }
+      });
+    }
+
+    // Toast helper
+    let toastTimeout = null;
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notify');
+      const toastMsg = document.getElementById('toast-message');
+      if (!toast || !toastMsg) return;
+      
+      toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-4');
+      }, 2400);
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(79,55,138,0.06)]" data-active-classes="[&amp;&gt;.nav-pill]:bg-secondary-container [&amp;&gt;.nav-pill]:text-on-secondary-container [&amp;&gt;.nav-label]:font-bold [&amp;&gt;.nav-label]:text-on-surface"><div class="flex justify-around items-center h-20 px-space-md"><a class="group flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 transition-all" data-path="explore" href="#"><div class="nav-pill w-16 h-8 rounded-full flex items-center justify-center transition-colors text-on-surface-variant group-hover:bg-surface-container-high"><span class="material-symbols-outlined text-[24px]">grid_view</span></div><span class="nav-label mt-1 font-label-md text-label-md text-on-surface-variant transition-colors">发现</span></a><a class="group flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 transition-all" data-path="favorites" href="#"><div class="nav-pill w-16 h-8 rounded-full flex items-center justify-center transition-colors text-on-surface-variant group-hover:bg-surface-container-high"><span class="material-symbols-outlined text-[24px]">star_outline</span></div><span class="nav-label mt-1 font-label-md text-label-md text-on-surface-variant transition-colors">常用</span></a><a aria-current="page" class="group flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 transition-all [&amp;&gt;.nav-pill]:bg-secondary-container [&amp;&gt;.nav-pill]:text-on-secondary-container [&amp;&gt;.nav-label]:font-bold [&amp;&gt;.nav-label]:text-on-surface" data-path="settings" href="#"><div class="nav-pill w-16 h-8 rounded-full flex items-center justify-center transition-colors text-on-surface-variant group-hover:bg-surface-container-high"><span class="material-symbols-outlined text-[24px]">tune</span></div><span class="nav-label mt-1 font-label-md text-label-md text-on-surface-variant transition-colors">设置</span></a></div></nav></body></html>

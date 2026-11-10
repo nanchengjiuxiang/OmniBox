@@ -1,0 +1,27 @@
+*.iml
+.gradle/
+/.kotlin/
+/local.properties
+/.idea/
+.DS_Store
+/build
+*/build
+**/build/
+captures/
+.externalNativeBuild
+.cxx
+local.properties
+# 签名密钥与口令：绝不入库
+keystore.properties
+*.jks
+*.keystore
+*.idsig
+# 发布产物
+*.apk
+*.aab
+/app/release/
+# 验收素材（32 张设计截图）不进版本库也不进 APK
+/design-baseline/
+
+# 发布门禁生成的哈希留档（本地产物）
+release-sha256.txt

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">File Hash Calculator</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- Mode Selection Tabs (Material 3 Scrollable Chip Row) -->
+<div class="w-full px-margin pt-space-sm pb-space-xs overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-space-sm whitespace-nowrap" id="modeChips">
+<button class="h-8 px-space-md rounded-full flex items-center gap-1.5 transition-all bg-primary text-on-primary shadow-sm" id="chip-hash" onclick="switchMode('hash')">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+<span class="font-label-lg text-label-lg">MD5/SHA 散列</span>
+</button>
+<button class="h-8 px-space-md rounded-full flex items-center gap-1.5 transition-all bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest" id="chip-base64" onclick="switchMode('base64')">
+<span class="material-symbols-outlined text-[18px]">code</span>
+<span class="font-label-lg text-label-lg">Base64 编解码</span>
+</button>
+<button class="h-8 px-space-md rounded-full flex items-center gap-1.5 transition-all bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest" id="chip-url" onclick="switchMode('url')">
+<span class="material-symbols-outlined text-[18px]">link</span>
+<span class="font-label-lg text-label-lg">URL 编解码</span>
+</button>
+<button class="h-8 px-space-md rounded-full flex items-center gap-1.5 transition-all bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest" id="chip-format" onclick="switchMode('format')">
+<span class="material-symbols-outlined text-[18px]">text_fields</span>
+<span class="font-label-lg text-label-lg">排版与大小写</span>
+</button>
+</div>
+</div>
+<!-- Main Container -->
+<div class="px-margin flex flex-col gap-space-md mt-space-xs">
+<!-- Input Card -->
+<div class="w-full rounded-2xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_1px_rgba(103,80,164,0.06)] flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">edit_note</span>
+<span class="font-title-sm text-title-sm text-on-surface">源文本输入</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant flex items-center gap-1 hover:bg-surface-container-highest active:scale-95 transition-all" onclick="pasteFromClipboard()">
+<span class="material-symbols-outlined text-[16px]">content_paste</span>
+<span class="font-label-sm text-label-sm">粘贴</span>
+</button>
+<button class="h-8 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant flex items-center gap-1 hover:bg-surface-container-highest active:scale-95 transition-all" onclick="clearInput()">
+<span class="material-symbols-outlined text-[16px]">clear_all</span>
+<span class="font-label-sm text-label-sm">清空</span>
+</button>
+</div>
+</div>
+<!-- Textarea Container -->
+<div class="relative w-full rounded-xl bg-surface-container-low p-space-sm transition-all focus-within:bg-surface-container">
+<textarea class="w-full bg-transparent resize-none outline-none font-body-md text-body-md text-on-surface placeholder:text-outline" id="sourceText" oninput="handleTextChange()" placeholder="在此键入、粘贴字符串或从本地读取..." rows="4"></textarea>
+</div>
+<!-- Live Statistics Bar -->
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-md">
+<div class="flex items-baseline gap-1">
+<span class="font-label-sm text-label-sm text-outline">字符</span>
+<span class="font-label-lg text-label-lg text-primary font-semibold" id="statChars">0</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-label-sm text-label-sm text-outline">行数</span>
+<span class="font-label-lg text-label-lg text-secondary font-semibold" id="statLines">1</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-label-sm text-label-sm text-outline">大小</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-semibold" id="statBytes">0 B</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UTF-8 实时</span>
+</div>
+</div>
+</div>
+<!-- Quick Cleaning Actions Chips -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<span class="font-label-md text-label-md text-outline">快速文本清洗</span>
+<span class="font-label-sm text-label-sm text-primary">一触即洗</span>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container flex items-center gap-1 text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container active:scale-95 transition-all whitespace-nowrap shadow-sm" onclick="cleanTrim()">
+<span class="material-symbols-outlined text-[16px]">space_bar</span>
+<span class="font-label-md text-label-md">去除首尾空格</span>
+</button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container flex items-center gap-1 text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container active:scale-95 transition-all whitespace-nowrap shadow-sm" onclick="cleanEmptyLines()">
+<span class="material-symbols-outlined text-[16px]">format_align_justify</span>
+<span class="font-label-md text-label-md">去除空白行</span>
+</button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container flex items-center gap-1 text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container active:scale-95 transition-all whitespace-nowrap shadow-sm" onclick="cleanFullToHalf()">
+<span class="material-symbols-outlined text-[16px]">transform</span>
+<span class="font-label-md text-label-md">全角转半角</span>
+</button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container flex items-center gap-1 text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container active:scale-95 transition-all whitespace-nowrap shadow-sm" onclick="cleanPunctuationSpacing()">
+<span class="material-symbols-outlined text-[16px]">spellcheck</span>
+<span class="font-label-md text-label-md">中英排版规整</span>
+</button>
+</div>
+</div>
+<!-- Active Tool Section: HASH Panel (Default) -->
+<div class="flex flex-col gap-space-sm" id="section-hash">
+<div class="flex items-center justify-between px-space-xs">
+<h2 class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">fingerprint</span>
+          数字摘要与散列计算
+        </h2>
+<button class="h-7 px-space-sm rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1" id="btnCaseToggle" onclick="toggleMd5Case()">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span>
+<span id="caseIndicator">MD5: 大写</span>
+</button>
+</div>
+<!-- Result Cards Stack -->
+<div class="flex flex-col gap-space-xs">
+<!-- MD5 (32-bit) -->
+<div class="w-full rounded-xl bg-surface-container p-space-sm flex flex-col gap-1 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">MD5 (32-Bit)</span>
+<button class="h-7 px-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center gap-1 active:scale-90 transition-transform" onclick="copyValue('res-md5')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm">复制</span>
+</button>
+</div>
+<div class="font-mono text-body-sm text-on-surface break-all select-all font-medium py-0.5" id="res-md5">d41d8cd98f00b204e9800998ecf8427e</div>
+</div>
+<!-- SHA-256 -->
+<div class="w-full rounded-xl bg-surface-container p-space-sm flex flex-col gap-1 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">SHA-256</span>
+<button class="h-7 px-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center gap-1 active:scale-90 transition-transform" onclick="copyValue('res-sha256')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm">复制</span>
+</button>
+</div>
+<div class="font-mono text-body-sm text-on-surface break-all select-all font-medium py-0.5" id="res-sha256">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</div>
+</div>
+<!-- SHA-1 -->
+<div class="w-full rounded-xl bg-surface-container p-space-sm flex flex-col gap-1 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">SHA-1</span>
+<button class="h-7 px-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center gap-1 active:scale-90 transition-transform" onclick="copyValue('res-sha1')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm">复制</span>
+</button>
+</div>
+<div class="font-mono text-body-sm text-on-surface break-all select-all font-medium py-0.5" id="res-sha1">da39a3ee5e6b4b0d3255bfef95601890afd80709</div>
+</div>
+<!-- SHA-512 (Collapsible preview) -->
+<div class="w-full rounded-xl bg-surface-container p-space-sm flex flex-col gap-1 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-bold">SHA-512</span>
+<button class="h-7 px-2 rounded-full bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center gap-1 active:scale-90 transition-transform" onclick="copyValue('res-sha512')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm">复制</span>
+</button>
+</div>
+<div class="font-mono text-body-sm text-on-surface-variant line-clamp-2 break-all select-all py-0.5" id="res-sha512">cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e</div>
+</div>
+</div>
+</div>
+<!-- Active Tool Section: Base64 Panel -->
+<div class="hidden flex-col gap-space-sm" id="section-base64">
+<div class="flex items-center justify-between px-space-xs">
+<h2 class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">sync_alt</span>
+          Base64 结果
+        </h2>
+<div class="flex items-center gap-1">
+<button class="h-7 px-space-sm rounded-full bg-primary text-on-primary font-label-sm text-label-sm" id="b64-btn-encode" onclick="setBase64Mode('encode')">编码</button>
+<button class="h-7 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm" id="b64-btn-decode" onclick="setBase64Mode('decode')">解码</button>
+</div>
+</div>
+<div class="w-full rounded-2xl bg-surface-container p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">转换结果</span>
+<button class="h-7 px-2 rounded-full bg-surface-container-highest text-primary flex items-center gap-1 active:scale-90 transition-transform" onclick="copyValue('res-base64')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm">复制结果</span>
+</button>
+</div>
+<div class="min-h-[72px] font-mono text-body-md text-on-surface break-all select-all bg-surface-container-lowest p-space-sm rounded-xl" id="res-base64"></div>
+</div>
+</div>
+<!-- Active Tool Section: URL Panel -->
+<div class="hidden flex-col gap-space-sm" id="section-url">
+<div class="flex items-center justify-between px-space-xs">
+<h2 class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">link</span>
+          URL 编码与解码
+        </h2>
+<div class="flex items-center gap-1">
+<button class="h-7 px-space-sm rounded-full bg-primary text-on-primary font-label-sm text-label-sm" id="url-btn-encode" onclick="setUrlMode('encode')">Encode</button>
+<button class="h-7 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm" id="url-btn-decode" onclick="setUrlMode('decode')">Decode</button>
+</div>
+</div>
+<div class="w-full rounded-2xl bg-surface-container p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">URI 转化输出</span>
+<button class="h-7 px-2 rounded-full bg-surface-container-highest text-primary flex items-center gap-1 active:scale-90 transition-transform" onclick="copyValue('res-url')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="font-label-sm text-label-sm">复制内容</span>
+</button>
+</div>
+<div class="min-h-[72px] font-mono text-body-md text-on-surface break-all select-all bg-surface-container-lowest p-space-sm rounded-xl" id="res-url"></div>
+</div>
+</div>
+<!-- Active Tool Section: Formatting Panel -->
+<div class="hidden flex-col gap-space-sm" id="section-format">
+<h2 class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5 px-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">format_size</span>
+        文本大小写与样式变异
+      </h2>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="p-space-sm rounded-xl bg-surface-container text-left flex flex-col gap-0.5 active:bg-surface-container-highest transition-colors" onclick="applyCaseTransform('upper')">
+<span class="font-label-sm text-label-sm text-outline">全部转大写</span>
+<span class="font-title-sm text-title-sm text-primary font-bold">UPPERCASE</span>
+</button>
+<button class="p-space-sm rounded-xl bg-surface-container text-left flex flex-col gap-0.5 active:bg-surface-container-highest transition-colors" onclick="applyCaseTransform('lower')">
+<span class="font-label-sm text-label-sm text-outline">全部转小写</span>
+<span class="font-title-sm text-title-sm text-secondary font-bold">lowercase</span>
+</button>
+<button class="p-space-sm rounded-xl bg-surface-container text-left flex flex-col gap-0.5 active:bg-surface-container-highest transition-colors" onclick="applyCaseTransform('title')">
+<span class="font-label-sm text-label-sm text-outline">首字母大写</span>
+<span class="font-title-sm text-title-sm text-tertiary font-bold">Title Case</span>
+</button>
+<button class="p-space-sm rounded-xl bg-surface-container text-left flex flex-col gap-0.5 active:bg-surface-container-highest transition-colors" onclick="applyCaseTransform('dedup')">
+<span class="font-label-sm text-label-sm text-outline">逐行文本去重</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold">Unique Lines</span>
+</button>
+</div>
+</div>
+<!-- Security & Offline-First Badge Card -->
+<div class="w-full rounded-2xl bg-secondary-container/60 p-space-md flex items-start gap-space-sm mt-space-xs">
+<div class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary text-[20px]">shield</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-secondary-container font-semibold">本地纯内存计算保障</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary-fixed-variant">100% 离线</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-secondary-container/80 leading-relaxed">
+          算法在当前移动端原生 JavaScript 线程沙箱内运行，绝不读取联网权限，剪贴板和任何文本永不离开你的设备。
+        </p>
+</div>
+</div>
+<!-- Toast Notification (Hidden by default) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-space-md py-2.5 rounded-full font-label-md text-label-md shadow-lg flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300" id="toast">
+<span class="material-symbols-outlined text-[18px] text-inverse-primary" id="toastIcon">check_circle</span>
+<span id="toastMsg">已复制到剪贴板</span>
+</div>
+</div>
+</div>
+<script>
+  let isMd5Upper = true;
+  let activeB64Mode = 'encode';
+  let activeUrlMode = 'encode';
+
+  // Lightweight standalone MD5 implementation for zero-dependency offline calculation
+  function md5(string) {
+    function rotateLeft(lValue, iShiftBits) {
+      return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
+    }
+    function addUnsigned(lX, lY) {
+      var lX4, lY4, lX8, lY8, lResult;
+      lX8 = (lX & 0x80000000);
+      lY8 = (lY & 0x80000000);
+      lX4 = (lX & 0x40000000);
+      lY4 = (lY & 0x40000000);
+      lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
+      if (lX4 & lY4) return (lResult ^ 0x80000000 ^ lX8 ^ lY8);
+      if (lX4 | lY4) {
+        if (lResult & 0x40000000) return (lResult ^ 0xC0000000 ^ lX8 ^ lY8);
+        else return (lResult ^ 0x40000000 ^ lX8 ^ lY8);
+      } else return (lResult ^ lX8 ^ lY8);
+    }
+    function F(x, y, z) { return (x & y) | ((~x) & z); }
+    function G(x, y, z) { return (x & z) | (y & (~z)); }
+    function H(x, y, z) { return (x ^ y ^ z); }
+    function I(x, y, z) { return (y ^ (x | (~z))); }
+    function FF(a, b, c, d, x, s, ac) {
+      a = addUnsigned(a, addUnsigned(addUnsigned(F(b, c, d), x), ac));
+      return addUnsigned(rotateLeft(a, s), b);
+    }
+    function GG(a, b, c, d, x, s, ac) {
+      a = addUnsigned(a, addUnsigned(addUnsigned(G(b, c, d), x), ac));
+      return addUnsigned(rotateLeft(a, s), b);
+    }
+    function HH(a, b, c, d, x, s, ac) {
+      a = addUnsigned(a, addUnsigned(addUnsigned(H(b, c, d), x), ac));
+      return addUnsigned(rotateLeft(a, s), b);
+    }
+    function II(a, b, c, d, x, s, ac) {
+      a = addUnsigned(a, addUnsigned(addUnsigned(I(b, c, d), x), ac));
+      return addUnsigned(rotateLeft(a, s), b);
+    }
+    function convertToWordArray(string) {
+      var lWordCount;
+      var lMessageLength = string.length;
+      var lNumberOfWords_temp1 = lMessageLength + 8;
+      var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+      var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+      var lWordArray = Array(lNumberOfWords - 1);
+      var lBytePosition = 0;
+      var lByteCount = 0;
+      while (lByteCount < lMessageLength) {
+        lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+        lBytePosition = (lByteCount % 4) * 8;
+        lWordArray[lWordCount] = (lWordArray[lWordCount] | (string.charCodeAt(lByteCount) << lBytePosition));
+        lByteCount++;
+      }
+      lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+      lBytePosition = (lByteCount % 4) * 8;
+      lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80 << lBytePosition);
+      lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
+      lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
+      return lWordArray;
+    }
+    function wordToHex(lValue) {
+      var WordToHexValue = "", WordToHexValue_temp = "", lByte, lCount;
+      for (lCount = 0; lCount <= 3; lCount++) {
+        lByte = (lValue >>> (lCount * 8)) & 255;
+        WordToHexValue_temp = "0" + lByte.toString(16);
+        WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
+      }
+      return WordToHexValue;
+    }
+    function utf8Encode(string) {
+      string = string.replace(/\r\n/g, "\n");
+      var utftext = "";
+      for (var n = 0; n < string.length; n++) {
+        var c = string.charCodeAt(n);
+        if (c < 128) {
+          utftext += String.fromCharCode(c);
+        } else if ((c > 127) && (c < 2048)) {
+          utftext += String.fromCharCode((c >> 6) | 192);
+          utftext += String.fromCharCode((c & 63) | 128);
+        } else {
+          utftext += String.fromCharCode((c >> 12) | 224);
+          utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+          utftext += String.fromCharCode((c & 63) | 128);
+        }
+      }
+      return utftext;
+    }
+    var x = Array();
+    var k, AA, BB, CC, DD, a, b, c, d;
+    var S11 = 7, S12 = 12, S13 = 17, S14 = 22;
+    var S21 = 5, S22 = 9, S23 = 14, S24 = 20;
+    var S31 = 4, S32 = 11, S33 = 16, S34 = 23;
+    var S41 = 6, S42 = 10, S43 = 15, S44 = 21;
+    string = utf8Encode(string);
+    x = convertToWordArray(string);
+    a = 0x67452301; b = 0xEFCDAB89; c = 0x98BADCFE; d = 0x10325476;
+    for (k = 0; k < x.length; k += 16) {
+      AA = a; BB = b; CC = c; DD = d;
+      a = FF(a, b, c, d, x[k + 0], S11, 0xD76AA478);
+      d = FF(d, a, b, c, x[k + 1], S12, 0xE8C7B756);
+      c = FF(c, d, a, b, x[k + 2], S13, 0x242070DB);
+      b = FF(b, c, d, a, x[k + 3], S14, 0xC1BDCEEE);
+      a = FF(a, b, c, d, x[k + 4], S11, 0xF57C0FAF);
+      d = FF(d, a, b, c, x[k + 5], S12, 0x4787C62A);
+      c = FF(c, d, a, b, x[k + 6], S13, 0xA8304613);
+      b = FF(b, c, d, a, x[k + 7], S14, 0xFD469501);
+      a = FF(a, b, c, d, x[k + 8], S11, 0x698098D8);
+      d = FF(d, a, b, c, x[k + 9], S12, 0x8B44F7AF);
+      c = FF(c, d, a, b, x[k + 10], S13, 0xFFFF5BB1);
+      b = FF(b, c, d, a, x[k + 11], S14, 0x895CD7BE);
+      a = FF(a, b, c, d, x[k + 12], S11, 0x6B901122);
+      d = FF(d, a, b, c, x[k + 13], S12, 0xFD987193);
+      c = FF(c, d, a, b, x[k + 14], S13, 0xA679438E);
+      b = FF(b, c, d, a, x[k + 15], S14, 0x49B40821);
+      a = GG(a, b, c, d, x[k + 1], S21, 0xF61E2562);
+      d = GG(d, a, b, c, x[k + 6], S22, 0xC040B340);
+      c = GG(c, d, a, b, x[k + 11], S23, 0x265E5A51);
+      b = GG(b, c, d, a, x[k + 0], S24, 0xE9B6C7AA);
+      a = GG(a, b, c, d, x[k + 5], S21, 0xD62F105D);
+      d = GG(d, a, b, c, x[k + 10], S22, 0x2441453);
+      c = GG(c, d, a, b, x[k + 15], S23, 0xD8A1E681);
+      b = GG(b, c, d, a, x[k + 4], S24, 0xE7D3FBC8);
+      a = GG(a, b, c, d, x[k + 9], S21, 0x21E1CDE6);
+      d = GG(d, a, b, c, x[k + 14], S22, 0xC33707D6);
+      c = GG(c, d, a, b, x[k + 3], S23, 0xF4D50D87);
+      b = GG(b, c, d, a, x[k + 8], S24, 0x455A14ED);
+      a = GG(a, b, c, d, x[k + 13], S21, 0xA9E3E905);
+      d = GG(d, a, b, c, x[k + 2], S22, 0xFCEFA3F8);
+      c = GG(c, d, a, b, x[k + 7], S23, 0x676F02D9);
+      b = GG(b, c, d, a, x[k + 12], S24, 0x8D2A4C8A);
+      a = HH(a, b, c, d, x[k + 5], S31, 0xFFFA3942);
+      d = HH(d, a, b, c, x[k + 8], S32, 0x8771F681);
+      c = HH(c, d, a, b, x[k + 11], S33, 0x6D9D6122);
+      b = HH(b, c, d, a, x[k + 14], S34, 0xFDE5380C);
+      a = HH(a, b, c, d, x[k + 1], S31, 0xA4BEEA44);
+      d = HH(d, a, b, c, x[k + 4], S32, 0x4BDECFA9);
+      c = HH(c, d, a, b, x[k + 7], S33, 0xF6BB4B60);
+      b = HH(b, c, d, a, x[k + 10], S34, 0xBEBFBC70);
+      a = HH(a, b, c, d, x[k + 13], S31, 0x289B7EC6);
+      d = HH(d, a, b, c, x[k + 0], S32, 0xEAA127FA);
+      c = HH(c, d, a, b, x[k + 3], S33, 0xD4EF3085);
+      b = HH(b, c, d, a, x[k + 6], S34, 0x4881D05);
+      a = HH(a, b, c, d, x[k + 9], S31, 0xD9D4D039);
+      d = HH(d, a, b, c, x[k + 12], S32, 0xE6DB99E5);
+      c = HH(c, d, a, b, x[k + 15], S33, 0x1FA27CF8);
+      b = HH(b, c, d, a, x[k + 2], S34, 0xC4AC5665);
+      a = II(a, b, c, d, x[k + 0], S41, 0xF4292244);
+      d = II(d, a, b, c, x[k + 7], S42, 0x432AFF97);
+      c = II(c, d, a, b, x[k + 14], S43, 0xAB9423A7);
+      b = II(b, c, d, a, x[k + 5], S44, 0xFC93A039);
+      a = II(a, b, c, d, x[k + 12], S41, 0x655B59C3);
+      d = II(d, a, b, c, x[k + 3], S42, 0x8F0CCC92);
+      c = II(c, d, a, b, x[k + 10], S43, 0xFFEFF47D);
+      b = II(b, c, d, a, x[k + 1], S44, 0x85845DD1);
+      a = II(a, b, c, d, x[k + 8], S41, 0x6FA87E4F);
+      d = II(d, a, b, c, x[k + 15], S42, 0xFE2CE6E0);
+      c = II(c, d, a, b, x[k + 6], S43, 0xA3014314);
+      b = II(b, c, d, a, x[k + 13], S44, 0x4E0811A1);
+      a = II(a, b, c, d, x[k + 4], S41, 0xF7537E82);
+      d = II(d, a, b, c, x[k + 11], S42, 0xBD3AF235);
+      c = II(c, d, a, b, x[k + 2], S43, 0x2AD7D2BB);
+      b = II(b, c, d, a, x[k + 9], S44, 0xEB86D391);
+      a = addUnsigned(a, AA);
+      b = addUnsigned(b, BB);
+      c = addUnsigned(c, CC);
+      d = addUnsigned(d, DD);
+    }
+    var temp = wordToHex(a) + wordToHex(b) + wordToHex(c) + wordToHex(d);
+    return temp.toLowerCase();
+  }
+
+  // Web Crypto API for SHA family
+  async function computeCryptoHash(algorithm, text) {
+    if (!text) {
+      if (algorithm === 'SHA-256') return 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
+      if (algorithm === 'SHA-1') return 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+      if (algorithm === 'SHA-512') return 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e';
+    }
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest(algorithm, data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  function handleTextChange() {
+    const text = document.getElementById('sourceText').value;
+
+    // 1. Update stats
+    document.getElementById('statChars').textContent = text.length;
+    document.getElementById('statLines').textContent = text ? text.split('\n').length : 1;
+    const bytes = new Blob([text]).size;
+    document.getElementById('statBytes').textContent = bytes > 1024 ? (bytes / 1024).toFixed(1) + ' KB' : bytes + ' B';
+
+    // 2. MD5
+    let md5Val = text ? md5(text) : 'd41d8cd98f00b204e9800998ecf8427e';
+    document.getElementById('res-md5').textContent = isMd5Upper ? md5Val.toUpperCase() : md5Val.toLowerCase();
+
+    // 3. SHA-256, SHA-1, SHA-512
+    computeCryptoHash('SHA-256', text).then(res => {
+      document.getElementById('res-sha256').textContent = res;
+    });
+    computeCryptoHash('SHA-1', text).then(res => {
+      document.getElementById('res-sha1').textContent = res;
+    });
+    computeCryptoHash('SHA-512', text).then(res => {
+      document.getElementById('res-sha512').textContent = res;
+    });
+
+    // 4. Base64
+    updateBase64Output(text);
+
+    // 5. URL
+    updateUrlOutput(text);
+  }
+
+  function toggleMd5Case() {
+    isMd5Upper = !isMd5Upper;
+    document.getElementById('caseIndicator').textContent = isMd5Upper ? 'MD5: 大写' : 'MD5: 小写';
+    handleTextChange();
+    showToast(isMd5Upper ? '已切换至 32位 大写' : '已切换至 32位 小写');
+  }
+
+  function updateBase64Output(text) {
+    const out = document.getElementById('res-base64');
+    if (!text) {
+      out.textContent = '';
+      return;
+    }
+    try {
+      if (activeB64Mode === 'encode') {
+        out.textContent = btoa(unescape(encodeURIComponent(text)));
+      } else {
+        out.textContent = decodeURIComponent(escape(atob(text)));
+      }
+    } catch (e) {
+      out.textContent = '无法解析当前内容为合法 Base64';
+    }
+  }
+
+  function setBase64Mode(mode) {
+    activeB64Mode = mode;
+    const btnEnc = document.getElementById('b64-btn-encode');
+    const btnDec = document.getElementById('b64-btn-decode');
+    if (mode === 'encode') {
+      btnEnc.className = 'h-7 px-space-sm rounded-full bg-primary text-on-primary font-label-sm text-label-sm';
+      btnDec.className = 'h-7 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm';
+    } else {
+      btnDec.className = 'h-7 px-space-sm rounded-full bg-primary text-on-primary font-label-sm text-label-sm';
+      btnEnc.className = 'h-7 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm';
+    }
+    updateBase64Output(document.getElementById('sourceText').value);
+  }
+
+  function updateUrlOutput(text) {
+    const out = document.getElementById('res-url');
+    if (!text) {
+      out.textContent = '';
+      return;
+    }
+    try {
+      if (activeUrlMode === 'encode') {
+        out.textContent = encodeURIComponent(text);
+      } else {
+        out.textContent = decodeURIComponent(text);
+      }
+    } catch (e) {
+      out.textContent = 'URI 解码异常：格式不规范';
+    }
+  }
+
+  function setUrlMode(mode) {
+    activeUrlMode = mode;
+    const btnEnc = document.getElementById('url-btn-encode');
+    const btnDec = document.getElementById('url-btn-decode');
+    if (mode === 'encode') {
+      btnEnc.className = 'h-7 px-space-sm rounded-full bg-primary text-on-primary font-label-sm text-label-sm';
+      btnDec.className = 'h-7 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm';
+    } else {
+      btnDec.className = 'h-7 px-space-sm rounded-full bg-primary text-on-primary font-label-sm text-label-sm';
+      btnEnc.className = 'h-7 px-space-sm rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm';
+    }
+    updateUrlOutput(document.getElementById('sourceText').value);
+  }
+
+  // Switch Mode Tabs
+  function switchMode(mode) {
+    const modes = ['hash', 'base64', 'url', 'format'];
+    modes.forEach(m => {
+      const chip = document.getElementById(`chip-${m}`);
+      const sec = document.getElementById(`section-${m}`);
+      if (m === mode) {
+        chip.className = 'h-8 px-space-md rounded-full flex items-center gap-1.5 transition-all bg-primary text-on-primary shadow-sm';
+        sec.classList.remove('hidden');
+        sec.classList.add('flex');
+      } else {
+        chip.className = 'h-8 px-space-md rounded-full flex items-center gap-1.5 transition-all bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest';
+        sec.classList.add('hidden');
+        sec.classList.remove('flex');
+      }
+    });
+  }
+
+  // Cleaning Actions
+  function cleanTrim() {
+    const el = document.getElementById('sourceText');
+    const lines = el.value.split('\n').map(l => l.trim());
+    el.value = lines.join('\n').trim();
+    handleTextChange();
+    showToast('已剔除文本首尾空格');
+  }
+
+  function cleanEmptyLines() {
+    const el = document.getElementById('sourceText');
+    const lines = el.value.split('\n').filter(l => l.trim() !== '');
+    el.value = lines.join('\n');
+    handleTextChange();
+    showToast('已清除所有空白行');
+  }
+
+  function cleanFullToHalf() {
+    const el = document.getElementById('sourceText');
+    let str = el.value;
+    let res = "";
+    for (let i = 0; i < str.length; i++) {
+      let code = str.charCodeAt(i);
+      if (code === 12288) {
+        res += String.fromCharCode(32);
+      } else if (code > 65280 && code < 65375) {
+        res += String.fromCharCode(code - 65248);
+      } else {
+        res += str.charAt(i);
+      }
+    }
+    el.value = res;
+    handleTextChange();
+    showToast('已将全角字符转半角');
+  }
+
+  function cleanPunctuationSpacing() {
+    const el = document.getElementById('sourceText');
+    let str = el.value;
+    // Insert spacing between Chinese and English/Number
+    str = str.replace(/([\u4e00-\u9fa5])([a-zA-Z0-9])/g, '$1 $2');
+    str = str.replace(/([a-zA-Z0-9])([\u4e00-\u9fa5])/g, '$1 $2');
+    el.value = str;
+    handleTextChange();
+    showToast('中英文排版盘古规范已应用');
+  }
+
+  function applyCaseTransform(type) {
+    const el = document.getElementById('sourceText');
+    let text = el.value;
+    if (!text) return;
+    if (type === 'upper') {
+      el.value = text.toUpperCase();
+    } else if (type === 'lower') {
+      el.value = text.toLowerCase();
+    } else if (type === 'title') {
+      el.value = text.replace(/\b\w/g, l => l.toUpperCase());
+    } else if (type === 'dedup') {
+      const lines = text.split('\n');
+      const unique = Array.from(new Set(lines));
+      el.value = unique.join('\n');
+    }
+    handleTextChange();
+    showToast('文本格式已转换');
+  }
+
+  async function pasteFromClipboard() {
+    try {
+      const text = await navigator.clipboard.readText();
+      document.getElementById('sourceText').value = text;
+      handleTextChange();
+      showToast('已从剪贴板粘贴');
+    } catch (e) {
+      showToast('请手动在此长按粘贴');
+    }
+  }
+
+  function clearInput() {
+    document.getElementById('sourceText').value = '';
+    handleTextChange();
+    showToast('输入内容已清空');
+  }
+
+  function copyValue(elementId) {
+    const text = document.getElementById(elementId).textContent;
+    if (!text) {
+      showToast('内容为空');
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('已复制结果至剪贴板');
+    }).catch(() => {
+      showToast('复制成功');
+    });
+  }
+
+  let toastTimer;
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    toastMsg.textContent = msg;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 2200);
+  }
+
+  // Initial trigger
+  handleTextChange();
+</script></main></body></html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">File Hash Calculator</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+<!-- 顶栏辅助上下文状态条 (与Shell标题呼应) -->
+<div class="flex items-center justify-between py-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lock</span>
+<span class="font-label-md text-label-md">硬件通道保护中 · 监听未启动</span>
+</div>
+<button class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container transition-transform active:scale-95" id="demoToggleBtn">
+<span class="material-symbols-outlined text-[16px] text-primary">play_circle</span>
+<span class="font-label-sm text-label-sm font-semibold">体验模拟演示</span>
+</button>
+</div>
+<!-- 核心挂起状态卡片：可视化休眠声波表盘与授权引导 -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-lg shadow-sm">
+<!-- 背景呼吸暗纹光晕 (休眠暗紫/微光) -->
+<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-primary-fixed-dim/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-48 h-48 rounded-full bg-tertiary-fixed-dim/15 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- 锁态休眠仪表插图 / 动态休眠波形盘 -->
+<div class="relative w-40 h-40 flex items-center justify-center my-space-xs">
+<!-- 环形背景刻度骨架 -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 160 160">
+<circle cx="80" cy="80" fill="none" opacity="0.35" r="68" stroke="#cbc4d2" stroke-dasharray="320" stroke-dashoffset="100" stroke-linecap="round" stroke-width="7"></circle>
+<circle class="transition-all duration-300" cx="80" cy="80" fill="none" id="liveProgressRing" r="68" stroke="#6750a4" stroke-dasharray="320" stroke-dashoffset="320" stroke-linecap="round" stroke-width="7"></circle>
+</svg>
+<!-- 静态/模拟休眠微波形柱状示意 (带平滑脉冲效果) -->
+<div class="absolute inset-0 flex items-center justify-center gap-1 px-8 opacity-40">
+<span class="waveform-bar w-1.5 h-6 rounded-full bg-primary transition-all duration-300"></span>
+<span class="waveform-bar w-1.5 h-10 rounded-full bg-primary transition-all duration-300"></span>
+<span class="waveform-bar w-1.5 h-14 rounded-full bg-primary transition-all duration-300"></span>
+<span class="waveform-bar w-1.5 h-8 rounded-full bg-primary transition-all duration-300"></span>
+<span class="waveform-bar w-1.5 h-12 rounded-full bg-primary transition-all duration-300"></span>
+<span class="waveform-bar w-1.5 h-5 rounded-full bg-primary transition-all duration-300"></span>
+</div>
+<!-- 中心锁定/静音图标徽标 -->
+<div class="relative z-20 w-16 h-16 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-primary" id="centerBadge">
+<span class="material-symbols-outlined text-[32px]" id="centerIcon">mic_off</span>
+<span class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+</span>
+</div>
+</div>
+<!-- 分贝读数休眠占位 -->
+<div class="flex items-baseline gap-1 mt-space-xs mb-space-sm">
+<span class="font-display-md text-display-md text-outline tracking-tight font-light" id="dBValue">--.-</span>
+<span class="font-title-md text-title-md text-on-surface-variant font-medium">dBA</span>
+</div>
+<!-- 状态主标题 -->
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold max-w-xs">
+        需要麦克风权限以采样环境声压
+      </h2>
+<!-- 隐私与技术合规解释 (Rationale) -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low text-left">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            分贝计仅通过 <code class="font-mono text-primary font-semibold">AudioRecord</code> 接口实时抓取瞬时声波振幅计算均方根声压（RMS），计算完成后立即丢弃音频字节，不存储音频文件、不录音、更无网络权限进行外发传输。
+          </p>
+</div>
+</div>
+<!-- 核心动作行动组 -->
+<div class="w-full flex flex-col gap-space-sm mt-space-lg">
+<button class="w-full h-12 rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" id="requestPermBtn">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+<span>允许麦克风权限</span>
+</button>
+<button class="w-full h-10 rounded-full bg-transparent hover:bg-surface-container text-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-colors" id="openWhitepaperBtn">
+<span class="material-symbols-outlined text-[18px]">policy</span>
+<span>查看隐私与安全白皮书</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 降级方案与只读体验区：WHO 权威环境噪音对照基准 (无权限亦可查询) -->
+<section class="flex flex-col space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">equalizer</span>
+<h3 class="font-title-md text-title-md text-on-surface font-medium">环境声压级权威对照表 (WHO)</h3>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant">离线常驻</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      基于世界卫生组织 (WHO) 与声学标准分级，即使未开启麦克风，亦可对照评估身处环境声学舒适度：
+    </p>
+<!-- 基准卡片组 -->
+<div class="grid grid-cols-1 gap-2 pt-1">
+<!-- 20 dB -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">nature</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-medium truncate">微风落叶 · 极安静</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">旷野深夜、轻柔呼吸声</span>
+</div>
+</div>
+<div class="flex items-baseline gap-0.5 shrink-0 pl-space-xs">
+<span class="font-title-md text-title-md text-primary font-bold">20</span>
+<span class="font-label-sm text-label-sm text-outline">dB</span>
+</div>
+</div>
+<!-- 40 dB -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">local_library</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-medium truncate">静音图书馆 · 舒适安逸</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">住宅区夜间、低速冰箱蜂鸣</span>
+</div>
+</div>
+<div class="flex items-baseline gap-0.5 shrink-0 pl-space-xs">
+<span class="font-title-md text-title-md text-primary font-bold">40</span>
+<span class="font-label-sm text-label-sm text-outline">dB</span>
+</div>
+</div>
+<!-- 60 dB -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-medium truncate">日常交谈 · 正常活动</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">办公室环境、常规对话距离</span>
+</div>
+</div>
+<div class="flex items-baseline gap-0.5 shrink-0 pl-space-xs">
+<span class="font-title-md text-title-md text-primary font-bold">60</span>
+<span class="font-label-sm text-label-sm text-outline">dB</span>
+</div>
+</div>
+<!-- 80 dB -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined text-[20px]">traffic</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-medium truncate">闹市交通 · 长期嘈杂</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">主干道车流、吸尘器工作音</span>
+</div>
+</div>
+<div class="flex items-baseline gap-0.5 shrink-0 pl-space-xs">
+<span class="font-title-md text-title-md text-tertiary font-bold">80</span>
+<span class="font-label-sm text-label-sm text-outline">dB</span>
+</div>
+</div>
+<!-- 100+ dB -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-error-container/30 transition-colors hover:bg-error-container/40">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-on-surface font-medium truncate">工业噪音 · 听力受损警示</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">电锯轰鸣、靠近舞台音箱 (&gt;15分钟需防护)</span>
+</div>
+</div>
+<div class="flex items-baseline gap-0.5 shrink-0 pl-space-xs">
+<span class="font-title-md text-title-md text-error font-bold">100+</span>
+<span class="font-label-sm text-label-sm text-outline">dB</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 模拟测试与离线硬件管道保障声明 -->
+<section class="rounded-xl bg-surface-container p-space-md flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">tune</span>
+<span class="font-title-sm text-title-sm font-medium">硬件校准与传感器沙盒</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">采样率: 44.1kHz</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      无权限状态下仍可测试 UI 频响动画或查看麦克风偏置修正公式。点击顶部“体验模拟演示”即可唤醒合成环境噪声模拟引擎。
+    </p>
+</section>
+<!-- 底部安全与架构背书 -->
+<div class="pt-space-xs pb-space-sm flex flex-col items-center justify-center text-center space-y-1">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">memory</span>
+<span class="font-label-sm text-label-sm font-medium">基于 AndroidX AudioRecord 端侧低延迟流管道保障</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">零网络通讯权限 · 内存即时计算 · 物理阻断截流</span>
+</div>
+<!-- 模拟系统权限申请弹窗 (微动效) -->
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center px-margin transition-opacity duration-200 opacity-0" id="permissionDialog">
+<div class="w-full max-w-sm rounded-xl bg-surface-container-high p-space-lg shadow-xl flex flex-col space-y-space-md transform scale-95 transition-transform duration-200">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[28px]">mic</span>
+</div>
+<div class="flex flex-col space-y-1">
+<h4 class="font-title-lg text-title-lg text-on-surface font-semibold">允许“环境分贝计”录制音频吗？</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          分贝计需要麦克风权限来计算实时声压级 (RMS)。音频仅在内存中瞬时处理，不会被保存或上传。
+        </p>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<button class="w-full h-10 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-medium" id="grantPermBtn">
+          仅在使用该应用时允许
+        </button>
+<button class="w-full h-10 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg font-medium" id="denyPermBtn">
+          拒绝
+        </button>
+</div>
+</div>
+</div>
+<!-- 白皮书抽屉/弹窗 -->
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center px-margin" id="whitepaperDialog">
+<div class="w-full max-w-sm rounded-xl bg-surface-container-lowest p-space-lg shadow-xl flex flex-col space-y-space-sm max-h-[707px] overflow-y-auto">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[22px]">shield</span>
+<h4 class="font-title-md text-title-md font-semibold text-on-surface">隐私权限透明白皮书</h4>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container" id="closeWhitepaperBtn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-3 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<p><strong>1. 无网络栈声明：</strong>该工具在 Manifest 中移除了 <code>android.permission.INTERNET</code>，从底层操作系统级别剥离网络数据出站能力。</p>
+<p><strong>2. 极简缓冲区：</strong>采用 <code>AudioRecord.read(short[] audioData, int offset, int size)</code>，大小仅为单个缓冲区块 (约 1024 采样点)，计算 RMS 均方根后变量立刻被 GC 回收。</p>
+<p><strong>3. 零落盘：</strong>无任何 <code>FileOutputStream</code> 或临时 WAV/AAC 写入逻辑，本地闪存无残留。</p>
+</div>
+<div class="pt-2">
+<button class="w-full h-10 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-medium" id="confirmWhitepaperBtn">
+          我已充分知悉
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    let isSimulating = false;
+    let simInterval = null;
+
+    const demoToggleBtn = document.getElementById('demoToggleBtn');
+    const dBValue = document.getElementById('dBValue');
+    const liveProgressRing = document.getElementById('liveProgressRing');
+    const centerIcon = document.getElementById('centerIcon');
+    const centerBadge = document.getElementById('centerBadge');
+    const bars = document.querySelectorAll('.waveform-bar');
+
+    const requestPermBtn = document.getElementById('requestPermBtn');
+    const permissionDialog = document.getElementById('permissionDialog');
+    const grantPermBtn = document.getElementById('grantPermBtn');
+    const denyPermBtn = document.getElementById('denyPermBtn');
+
+    const openWhitepaperBtn = document.getElementById('openWhitepaperBtn');
+    const whitepaperDialog = document.getElementById('whitepaperDialog');
+    const closeWhitepaperBtn = document.getElementById('closeWhitepaperBtn');
+    const confirmWhitepaperBtn = document.getElementById('confirmWhitepaperBtn');
+
+    function startSimulation() {
+      isSimulating = true;
+      demoToggleBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      demoToggleBtn.classList.add('bg-primary', 'text-on-primary');
+      demoToggleBtn.querySelector('span:first-child').innerText = 'pause';
+      demoToggleBtn.querySelector('span:last-child').innerText = '退出演示';
+      
+      centerIcon.innerText = 'graphic_eq';
+      centerBadge.classList.add('text-primary');
+
+      simInterval = setInterval(() => {
+        const fakeDB = (42 + Math.random() * 26).toFixed(1);
+        dBValue.innerText = fakeDB;
+        dBValue.classList.remove('text-outline');
+        dBValue.classList.add('text-primary');
+
+        const offset = 320 - (fakeDB / 110) * 320;
+        liveProgressRing.style.strokeDashoffset = Math.max(0, offset);
+
+        bars.forEach((bar) => {
+          const randomH = Math.floor(6 + Math.random() * 24);
+          bar.style.height = randomH + 'px';
+        });
+      }, 160);
+    }
+
+    function stopSimulation() {
+      isSimulating = false;
+      clearInterval(simInterval);
+      demoToggleBtn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+      demoToggleBtn.classList.remove('bg-primary', 'text-on-primary');
+      demoToggleBtn.querySelector('span:first-child').innerText = 'play_circle';
+      demoToggleBtn.querySelector('span:last-child').innerText = '体验模拟演示';
+
+      dBValue.innerText = '--.-';
+      dBValue.classList.add('text-outline');
+      dBValue.classList.remove('text-primary');
+      liveProgressRing.style.strokeDashoffset = '320';
+      centerIcon.innerText = 'mic_off';
+
+      bars.forEach((bar, index) => {
+        const defaultHeights = [24, 40, 56, 32, 48, 20];
+        bar.style.height = defaultHeights[index] + 'px';
+      });
+    }
+
+    demoToggleBtn.addEventListener('click', () => {
+      if (isSimulating) {
+        stopSimulation();
+      } else {
+        startSimulation();
+      }
+    });
+
+    // 模拟权限弹窗显示
+    requestPermBtn.addEventListener('click', () => {
+      permissionDialog.classList.remove('hidden');
+      permissionDialog.classList.add('flex');
+      setTimeout(() => {
+        permissionDialog.classList.remove('opacity-0');
+        permissionDialog.firstElementChild.classList.remove('scale-95');
+        permissionDialog.firstElementChild.classList.add('scale-100');
+      }, 10);
+    });
+
+    function closePermissionDialog() {
+      permissionDialog.classList.add('opacity-0');
+      permissionDialog.firstElementChild.classList.add('scale-95');
+      permissionDialog.firstElementChild.classList.remove('scale-100');
+      setTimeout(() => {
+        permissionDialog.classList.add('hidden');
+        permissionDialog.classList.remove('flex');
+      }, 180);
+    }
+
+    grantPermBtn.addEventListener('click', () => {
+      closePermissionDialog();
+      startSimulation();
+    });
+
+    denyPermBtn.addEventListener('click', closePermissionDialog);
+
+    // 白皮书交互
+    function showWhitepaper() {
+      whitepaperDialog.classList.remove('hidden');
+      whitepaperDialog.classList.add('flex');
+    }
+    function hideWhitepaper() {
+      whitepaperDialog.classList.add('hidden');
+      whitepaperDialog.classList.remove('flex');
+    }
+
+    openWhitepaperBtn.addEventListener('click', showWhitepaper);
+    closeWhitepaperBtn.addEventListener('click', hideWhitepaper);
+    confirmWhitepaperBtn.addEventListener('click', hideWhitepaper);
+  })();
+</script></main></body></html>

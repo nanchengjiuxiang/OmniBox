@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface": "#1c1b22", "surface-container-highest": "#e6e0eb", "surface-container-lowest": "#ffffff", "secondary": "#625b71", "tertiary-fixed": "#ffd9e3", "surface-variant": "#e6e0eb", "on-secondary": "#ffffff", "primary": "#4f378a", "on-secondary-fixed": "#1e192b", "tertiary-container": "#7d5260", "on-primary-fixed": "#22005d", "on-error": "#ffffff", "outline": "#7a7582", "on-error-container": "#93000a", "tertiary-fixed-dim": "#eeb8c8", "surface-container": "#f1ecf7", "inverse-primary": "#cfbcff", "outline-variant": "#cbc4d2", "on-primary-fixed-variant": "#4f378a", "on-background": "#1c1b22", "secondary-fixed": "#e8def9", "on-secondary-container": "#686177", "inverse-surface": "#312f37", "on-primary": "#ffffff", "on-tertiary-fixed-variant": "#633b48", "surface-container-low": "#f7f1fc", "primary-fixed": "#e9ddff", "primary-fixed-dim": "#cfbcff", "on-tertiary-container": "#ffcbda", "secondary-container": "#e8def9", "on-primary-container": "#e0d2ff", "on-secondary-fixed-variant": "#4a4358", "inverse-on-surface": "#f4eff9", "surface": "#fdf8ff", "background": "#fdf8ff", "on-tertiary-fixed": "#31111d", "secondary-fixed-dim": "#ccc2dc", "tertiary": "#633b48", "surface-container-high": "#ece6f1", "surface-tint": "#6750a4", "surface-bright": "#fdf8ff", "primary-container": "#6750a4", "surface-dim": "#ddd8e3", "error-container": "#ffdad6", "error": "#ba1a1a", "on-tertiary": "#ffffff", "on-surface-variant": "#494551" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-desktop": "1.5rem", "margin-tablet": "1.5rem", "space-lg": "1.5rem", "margin": "1rem", "margin-desktop": "2rem", "space-md": "1rem", "space-xl": "2rem", "gutter-tablet": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter": "1rem" }, "fontFamily": { "label-sm": ["Roboto Flex"], "display-lg": ["Roboto Flex"], "title-lg": ["Roboto Flex"], "display-md": ["Roboto Flex"], "headline-lg-mobile": ["Roboto Flex"], "label-md": ["Roboto Flex"], "headline-sm": ["Roboto Flex"], "title-sm": ["Roboto Flex"], "body-sm": ["Roboto Flex"], "title-md": ["Roboto Flex"], "body-md": ["Roboto Flex"], "label-lg": ["Roboto Flex"], "body-lg": ["Roboto Flex"], "headline-md": ["Roboto Flex"], "headline-lg": ["Roboto Flex"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }], "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }], "title-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "0px", "fontWeight": "500" }], "display-md": ["45px", { "lineHeight": "52px", "letterSpacing": "0px", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }], "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0px", "fontWeight": "400" }], "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.4px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "0px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-on-surface/60 min-h-screen flex flex-col justify-end relative select-none antialiased"><div class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-margin pt-safe h-12 text-surface-container-lowest pointer-events-none"><span class="font-label-md text-label-md font-semibold tracking-wide">09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">wifi</span><span class="material-symbols-outlined text-[18px]">signal_cellular_4_bar</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><main class="relative w-full flex flex-col justify-end z-10"><div class="flex flex-col w-full relative">
+<!-- Dimmed Scrim Layer simulating native Android Modal overlay -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-[2px] transition-opacity duration-300 -z-10" id="sheet-scrim"></div>
+<!-- Android 14 Modal BottomSheet Container -->
+<div class="w-full bg-surface-container-high text-on-surface rounded-t-[28px] shadow-2xl flex flex-col max-h-[777px] overflow-hidden transition-transform duration-300">
+<!-- Top Drag Handle & Tactile Anchor -->
+<div class="w-full flex items-center justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing select-none">
+<div class="w-8 h-1 rounded-full bg-outline-variant"></div>
+</div>
+<!-- Header Section -->
+<div class="px-margin pt-2 pb-3 flex items-start justify-between">
+<div class="flex flex-col pr-2">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">二维码生成与导出配置</h2>
+</div>
+<p class="font-body-sm text-body-sm text-secondary flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          本地 ZXing 核心即时渲染 · 毫秒级重绘
+        </p>
+</div>
+<button aria-label="关闭" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-variant/60 active:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Scrollable Content Section -->
+<div class="flex-1 overflow-y-auto px-margin space-y-5 pb-6">
+<!-- Section 1: 容错率等级调优 (Error Correction Level) -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">容错率等级 (ECC Level)</span>
+<span class="font-label-sm text-label-sm text-primary font-medium bg-primary-fixed px-2 py-0.5 rounded-full">高可靠级推荐</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm" id="ecc-options">
+<!-- Level L -->
+<div class="ecc-card cursor-pointer p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between min-h-[82px]">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">L 级 (7%)</span>
+<span class="material-symbols-outlined text-[18px] text-outline opacity-0 check-mark">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary leading-snug mt-1">码点最稀疏，适合超长文本与外链</p>
+</div>
+<!-- Level M -->
+<div class="ecc-card cursor-pointer p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between min-h-[82px]">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">M 级 (15%)</span>
+<span class="material-symbols-outlined text-[18px] text-outline opacity-0 check-mark">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary leading-snug mt-1">标准平衡，普通扫码日常通用</p>
+</div>
+<!-- Level Q -->
+<div class="ecc-card cursor-pointer p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between min-h-[82px]">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">Q 级 (25%)</span>
+<span class="material-symbols-outlined text-[18px] text-outline opacity-0 check-mark">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary leading-snug mt-1">工业级冗余，抵御轻微磨损折痕</p>
+</div>
+<!-- Level H (Selected by Default) -->
+<div class="ecc-card cursor-pointer p-3 rounded-xl bg-primary-fixed text-on-primary-fixed shadow-sm transition-all flex flex-col justify-between min-h-[82px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="font-title-sm text-title-sm font-bold text-on-primary-fixed">H 级 (30%)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary check-mark" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-fixed-variant leading-snug mt-1">极高冗余，支持嵌入居中微标 (推荐)</p>
+</div>
+</div>
+<!-- M3 Assist Tip Banner -->
+<div class="flex items-start gap-space-xs p-3 rounded-xl bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+            提示：启用中心 Logo 图标后，系统建议锁定至 <strong class="text-on-surface font-semibold">H 级 (30%)</strong>，避免关键寻象图形受遮挡导致识读减速。
+          </p>
+</div>
+</section>
+<!-- Section 2: 码点与码眼外观微调 (Matrix Dot & Eye Shape) -->
+<section class="space-y-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">码眼与点阵轮廓</span>
+<div class="bg-surface-container-low p-3.5 rounded-2xl space-y-3.5">
+<!-- 码眼形状 (Corner Eyes) -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-secondary">寻象码眼外框 (Finder Patterns)</span>
+<span class="font-label-sm text-label-sm text-primary font-medium" id="eye-shape-label">圆角矩形</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm" id="eye-shape-group">
+<!-- Square -->
+<button class="eye-shape-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container hover:bg-surface-variant transition-colors group" type="button">
+<div class="w-8 h-8 rounded bg-on-surface-variant/20 flex items-center justify-center mb-1">
+<div class="w-4 h-4 bg-on-surface-variant group-hover:scale-95 transition-transform"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">经典直角</span>
+</button>
+<!-- Rounded (Selected) -->
+<button class="eye-shape-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-secondary-container text-on-secondary-container transition-colors group" type="button">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center mb-1">
+<div class="w-4 h-4 rounded-md bg-primary group-hover:scale-95 transition-transform"></div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-on-secondary-container">柔和圆角</span>
+</button>
+<!-- Squircle -->
+<button class="eye-shape-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container hover:bg-surface-variant transition-colors group" type="button">
+<div class="w-8 h-8 rounded-full bg-on-surface-variant/20 flex items-center justify-center mb-1">
+<div class="w-4 h-4 rounded-full bg-on-surface-variant group-hover:scale-95 transition-transform"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">液态水滴</span>
+</button>
+</div>
+</div>
+<!-- 数据码点 (Data Pixels) -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-secondary">数据点阵几何 (Data Dot Shape)</span>
+<span class="font-label-sm text-label-sm text-primary font-medium" id="dot-shape-label">圆润点阵</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm" id="dot-shape-group">
+<!-- Pixel Grid -->
+<button class="dot-shape-btn flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container text-on-surface-variant text-center" type="button">
+<div class="grid grid-cols-2 gap-0.5 w-3.5 h-3.5">
+<span class="w-1.5 h-1.5 bg-outline"></span>
+<span class="w-1.5 h-1.5 bg-outline"></span>
+<span class="w-1.5 h-1.5 bg-outline"></span>
+<span class="w-1.5 h-1.5 bg-outline"></span>
+</div>
+<span class="font-label-sm text-label-sm">纯方阵</span>
+</button>
+<!-- Circle Dots (Selected) -->
+<button class="dot-shape-btn flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-semibold text-center" type="button">
+<div class="grid grid-cols-2 gap-0.5 w-3.5 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<span class="font-label-sm text-label-sm">圆润点阵</span>
+</button>
+<!-- Smooth Connected -->
+<button class="dot-shape-btn flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container text-on-surface-variant text-center" type="button">
+<div class="w-3.5 h-3.5 rounded bg-outline"></div>
+<span class="font-label-sm text-label-sm">连续平滑</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: 色彩与透明底色方案 (Color & Transparency) -->
+<section class="space-y-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">色彩与底衬</span>
+<div class="bg-surface-container-low p-3.5 rounded-2xl space-y-3.5">
+<!-- Foreground Color Swatches -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-secondary">前景色 (码点色彩)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono" id="current-hex-label">#4F378A (原生紫)</span>
+</div>
+<div class="flex items-center justify-between gap-2 overflow-x-auto py-1">
+<!-- Preset Colors -->
+<button class="color-swatch-btn relative w-9 h-9 rounded-full bg-primary flex items-center justify-center shadow-sm" data-color="#4f378a" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-primary">check</span>
+</button>
+<button class="color-swatch-btn relative w-9 h-9 rounded-full bg-[#1c1b22] flex items-center justify-center" data-color="#1c1b22" type="button">
+<span class="material-symbols-outlined text-[16px] text-white hidden">check</span>
+</button>
+<button class="color-swatch-btn relative w-9 h-9 rounded-full bg-[#1a365d] flex items-center justify-center" data-color="#1a365d" type="button">
+<span class="material-symbols-outlined text-[16px] text-white hidden">check</span>
+</button>
+<button class="color-swatch-btn relative w-9 h-9 rounded-full bg-[#1b4d3e] flex items-center justify-center" data-color="#1b4d3e" type="button">
+<span class="material-symbols-outlined text-[16px] text-white hidden">check</span>
+</button>
+<button class="color-swatch-btn relative w-9 h-9 rounded-full bg-[#633b48] flex items-center justify-center" data-color="#633b48" type="button">
+<span class="material-symbols-outlined text-[16px] text-white hidden">check</span>
+</button>
+<!-- Custom Picker Icon -->
+<button class="w-9 h-9 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center hover:bg-surface-variant transition-colors" title="自定义色相" type="button">
+<span class="material-symbols-outlined text-[18px]">colorize</span>
+</button>
+</div>
+</div>
+<!-- Transparency Toggle -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[repeating-conic-gradient(#cbc4d2_0%_25%,#ffffff_0%_50%)] bg-[length:10px_10px] shadow-inner flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-primary">opacity</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-medium text-on-surface">透明背景 (PNG / SVG 镂空)</p>
+<p class="font-body-sm text-body-sm text-secondary">导出无底色文件，适于排版嵌入海报</p>
+</div>
+</div>
+<!-- Material 3 Switch Component -->
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input class="sr-only peer" id="transparent-bg-switch" type="checkbox"/>
+<div class="w-13 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:scale-110 peer-checked:bg-primary after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-outline peer-checked:after:bg-on-primary after:rounded-full after:h-6 after:w-6 after:transition-all"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 4: 中心 Logo 微标嵌入 (Center Logo Customization) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">中心徽标 (Brand Logo)</span>
+<span class="font-label-sm text-label-sm text-secondary">推荐尺寸 ≤ 22% 宽度</span>
+</div>
+<div class="bg-surface-container-low p-3.5 rounded-2xl space-y-3.5">
+<!-- Logo Selection Buttons -->
+<div class="grid grid-cols-3 gap-space-sm" id="logo-options">
+<button class="logo-mode-btn p-2.5 rounded-xl bg-surface-container text-on-surface-variant flex flex-col items-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">block</span>
+<span class="font-label-sm text-label-sm font-medium">无徽标</span>
+</button>
+<button class="logo-mode-btn p-2.5 rounded-xl bg-secondary-container text-on-secondary-container flex flex-col items-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">token</span>
+<span class="font-label-sm text-label-sm font-semibold">工具箱徽标</span>
+</button>
+<button class="logo-mode-btn p-2.5 rounded-xl bg-surface-container text-on-surface-variant flex flex-col items-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add_photo_alternate</span>
+<span class="font-label-sm text-label-sm font-medium">相册自选</span>
+</button>
+</div>
+<!-- Logo Padding Slider -->
+<div class="space-y-1.5 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary">徽标保护留白外圈 (Logo Margin)</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold" id="logo-padding-val">8 dp</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="logo-padding-slider" max="16" min="0" step="2" type="range" value="8"/>
+</div>
+</div>
+</section>
+<!-- Section 5: 导出规格与静区留白 (Export Size & Quiet Zone) -->
+<section class="space-y-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">导出尺寸与安全静区</span>
+<div class="bg-surface-container-low p-3.5 rounded-2xl space-y-3.5">
+<!-- Resolution Preset Chips -->
+<div>
+<span class="font-label-md text-label-md text-secondary block mb-2">画布导出像素 (Canvas Export Size)</span>
+<div class="grid grid-cols-4 gap-2" id="size-options">
+<button class="size-chip-btn py-2 rounded-xl bg-surface-container text-on-surface-variant font-label-sm text-label-sm text-center" type="button">
+                512px
+              </button>
+<button class="size-chip-btn py-2 rounded-xl bg-primary text-on-primary font-label-sm text-label-sm font-semibold text-center shadow-sm" type="button">
+                1024px
+              </button>
+<button class="size-chip-btn py-2 rounded-xl bg-surface-container text-on-surface-variant font-label-sm text-label-sm text-center" type="button">
+                2048px (4K)
+              </button>
+<button class="size-chip-btn py-2 rounded-xl bg-surface-container text-on-surface-variant font-label-sm text-label-sm text-center" type="button">
+                SVG矢量
+              </button>
+</div>
+</div>
+<!-- Quiet Zone Segment -->
+<div class="pt-1">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-secondary">周围静区留白宽度 (Quiet Zone)</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium" id="quiet-zone-desc">2 模块 (日常推荐)</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm" id="quiet-zone-group">
+<button class="qz-btn py-2 rounded-xl bg-surface-container text-on-surface-variant font-label-sm text-label-sm text-center" type="button">
+                0x (贴边紧凑)
+              </button>
+<button class="qz-btn py-2 rounded-xl bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold text-center" type="button">
+                2x (推荐标准)
+              </button>
+<button class="qz-btn py-2 rounded-xl bg-surface-container text-on-surface-variant font-label-sm text-label-sm text-center" type="button">
+                4x (ISO规范)
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Mini Live Preview Floating Pill -->
+<div class="p-3 bg-surface-container-lowest rounded-2xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container p-1 flex items-center justify-center relative overflow-hidden" id="mini-preview-box">
+<!-- Simulated QR Visual Icon -->
+<span class="material-symbols-outlined text-[36px] text-primary" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+<div class="absolute w-3.5 h-3.5 rounded-full bg-secondary-container flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[9px] text-primary">token</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">当前输出规格预估</span>
+<span class="inline-block px-1.5 py-0.2 rounded text-[10px] bg-secondary-fixed text-on-secondary-fixed font-mono">1024px PNG</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">ECC: H (30%) · 圆角码眼 · 徽标含白边</p>
+</div>
+</div>
+<button class="h-8 px-2.5 rounded-full bg-surface-container hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          全屏预览
+        </button>
+</div>
+</div>
+<!-- Sticky Bottom Modal Action Bar -->
+<div class="px-margin py-3.5 bg-surface-container-high border-t-0 shadow-lg flex items-center gap-space-sm pb-safe">
+<!-- Reset Outlined Button -->
+<button class="h-10 px-4 rounded-full bg-surface-container-highest hover:bg-surface-variant active:scale-98 text-on-surface-variant font-label-lg text-label-lg font-medium transition-all flex items-center justify-center gap-1" id="btn-reset" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+        恢复默认
+      </button>
+<!-- Apply & Re-render Filled Primary Button -->
+<button class="flex-1 h-10 px-5 rounded-full bg-primary hover:bg-primary/90 active:scale-98 text-on-primary font-label-lg text-label-lg font-semibold shadow-sm transition-all flex items-center justify-center gap-1.5" id="btn-apply" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+        应用并即时渲染
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Interactive UI State Handler
+  (function initBottomSheetControls() {
+    // 1. ECC Cards selection
+    const eccCards = document.querySelectorAll('.ecc-card');
+    eccCards.forEach(card => {
+      card.addEventListener('click', () => {
+        eccCards.forEach(c => {
+          c.classList.remove('bg-primary-fixed', 'text-on-primary-fixed', 'shadow-sm');
+          c.classList.add('bg-surface-container-low');
+          const title = c.querySelector('span');
+          if (title) title.classList.remove('text-on-primary-fixed');
+          const check = c.querySelector('.check-mark');
+          if (check) {
+            check.classList.add('opacity-0');
+            check.classList.remove('text-primary');
+          }
+        });
+        card.classList.remove('bg-surface-container-low');
+        card.classList.add('bg-primary-fixed', 'text-on-primary-fixed', 'shadow-sm');
+        const title = card.querySelector('span');
+        if (title) title.classList.add('text-on-primary-fixed');
+        const check = card.querySelector('.check-mark');
+        if (check) {
+          check.classList.remove('opacity-0');
+          check.classList.add('text-primary');
+        }
+      });
+    });
+
+    // 2. Corner Eye Shape selection
+    const eyeBtns = document.querySelectorAll('.eye-shape-btn');
+    const eyeLabel = document.getElementById('eye-shape-label');
+    eyeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        eyeBtns.forEach(b => {
+          b.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        const text = btn.querySelector('span').innerText;
+        if (eyeLabel) eyeLabel.innerText = text;
+      });
+    });
+
+    // 3. Dot Pixels Shape selection
+    const dotBtns = document.querySelectorAll('.dot-shape-btn');
+    const dotLabel = document.getElementById('dot-shape-label');
+    dotBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        dotBtns.forEach(b => {
+          b.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-semibold');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-semibold');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        const text = btn.querySelector('span').innerText;
+        if (dotLabel) dotLabel.innerText = text;
+      });
+    });
+
+    // 4. Color Swatches selection
+    const swatches = document.querySelectorAll('.color-swatch-btn');
+    const hexLabel = document.getElementById('current-hex-label');
+    swatches.forEach(btn => {
+      btn.addEventListener('click', () => {
+        swatches.forEach(s => {
+          const chk = s.querySelector('.material-symbols-outlined');
+          if (chk) chk.classList.add('hidden');
+        });
+        const activeChk = btn.querySelector('.material-symbols-outlined');
+        if (activeChk) activeChk.classList.remove('hidden');
+        const color = btn.dataset.color || '#4f378a';
+        if (hexLabel) hexLabel.innerText = color.toUpperCase();
+      });
+    });
+
+    // 5. Logo Padding Slider Live Text
+    const slider = document.getElementById('logo-padding-slider');
+    const padVal = document.getElementById('logo-padding-val');
+    if (slider && padVal) {
+      slider.addEventListener('input', (e) => {
+        padVal.innerText = `${e.target.value} dp`;
+      });
+    }
+
+    // 6. Size options selection
+    const sizeBtns = document.querySelectorAll('.size-chip-btn');
+    sizeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeBtns.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'font-semibold');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'font-semibold');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      });
+    });
+
+    // 7. Quiet Zone options
+    const qzBtns = document.querySelectorAll('.qz-btn');
+    const qzDesc = document.getElementById('quiet-zone-desc');
+    const qzTexts = ['0 模块 (无留白)', '2 模块 (日常推荐)', '4 模块 (ISO规范)'];
+    qzBtns.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        qzBtns.forEach(b => {
+          b.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-semibold');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-semibold');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        if (qzDesc && qzTexts[idx]) qzDesc.innerText = qzTexts[idx];
+      });
+    });
+
+    // 8. Haptic feedback trigger on Apply
+    const applyBtn = document.getElementById('btn-apply');
+    if (applyBtn) {
+      applyBtn.addEventListener('click', () => {
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate([15, 30, 20]);
+        }
+        applyBtn.classList.add('scale-95');
+        setTimeout(() => applyBtn.classList.remove('scale-95'), 150);
+      });
+    }
+  })();
+</script></main><div class="fixed bottom-0 inset-x-0 z-50 flex items-center justify-center pb-safe h-6 pointer-events-none"><div class="w-28 h-1 rounded-full bg-on-surface/40 my-1"></div></div></body></html>

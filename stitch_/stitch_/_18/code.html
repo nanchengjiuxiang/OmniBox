@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">转盘决策编辑</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- Top Navigation & Action Banner (Inner App Context) -->
+<div class="px-margin pt-space-sm pb-space-md flex items-center justify-between bg-surface">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">转盘决策编辑</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">当前轮盘：今天吃什么</span>
+</div>
+</div>
+<button class="h-10 px-space-md bg-primary hover:bg-primary-container text-on-primary rounded-full font-label-lg text-label-lg flex items-center gap-1 shadow-sm active:scale-95 transition-all" id="save-btn">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>完成并生效</span>
+</button>
+</div>
+<!-- Presets Horizontal Carousel -->
+<section class="mt-space-xs mb-space-md">
+<div class="px-margin flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">快捷场景模板</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-0.5 cursor-pointer">
+        更多模板
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+<div class="flex gap-space-sm overflow-x-auto px-margin py-1 no-scrollbar items-center">
+<button class="flex-shrink-0 h-9 px-space-md rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+        今天吃什么
+      </button>
+<button class="flex-shrink-0 h-9 px-space-md rounded-full bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">explore</span>
+        周末去哪玩
+      </button>
+<button class="flex-shrink-0 h-9 px-space-md rounded-full bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">psychology_alt</span>
+        真心话大冒险
+      </button>
+<button class="flex-shrink-0 h-9 px-space-md rounded-full bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">assignment_ind</span>
+        任务谁来做
+      </button>
+<button class="flex-shrink-0 h-9 px-space-md rounded-full bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">casino</span>
+        聚会掷骰
+      </button>
+</div>
+</section>
+<!-- Interactive Wheel Mini Preview Bento Card -->
+<section class="px-margin mb-space-md">
+<div class="bg-surface-container-low rounded-2xl p-space-md flex items-center gap-space-md relative overflow-hidden shadow-sm">
+<div class="relative w-24 h-24 flex-shrink-0 flex items-center justify-center">
+<!-- SVG Radial Ring Preview -->
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#e6e0eb" stroke-width="12"></circle>
+<!-- Option 1: 25% Coral Red -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#f43f5e" stroke-dasharray="62.8 251.2" stroke-dashoffset="0" stroke-width="12"></circle>
+<!-- Option 2: 20% Sky Blue -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#0ea5e9" stroke-dasharray="50.2 251.2" stroke-dashoffset="-62.8" stroke-width="12"></circle>
+<!-- Option 3: 15% Leaf Green -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#10b981" stroke-dasharray="37.7 251.2" stroke-dashoffset="-113" stroke-width="12"></circle>
+<!-- Option 4: 20% Amber Gold -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#f59e0b" stroke-dasharray="50.2 251.2" stroke-dashoffset="-150.7" stroke-width="12"></circle>
+<!-- Option 5: 20% Amethyst Purple -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#8b5cf6" stroke-dasharray="50.3 251.2" stroke-dashoffset="-200.9" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">pie_chart</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface" id="total-weight-display">100%</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">权重配置总览</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">5 项候选</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">扇区占比按权重自动换算，当前权重比例已完美闭合 (100%)。</p>
+<div class="flex items-center gap-2 mt-2">
+<button class="h-7 px-space-sm rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" id="equalize-weights">
+<span class="material-symbols-outlined text-[14px]">equalizer</span>
+            均分所有权重
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Candidates Options List -->
+<section class="px-margin flex flex-col gap-space-sm mb-space-md" id="candidates-container">
+<div class="flex items-center justify-between px-1">
+<span class="font-title-md text-title-md text-on-surface font-semibold">候选选项列表 (5)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">长按把手支持重排序</span>
+</div>
+<!-- Candidate Item 1 -->
+<div class="candidate-row bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-xs transition-shadow active:bg-surface-container-high" data-id="1">
+<div class="flex items-center gap-space-sm">
+<div class="cursor-grab text-outline flex items-center justify-center p-1 active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-rose-500 flex-shrink-0 shadow-sm flex items-center justify-center active:scale-90 transition-transform" title="切换色块">
+<span class="material-symbols-outlined text-white text-[14px]">palette</span>
+</button>
+<input class="flex-1 min-w-0 bg-transparent font-title-sm text-title-sm text-on-surface focus:outline-none" type="text" value="火锅">
+<span class="font-label-lg text-label-lg font-semibold text-primary weight-val w-12 text-right">25%</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/40 transition-colors delete-btn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pl-9 pr-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8">权重</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer weight-slider" max="100" min="1" type="range" value="25">
+</div>
+</div>
+<!-- Candidate Item 2 -->
+<div class="candidate-row bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-xs transition-shadow active:bg-surface-container-high" data-id="2">
+<div class="flex items-center gap-space-sm">
+<div class="cursor-grab text-outline flex items-center justify-center p-1 active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-sky-500 flex-shrink-0 shadow-sm flex items-center justify-center active:scale-90 transition-transform" title="切换色块">
+<span class="material-symbols-outlined text-white text-[14px]">palette</span>
+</button>
+<input class="flex-1 min-w-0 bg-transparent font-title-sm text-title-sm text-on-surface focus:outline-none" type="text" value="日料寿司">
+<span class="font-label-lg text-label-lg font-semibold text-primary weight-val w-12 text-right">20%</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/40 transition-colors delete-btn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pl-9 pr-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8">权重</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer weight-slider" max="100" min="1" type="range" value="20">
+</div>
+</div>
+<!-- Candidate Item 3 -->
+<div class="candidate-row bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-xs transition-shadow active:bg-surface-container-high" data-id="3">
+<div class="flex items-center gap-space-sm">
+<div class="cursor-grab text-outline flex items-center justify-center p-1 active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 shadow-sm flex items-center justify-center active:scale-90 transition-transform" title="切换色块">
+<span class="material-symbols-outlined text-white text-[14px]">palette</span>
+</button>
+<input class="flex-1 min-w-0 bg-transparent font-title-sm text-title-sm text-on-surface focus:outline-none" type="text" value="轻食沙拉">
+<span class="font-label-lg text-label-lg font-semibold text-primary weight-val w-12 text-right">15%</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/40 transition-colors delete-btn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pl-9 pr-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8">权重</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer weight-slider" max="100" min="1" type="range" value="15">
+</div>
+</div>
+<!-- Candidate Item 4 -->
+<div class="candidate-row bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-xs transition-shadow active:bg-surface-container-high" data-id="4">
+<div class="flex items-center gap-space-sm">
+<div class="cursor-grab text-outline flex items-center justify-center p-1 active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-amber-500 flex-shrink-0 shadow-sm flex items-center justify-center active:scale-90 transition-transform" title="切换色块">
+<span class="material-symbols-outlined text-white text-[14px]">palette</span>
+</button>
+<input class="flex-1 min-w-0 bg-transparent font-title-sm text-title-sm text-on-surface focus:outline-none" type="text" value="黄焖鸡米饭">
+<span class="font-label-lg text-label-lg font-semibold text-primary weight-val w-12 text-right">20%</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/40 transition-colors delete-btn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pl-9 pr-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8">权重</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer weight-slider" max="100" min="1" type="range" value="20">
+</div>
+</div>
+<!-- Candidate Item 5 -->
+<div class="candidate-row bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-xs transition-shadow active:bg-surface-container-high" data-id="5">
+<div class="flex items-center gap-space-sm">
+<div class="cursor-grab text-outline flex items-center justify-center p-1 active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-violet-500 flex-shrink-0 shadow-sm flex items-center justify-center active:scale-90 transition-transform" title="切换色块">
+<span class="material-symbols-outlined text-white text-[14px]">palette</span>
+</button>
+<input class="flex-1 min-w-0 bg-transparent font-title-sm text-title-sm text-on-surface focus:outline-none" type="text" value="回家自己做">
+<span class="font-label-lg text-label-lg font-semibold text-primary weight-val w-12 text-right">20%</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/40 transition-colors delete-btn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pl-9 pr-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8">权重</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer weight-slider" max="100" min="1" type="range" value="20">
+</div>
+</div>
+</section>
+<!-- Add New Candidate Action -->
+<section class="px-margin mb-space-lg">
+<button class="w-full h-14 rounded-2xl bg-surface-container-low hover:bg-surface-container text-primary font-title-sm text-title-sm flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-sm" id="add-candidate-btn">
+<span class="material-symbols-outlined text-[22px]">add_circle</span>
+<span>添加新候选选项</span>
+</button>
+</section>
+<!-- Feedback & Physics Engine Settings -->
+<section class="px-margin flex flex-col gap-space-sm">
+<span class="font-title-md text-title-md text-on-surface font-semibold px-1">交互反馈与算法偏好</span>
+<!-- Feedback Card -->
+<div class="bg-surface-container-low rounded-2xl p-space-md flex flex-col gap-space-md">
+<!-- Haptic Switch & Slider -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">vibration</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">阻尼触觉震动</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">拟真拨针撞击触感 (Haptic)</span>
+</div>
+</div>
+<button class="w-13 h-8 px-1 rounded-full bg-primary flex items-center transition-colors" id="haptic-toggle">
+<span class="w-6 h-6 rounded-full bg-on-primary translate-x-5 shadow-sm transform transition-transform"></span>
+</button>
+</div>
+<div class="flex items-center gap-space-md pt-1 pl-12 pr-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-14">震动强度</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" max="3" min="1" type="range" value="2">
+<span class="font-label-sm text-label-sm text-primary font-medium">中等</span>
+</div>
+</div>
+<div class="w-full h-px bg-surface-container-highest/60 my-0.5"></div>
+<!-- Anti-Repetition Algorithm Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">shuffle_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">防刷去重冷却</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">避免连续命中（最近 3 次结果排他）</span>
+</div>
+</div>
+<button class="w-13 h-8 px-1 rounded-full bg-primary flex items-center transition-colors" id="cooloff-toggle">
+<span class="w-6 h-6 rounded-full bg-on-primary translate-x-5 shadow-sm transform transition-transform"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Micro-Interactions Script -->
+<script>
+    (function() {
+      // Weight sliders reaction
+      function updateWeights() {
+        const rows = document.querySelectorAll('.candidate-row');
+        let total = 0;
+        rows.forEach(r => {
+          const slider = r.querySelector('.weight-slider');
+          const valDisplay = r.querySelector('.weight-val');
+          if (slider && valDisplay) {
+            valDisplay.textContent = slider.value + '%';
+            total += parseInt(slider.value, 10);
+          }
+        });
+        const totalDisplay = document.getElementById('total-weight-display');
+        if (totalDisplay) totalDisplay.textContent = total + '%';
+      }
+
+      document.addEventListener('input', (e) => {
+        if (e.target && e.target.classList.contains('weight-slider')) {
+          updateWeights();
+        }
+      });
+
+      // Equalize weights
+      const equalizeBtn = document.getElementById('equalize-weights');
+      if (equalizeBtn) {
+        equalizeBtn.addEventListener('click', () => {
+          const rows = document.querySelectorAll('.candidate-row');
+          if (!rows.length) return;
+          const avg = Math.floor(100 / rows.length);
+          rows.forEach((r, idx) => {
+            const slider = r.querySelector('.weight-slider');
+            if (slider) slider.value = idx === 0 ? (100 - avg * (rows.length - 1)) : avg;
+          });
+          updateWeights();
+        });
+      }
+
+      // Delete candidate item
+      document.addEventListener('click', (e) => {
+        const delBtn = e.target.closest('.delete-btn');
+        if (delBtn) {
+          const row = delBtn.closest('.candidate-row');
+          if (row) {
+            row.style.transform = 'scale(0.95)';
+            row.style.opacity = '0';
+            row.style.transition = 'all 0.2s ease-out';
+            setTimeout(() => {
+              row.remove();
+              updateWeights();
+            }, 200);
+          }
+        }
+      });
+
+      // Toggle Switch micro-states
+      function setupToggle(toggleId) {
+        const btn = document.getElementById(toggleId);
+        if (!btn) return;
+        let active = true;
+        btn.addEventListener('click', () => {
+          active = !active;
+          const thumb = btn.querySelector('span');
+          if (active) {
+            btn.className = 'w-13 h-8 px-1 rounded-full bg-primary flex items-center transition-colors';
+            thumb.className = 'w-6 h-6 rounded-full bg-on-primary translate-x-5 shadow-sm transform transition-transform';
+          } else {
+            btn.className = 'w-13 h-8 px-1 rounded-full bg-surface-container-highest flex items-center transition-colors';
+            thumb.className = 'w-6 h-6 rounded-full bg-outline translate-x-0 shadow-sm transform transition-transform';
+          }
+        });
+      }
+      setupToggle('haptic-toggle');
+      setupToggle('cooloff-toggle');
+
+      // Add Candidate dynamically
+      const addBtn = document.getElementById('add-candidate-btn');
+      if (addBtn) {
+        const colors = ['bg-pink-500', 'bg-cyan-500', 'bg-lime-500', 'bg-orange-500', 'bg-indigo-500'];
+        addBtn.addEventListener('click', () => {
+          const container = document.getElementById('candidates-container');
+          const count = container.querySelectorAll('.candidate-row').length + 1;
+          const colorClass = colors[count % colors.length];
+          const newRow = document.createElement('div');
+          newRow.className = 'candidate-row bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-xs transition-shadow active:bg-surface-container-high';
+          newRow.innerHTML = `
+            <div class="flex items-center gap-space-sm">
+              <div class="cursor-grab text-outline flex items-center justify-center p-1 active:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+              </div>
+              <button class="w-7 h-7 rounded-full ${colorClass} flex-shrink-0 shadow-sm flex items-center justify-center active:scale-90 transition-transform">
+                <span class="material-symbols-outlined text-white text-[14px]">palette</span>
+              </button>
+              <input type="text" value="新候选项 ${count}" class="flex-1 min-w-0 bg-transparent font-title-sm text-title-sm text-on-surface focus:outline-none" />
+              <span class="font-label-lg text-label-lg font-semibold text-primary weight-val w-12 text-right">10%</span>
+              <button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-error hover:bg-error-container/40 transition-colors delete-btn">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+              </button>
+            </div>
+            <div class="flex items-center gap-space-sm pl-9 pr-1">
+              <span class="font-label-sm text-label-sm text-on-surface-variant w-8">权重</span>
+              <input type="range" min="1" max="100" value="10" class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer weight-slider" />
+            </div>
+          `;
+          container.appendChild(newRow);
+          updateWeights();
+        });
+      }
+
+      // Save confirmation micro-bounce
+      const saveBtn = document.getElementById('save-btn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span><span>已生效</span>';
+          saveBtn.classList.replace('bg-primary', 'bg-tertiary-container');
+          setTimeout(() => {
+            saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>完成并生效</span>';
+            saveBtn.classList.replace('bg-tertiary-container', 'bg-primary');
+          }, 1500);
+        });
+      }
+    })();
+  </script>
+</div></main>
+
+</body></html>

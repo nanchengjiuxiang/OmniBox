@@ -1,0 +1,785 @@
+
+================ _4/code.html ================
+09:41
+[@icon:wifi][@icon:signal_cellular_4_bar][@icon:battery_full]
+[@icon:arrow_back]
+Scan Recognize
+本地
+[@icon:offline_bolt]纯本地解析 · 零网络请求
+[@icon:history]
+[@icon:settings]
+[@icon:person]
+[@icon:qr_code_scanner]扫码识别
+[@icon:qr_code_2]离线生成
+[@icon:qr_code_scanner]
+扫码识别 (CameraX)
+[@icon:qr_code_2]
+本地生成 (ZXing)
+CameraX 60fps · ML Kit 纯离线解码
+[@icon:flip_camera_android]
+对准二维码或条形码自动识读
+[@icon:flashlight_on]
+补光灯
+1x
+2x
+5x
+[@icon:photo_library]
+相册
+[@icon:task_alt]
+最近识读成功
+Room 数据库已持久化
+刚刚 09:41
+URL 链接
+[@icon:verified_user]本地离线安全
+格式: QR_CODE (UTF-8)
+https://github.com/android/nowinandroid
+[@icon:content_copy]
+复制内容
+[@icon:open_in_browser]
+打开
+[@icon:share]
+[@icon:filter_none]
+高效连扫
+批量快速扫描
+连续识别无需停留，一键导出 CSV
+[@icon:manage_history]
+Room DB
+本地历史记录
+共 38 条 · 支持分类搜索与回溯
+离线支持格式引擎
+13 种常见格式
+QR Code
+Data Matrix
+Code 128
+EAN-13
+Code 39
+Aztec
+PDF417
+[@icon:verified]
+严格端侧隐私与沙盒保护
+遵循零网络权限规范。CameraX 帧缓冲区仅在应用内存即时进行灰度解析与边界提取，绝不保存图像快照，不产生任何后台网络上传。
+[@icon:check_circle]
+已复制到剪贴板
+[@icon:tune]
+扫码与相机偏好
+CameraX 硬件与端侧解码引擎定制
+[@icon:close]
+体验与反馈
+连续扫码模式
+识别后不停留在当前页，立即就绪下一次扫码
+触觉震动反馈
+识读成功时触发系统短震提示 (Haptic)
+扫码提示音
+播放 Material 专属清脆识别音效
+安全性与自动化
+自动复制内容至剪贴板
+识别完毕立即同步至系统剪贴板
+打开链接前防钓鱼安全确认
+外部链接跳出前拦截并校验协议风险
+Room 数据库历史留存
+30 天
+永久保存
+无痕 (不存)
+恢复默认
+保存并应用
+本地识读历史
+38 条记录
+[@icon:verified_user]纯本地 Room 数据库沙盒存储 · 绝不出设备
+[@icon:delete_outline]
+[@icon:close]
+全部
+(38)
+网址链接
+(24)
+Wi-Fi 网络
+(6)
+条码与文本
+(8)
+URL 链接
+[@icon:check_circle]安全通过
+刚刚 09:41
+https://github.com/android/nowinandroid
+[@icon:qr_code_2]QR_CODE · UTF-8
+[@icon:content_copy]复制
+[@icon:open_in_new]打开
+Wi-Fi 配置
+WPA2-PSK
+28 分钟前
+WIFI:S:OmniBox_5G;T:WPA;P:pass1234;;
+[@icon:wifi]SSID: OmniBox_5G
+[@icon:key]复制密码
+[@icon:wifi_tethering]快速连接
+商品条码
+EAN-13
+2 小时前
+6901234567890
+[@icon:barcode]中国商品条码中心标准
+[@icon:content_copy]复制条码
+[@icon:search]商品查询
+[@icon:download]
+导出历史记录 (CSV)
+[@icon:delete_sweep]
+一键清空
+
+================ _5/code.html ================
+09:41
+[@icon:wifi][@icon:signal_cellular_4_bar][@icon:battery_full]
+[@icon:arrow_back]
+Scan Recognize
+本地
+[@icon:offline_bolt]纯本地解析 · 零网络请求
+[@icon:history]
+[@icon:settings]
+[@icon:person]
+[@icon:qr_code_scanner]扫码识别
+[@icon:qr_code_2]离线生成
+[@icon:no_photography]
+[@icon:verified_user]
+需要相机访问权限
+启动取景器实时扫码需获取相机调用许可。若暂时不便授权，您仍可通过本地相册解析或创建专属条码。
+[@icon:lock]
+端侧内存即时计算
+零云端上传
+取景画面仅在本地只读缓冲区进行毫秒级条码矩阵提取，绝不拍照录像、绝不保存或上传图像数据。
+[@icon:videocam]
+授予相机权限并启动扫描
+[@icon:settings]
+已被永久拒绝？前往系统设置开启
+无相机使用方案
+无需任何相机权限
+[@icon:photo_library]
+从相册选取二维码图片
+PhotoPicker
+调取系统安全隔离图片选择器，无需存储读取权限
+[@icon:chevron_right]
+[@icon:qr_code_2]
+切换到离线生成模式
+ZXing Core
+离线将文本、网址、Wi-Fi或名片快速编码为高质量二维码
+[@icon:arrow_forward]
+[@icon:health_and_safety]
+离线工具箱隐私沙盒保证
+本应用在系统清单中未申请
+INTERNET
+联网权限，硬件上杜绝外泄风险。
+[@icon:check_circle]
+已发送权限请求指令...
+
+================ zxing/code.html ================
+09:41
+[@icon:wifi][@icon:signal_cellular_4_bar][@icon:battery_full]
+[@icon:arrow_back]
+Scan Recognize
+本地
+[@icon:offline_bolt]纯本地解析 · 零网络请求
+[@icon:history]
+[@icon:settings]
+[@icon:person]
+[@icon:qr_code_scanner]扫码识别
+[@icon:qr_code_2]离线生成
+[@icon:security]
+本地 ZXing 引擎运行中 · 内存级沙盒处理
+100% 离线
+实时渲染画布
+矢量无损 (SVG)
+1024×1024 px
+[@icon:verified]
+Level H (30%)
+UTF-8
+[@icon:memory]
+ZXing 3.5.3
+[@icon:download]
+保存到系统相册 (PNG)
+[@icon:draw]
+SVG 导出
+[@icon:share]
+系统分享
+[@icon:content_copy]
+复制位图
+[@icon:edit_note]
+编码内容
+[@icon:auto_fix_high]
+预设示例
+[@icon:link]
+网址链接 (URL)
+[@icon:article]
+普通文本
+[@icon:wifi]
+WiFi 密码
+[@icon:badge]
+个人名片
+[@icon:mail]
+电子邮件
+[@icon:public]
+https://github.com/android/nowinandroid
+[@icon:content_paste]
+粘贴剪贴板
+38 / 1000 字符
+[@icon:palette]
+外观与容错调优
+ZXing 引擎实时映射
+容错率等级 (Error Correction)
+推荐嵌 Logo: H (30%)
+L 级
+7% 容错
+M 级
+15% 容错
+Q 级
+25% 容错
+H 级
+30% 极高
+颜色配比 (前景色 / 码点)
+[@icon:check]
+[@icon:colorize]
+背景底色透明化 (PNG/SVG 适用)
+码眼轮廓形态
+[@icon:crop_square]
+经典直角
+[@icon:rounded_corner]
+柔和圆角
+[@icon:bubble_chart]
+液态微点
+中心嵌入图标 (Center Logo)
+已启用工具箱 Logo
+[@icon:block]
+无图标
+[@icon:widgets]
+预置徽标
+[@icon:add_photo_alternate]
+相册自选
+边缘安全留白 (Quiet Zone)
+2x 模块宽度
+0x (紧凑)
+2x (标准)
+4x (ISO规范)
+导出格式与分辨率
+PNG
+[@icon:check_circle]
+最通用的光栅位图，印刷清晰
+WEBP
+[@icon:radio_button_unchecked]
+高压缩率，适合移动设备分享
+SVG
+[@icon:radio_button_unchecked]
+矢量无限放大，UI 设计师最爱
+[@icon:shield]
+纯本地 ZXing 内核保障
+所有字符矩阵运算与位图栅格化均在设备 CPU 内完成。不会产生任何网络调用，保护您的凭据、个人名片与 WiFi 口令完全私密。
+
+================ _11/code.html ================
+09:41
+[@icon:wifi][@icon:signal_cellular_4_bar][@icon:battery_full]
+[@icon:tune]
+二维码生成与导出配置
+本地 ZXing 核心即时渲染 · 毫秒级重绘
+[@icon:close]
+容错率等级 (ECC Level)
+高可靠级推荐
+L 级 (7%)
+[@icon:check_circle]
+码点最稀疏，适合超长文本与外链
+M 级 (15%)
+[@icon:check_circle]
+标准平衡，普通扫码日常通用
+Q 级 (25%)
+[@icon:check_circle]
+工业级冗余，抵御轻微磨损折痕
+H 级 (30%)
+[@icon:check_circle]
+极高冗余，支持嵌入居中微标 (推荐)
+[@icon:lightbulb]
+提示：启用中心 Logo 图标后，系统建议锁定至
+H 级 (30%)
+，避免关键寻象图形受遮挡导致识读减速。
+码眼与点阵轮廓
+寻象码眼外框 (Finder Patterns)
+圆角矩形
+经典直角
+柔和圆角
+液态水滴
+数据点阵几何 (Data Dot Shape)
+圆润点阵
+纯方阵
+圆润点阵
+连续平滑
+色彩与底衬
+前景色 (码点色彩)
+#4F378A (原生紫)
+[@icon:check]
+[@icon:colorize]
+[@icon:opacity]
+透明背景 (PNG / SVG 镂空)
+导出无底色文件，适于排版嵌入海报
+中心徽标 (Brand Logo)
+推荐尺寸 ≤ 22% 宽度
+[@icon:block]
+无徽标
+[@icon:token]
+工具箱徽标
+[@icon:add_photo_alternate]
+相册自选
+徽标保护留白外圈 (Logo Margin)
+8 dp
+导出尺寸与安全静区
+画布导出像素 (Canvas Export Size)
+512px
+1024px
+2048px (4K)
+SVG矢量
+周围静区留白宽度 (Quiet Zone)
+2 模块 (日常推荐)
+0x (贴边紧凑)
+2x (推荐标准)
+4x (ISO规范)
+[@icon:qr_code_2]
+[@icon:token]
+当前输出规格预估
+1024px PNG
+ECC: H (30%) · 圆角码眼 · 徽标含白边
+[@icon:visibility]
+全屏预览
+[@icon:restart_alt]
+恢复默认
+[@icon:check]
+应用并即时渲染
+
+================ _2/code.html ================
+09:41
+[@icon:wifi][@icon:signal_cellular_4_bar][@icon:battery_full]
+[@icon:arrow_back]
+扫码历史与导出
+本地
+[@icon:offline_bolt]纯本地解析 · 零网络请求
+[@icon:history]
+[@icon:settings]
+[@icon:person]
+[@icon:qr_code_scanner]扫码识别
+[@icon:qr_code_2]离线生成
+本地沙盒数据库 (Room v2.6)
+[@icon:checklist]
+批量管理
+[@icon:delete_sweep]
+清空
+[@icon:search]
+[@icon:close]
+[@icon:check]
+全部 (28)
+[@icon:link]
+网址外链 (14)
+[@icon:wifi]
+Wi-Fi 网络 (3)
+[@icon:notes]
+纯文本 (9)
+[@icon:contacts]
+名片通讯录 (2)
+[@icon:enhanced_encryption]
+本地硬件加密快照已就绪
+SafeBox
+记录仅留存于 Android App Data 分区，永不上报云端
+今天 · 10月24日
+已选
+0
+/ 28 项
+[@icon:link]
+GitHub 移动开发仓库
+QR_CODE
+10 分钟前 · 09:31
+[@icon:star_outline]
+https://github.com/android/nowinandroid
+[@icon:security]
+HTTPS 安全链路 · 目标格式: 纯文本 Web 链接
+大小: 38 字节
+[@icon:content_copy]
+复制
+[@icon:open_in_browser]
+打开
+[@icon:share]
+[@icon:wifi_password]
+DevOffice_Mesh_5G
+WPA/WPA2
+42 分钟前 · 08:59
+[@icon:star_outline]
+网络名称 (SSID)
+DevOffice_Mesh_5G
+访问密码
+••••••••••••
+[@icon:visibility]
+隐藏网络: 否
+[@icon:key]
+复制密码
+[@icon:wifi]
+一键加入网络
+[@icon:terminal]
+固件校验散列码 (Hash)
+DATA_MATRIX
+2 小时前 · 07:15
+[@icon:star_outline]
+SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[@icon:format_size]
+71 个字符 (无换行)
+[@icon:content_copy]
+复制哈希
+[@icon:fullscreen]
+全屏查看
+[@icon:badge]
+电子名片 (vCard 3.0)
+VCARD
+昨天 · 18:22
+[@icon:star_outline]
+陈工程师
+系统架构处
+电话: 138-0013-8000
+chen@work.local
+支持本地导入通讯录
+[@icon:content_copy]
+复制文本
+[@icon:person_add]
+保存到通讯录
+导出与离线备份
+[@icon:offline_pin]零网络流量消耗
+[@icon:table_chart]
+导出 CSV 报表
+包含时间戳、编码格式与原始文本列
+符合 Excel / WPS
+[@icon:arrow_forward]
+[@icon:description]
+纯文本清单 (TXT)
+每行一条识读记录，适合快速管道传参
+UTF-8 字符流
+[@icon:arrow_forward]
+[@icon:save_alt]
+本地全量加密备份 (.omni)
+推荐
+可用于在换机、重装时一键完整还原 28 条扫码元数据
+[@icon:chevron_right]
+全选 (
+0
+)
+[@icon:content_copy]
+批量复制
+[@icon:ios_share]
+批量导出
+详情内容
+[@icon:close]
+-
+关闭
+[@icon:content_copy]
+复制全文
+[@icon:check_circle]
+操作成功
+本地识读历史
+38 条记录
+[@icon:verified_user]纯本地 Room 数据库沙盒存储 · 绝不出设备
+[@icon:delete_outline]
+[@icon:close]
+全部
+(38)
+网址链接
+(24)
+Wi-Fi 网络
+(6)
+条码与文本
+(8)
+URL 链接
+[@icon:check_circle]安全通过
+刚刚 09:41
+https://github.com/android/nowinandroid
+[@icon:qr_code_2]QR_CODE · UTF-8
+[@icon:content_copy]复制
+[@icon:open_in_new]打开
+Wi-Fi 配置
+WPA2-PSK
+28 分钟前
+WIFI:S:OmniBox_5G;T:WPA;P:pass1234;;
+[@icon:wifi]SSID: OmniBox_5G
+[@icon:key]复制密码
+[@icon:wifi_tethering]快速连接
+商品条码
+EAN-13
+2 小时前
+6901234567890
+[@icon:barcode]中国商品条码中心标准
+[@icon:content_copy]复制条码
+[@icon:search]商品查询
+[@icon:download]
+导出历史记录 (CSV)
+[@icon:delete_sweep]
+一键清空
+
+================ sound_meter/code.html ================
+[@icon:arrow_back]
+File Hash Calculator
+[@icon:offline_bolt]
+离线模式
+[@icon:more_vert]
+[@icon:person]
+实时监测中
+[@icon:graphic_eq]
+48kHz · A加权(dBA)
+58.4
+dB
+正常交谈 · 适中
+0dB 微弱
+60dB 适中
+85dB 嘈杂
+120dB 危险
+实时
+58.4
+dBA
+最小 Min
+34.2
+dBA
+平均 Avg
+52.1
+dBA
+峰值 Max
+86.5
+dBA
+[@icon:waves]
+近 10 秒声压波动折线
+刷新率 60FPS
+90dB
+60dB
+30dB
+-10 秒
+-5 秒
+现在 (RMS)
+[@icon:hearing]
+环境噪音对照基准
+WHO / 国标声学
+[@icon:nature]
+微风落叶 · 卧室轻语
+极度安静，助眠环境
+20 dB
+[@icon:local_library]
+静音图书馆 · 幽静住宅
+专注思考，理想办公
+40 dB
+[@icon:forum]
+日常交谈 · 室内空调运转
+当前状态所处声压区间
+60 dB
+[@icon:directions_car]
+闹市区主干道 · 地铁车厢
+长时间暴露容易引发听觉疲劳
+80 dB
+[@icon:construction]
+冲击电钻 · 飞机引擎起飞
+危险级声级，需即刻防护
+100+ dB
+[@icon:restart_alt]
+重置
+[@icon:pause_circle]
+暂停实时监测
+[@icon:verified_user]
+纯本地声压换算保障
+离线
+仅在系统
+AudioRecord
+内存环形缓冲区即时计算均方根声压(RMS)，全程零网络请求，绝不录制、缓存或外发任何音频数据。
+
+================ _6/code.html ================
+[@icon:arrow_back]
+File Hash Calculator
+[@icon:offline_bolt]
+离线模式
+[@icon:more_vert]
+[@icon:person]
+[@icon:lock]
+硬件通道保护中 · 监听未启动
+[@icon:play_circle]
+体验模拟演示
+[@icon:mic_off]
+[@icon:lock]
+--.-
+dBA
+需要麦克风权限以采样环境声压
+[@icon:verified_user]
+分贝计仅通过
+AudioRecord
+接口实时抓取瞬时声波振幅计算均方根声压（RMS），计算完成后立即丢弃音频字节，不存储音频文件、不录音、更无网络权限进行外发传输。
+[@icon:mic]
+允许麦克风权限
+[@icon:policy]
+查看隐私与安全白皮书
+[@icon:equalizer]
+环境声压级权威对照表 (WHO)
+离线常驻
+基于世界卫生组织 (WHO) 与声学标准分级，即使未开启麦克风，亦可对照评估身处环境声学舒适度：
+[@icon:nature]
+微风落叶 · 极安静
+旷野深夜、轻柔呼吸声
+20
+dB
+[@icon:local_library]
+静音图书馆 · 舒适安逸
+住宅区夜间、低速冰箱蜂鸣
+40
+dB
+[@icon:forum]
+日常交谈 · 正常活动
+办公室环境、常规对话距离
+60
+dB
+[@icon:traffic]
+闹市交通 · 长期嘈杂
+主干道车流、吸尘器工作音
+80
+dB
+[@icon:warning]
+工业噪音 · 听力受损警示
+电锯轰鸣、靠近舞台音箱 (>15分钟需防护)
+100+
+dB
+[@icon:tune]
+硬件校准与传感器沙盒
+采样率: 44.1kHz
+无权限状态下仍可测试 UI 频响动画或查看麦克风偏置修正公式。点击顶部“体验模拟演示”即可唤醒合成环境噪声模拟引擎。
+[@icon:memory]
+基于 AndroidX AudioRecord 端侧低延迟流管道保障
+零网络通讯权限 · 内存即时计算 · 物理阻断截流
+[@icon:mic]
+允许“环境分贝计”录制音频吗？
+分贝计需要麦克风权限来计算实时声压级 (RMS)。音频仅在内存中瞬时处理，不会被保存或上传。
+仅在使用该应用时允许
+拒绝
+[@icon:shield]
+隐私权限透明白皮书
+[@icon:close]
+1. 无网络栈声明：
+该工具在 Manifest 中移除了
+android.permission.INTERNET
+，从底层操作系统级别剥离网络数据出站能力。
+2. 极简缓冲区：
+采用
+AudioRecord.read(short[] audioData, int offset, int size)
+，大小仅为单个缓冲区块 (约 1024 采样点)，计算 RMS 均方根后变量立刻被 GC 回收。
+3. 零落盘：
+无任何
+FileOutputStream
+或临时 WAV/AAC 写入逻辑，本地闪存无残留。
+我已充分知悉
+
+================ _8/code.html ================
+[@icon:arrow_back]
+Network Ping Diagnostic
+[@icon:offline_bolt]
+离线模式
+[@icon:more_vert]
+[@icon:person]
+[@icon:sensors]
+地磁高频传感器工作中
+高精度
+采用硬件磁力计与陀螺仪多重融合解算。如遇指针偏移，请手持设备在空中做「∞」字形轻转校准。
+[@icon:close]
+342
+°
+西北偏北 · NNW
+[@icon:lock]
+已锁定
+[@icon:navigation]
+N
+E
+S
+W
+[@icon:straighten]
+双轴倾斜水平仪
+偏离水平
+X 轴
+横向倾角
++1.2°
+Y 轴
+俯仰倾角
+-2.4°
+水平基准面: 机身背面
+[@icon:vibration]
+归零触觉反馈
+地磁感应强度
+[@icon:explore]
+48.6
+μT
+环境磁场正常
+解算海拔高度
+[@icon:altitude]
+1,248
+m
+[@icon:speed]
+气压 1013.2 hPa
+[@icon:location_on]
+WGS-84 空间定位
+[@icon:swap_horiz]
+度分秒 (DMS)
+纬度 Latitude
+39° 54' 15" N
+经度 Longitude
+116° 23' 29" E
+磁偏角: -6° 24' (偏西)
+真北校正已激活
+[@icon:lock_open]
+锁定当前方位角
+[@icon:flashlight_on]
+[@icon:exposure_zero]
+
+================ _15/code.html ================
+[@icon:arrow_back]
+Network Ping Diagnostic
+[@icon:offline_bolt]
+离线模式
+[@icon:more_vert]
+[@icon:person]
+[@icon:sensors_off]
+未检测到硬件地磁计 (Magnetometer)
+降级运行
+本机型物理磁力计芯片未装配或已离线。指南针已自动切换为太阳方位角与 GPS 移动航向推演算法。
+[@icon:wb_sunny]
+日晷与航向推演盘
+算法估算 ±3.5°
+N
+E
+S
+W
+[@icon:sunny]
+[@icon:lock]
+磁极指针锁定
+042°
+北偏东
+GPS 移动速度 > 1.2 m/s 时自动校准航向基准
+[@icon:speed]
+传感器矩阵状态
+更新于 刚刚
+[@icon:screen_rotation]
+加速度计 (Accelerometer)
+三轴重力感应在线 · 水平仪 100% 正常
+[@icon:check_circle]
+正常
+[@icon:explore_off]
+地磁传感器 (Magnetometer)
+硬件驱动未注册 · 无法感应地球磁场
+[@icon:cancel]
+缺失
+[@icon:air]
+气压计 (Barometer)
+已降级为 GPS WGS-84 椭球高测算
+[@icon:cloud_sync]
+GPS模拟
+双轴倾斜水平仪 (实时可用)
+重力引擎已就绪
+X 轴 (横滚)
++1.2°
+水平微倾
+Y 轴 (俯仰)
+-0.8°
+平衡优良
+倾角精度：0.05° (高精度)
+置零基准面
+[@icon:lightbulb]
+无地磁传感器？户外时钟日照法定向
+北半球白天：将当前时针指向太阳所在方向，时针与表盘 12 点刻度之间的角平分线所指方向即为正南方，相反方向即为正北方。
+[@icon:schedule]
+时钟对日法
+[@icon:navigation]
+GPS移动法(>5km/h)
+[@icon:refresh]
+重新扫描硬件传感器
+[@icon:all_inclusive]
+八字校准自愈测试

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">Base64 Encoder Detail</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
+<!-- Privacy Shield Status Banner -->
+<div class="mt-space-md bg-error-container text-on-error-container rounded-xl p-space-md flex items-start gap-space-sm shadow-sm transition-all duration-300" id="risk-alert-box">
+<div class="w-10 h-10 rounded-full bg-error text-on-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md font-bold tracking-tight">已检出 3 项高度敏感隐私</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error text-on-error font-medium">高风险暴露</span>
+</div>
+<p class="font-body-sm text-body-sm mt-1 opacity-90 leading-relaxed">
+        原图中包含精确物理地理坐标、唯一硬件序列号及完整拍摄时间戳，直接分享可能泄露居所与设备轨迹。
+      </p>
+</div>
+</div>
+<!-- Photo Media Preview Card with EXIF Metadata Pill Grid -->
+<div class="mt-space-md bg-surface-container rounded-2xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full aspect-[4/3] bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="An atmospheric sunset photograph taken from a modern urban balcony overlooking high-rise architecture, showing warm amber sunlight, glass balustrade, with subtle camera overlay UI aesthetics representing photo privacy preview, in crisp detail and realistic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFCcvHmNnRbeSBRFnSibGAJ7WPmwggyzJ9rgrWs9odJ-N8XTtKalqb7SAJSv8VHjsjpvR-qtQsdDdEVgxWUtB03w5TDw1NW2AHcDpFYA56iu9PY3QaCo0jLnI_tT79MOnv-soIv6HhY_WZbHVkMwJ4ZkKAE6Z7Ja1vGyEFYxf4MOBDYEVMzt5H3mzCZlaUCWx5i1TYC5_WsRSzDiq0aQEMdqQOix0bMVNpTZv4fQ"/>
+<!-- Overlay Floating Badges -->
+<div class="absolute top-space-sm left-space-sm flex flex-wrap gap-1.5 items-center">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">raw_on</span>
+          IMG_20241019_182104.heic
+        </span>
+<span class="px-2 py-0.5 rounded-full bg-error/90 backdrop-blur-md text-on-error font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+          附带 GPS
+        </span>
+</div>
+<button aria-label="更换图片" class="absolute top-space-sm right-space-sm w-9 h-9 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-on-surface flex items-center justify-center hover:bg-surface-container-lowest active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[18px]">photo_library</span>
+</button>
+<!-- Bottom Parameter Filmstrip -->
+<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/60 to-transparent p-space-sm pt-8 flex items-center justify-between text-inverse-on-surface">
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm overflow-x-auto no-scrollbar py-0.5">
+<span class="flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[14px] opacity-75">camera</span>24mm f/1.68</span>
+<span class="flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[14px] opacity-75">shutter_speed</span>1/120s</span>
+<span class="flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[14px] opacity-75">iso</span>ISO 42</span>
+<span class="flex items-center gap-1 shrink-0 text-on-primary-container bg-primary-container px-1.5 py-0.5 rounded">12.5 MB</span>
+</div>
+</div>
+</div>
+<!-- Quick Inspection Sub-header -->
+<div class="p-space-md flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">document_scanner</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">EXIF 原始数据诊断清单</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Total: 48 Tags</span>
+</div>
+</div>
+<!-- Detected Sensitive Metadata Diagnostic Report Cards -->
+<div class="mt-space-md flex flex-col gap-space-sm">
+<!-- Item 1: GPS Location -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs transition-colors" id="item-gps">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface font-semibold flex items-center gap-1.5">
+              精确地理定位 (GPS)
+              <span class="px-1.5 py-0.2 bg-error text-on-error rounded text-[10px] font-medium leading-none">隐私危险</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 font-mono">39°59'48.2"N 116°18'21.6"E (±3.4m)</p>
+</div>
+</div>
+<button class="h-7 px-2.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1 hover:opacity-90 active:scale-95 transition-all" id="toggle-map-btn" onclick="toggleMapPreview()">
+<span class="material-symbols-outlined text-[14px]">map</span>
+<span>查看底图</span>
+</button>
+</div>
+<div class="mt-1 bg-surface-container rounded-lg p-2 flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0">pin_drop</span>
+<span class="font-body-sm text-body-sm truncate text-on-surface font-medium">北京市海淀区中关村南大街 27 号院 (近住宅小区)</span>
+</div>
+<!-- Expandable Google Map Container Preview -->
+<div class="hidden mt-2 rounded-xl overflow-hidden shadow-inner" id="map-preview-container">
+<div class="w-full h-36 bg-cover bg-center rounded-xl relative flex items-end p-2" data-location="Zhongguancun South Street, Haidian District, Beijing" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQNTlPG00yaT3quBLZwYQwOYno2XAF_RhLyBlI9Cf7bbXJdWYKUSZR_a1enhECGIxSqIt6hjaMY-K1w8Wb-17xS1HD_p13YFNq6YRuaOZbZQuwjlHkFewmhdtLqau22kXCdhkES50lk_w7NsPOwJEeLIa6Jq3pPZ0DozTp5lJI2XvI3idbWqi297G4X2u91hx7v7aN9I7EbgPHGBohh_b_EAECALtk81F7GnRPMg')">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-md text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span>物理定标点误差半径 &lt; 5 米</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Hardware Device Info -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs transition-colors" id="item-device">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">phone_android</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface font-semibold flex items-center gap-1.5">
+              拍摄硬件及序列特征
+              <span class="px-1.5 py-0.2 bg-secondary-container text-on-secondary-container rounded text-[10px] font-medium leading-none">指纹特征</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Google Pixel 8 Pro</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-mono">Build/AP2A.240805</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-1">
+<div class="bg-surface-container rounded-lg p-2 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">镜头硬件型号</span>
+<span class="font-body-sm text-body-sm text-on-surface font-mono truncate">6.9mm f/1.68 Dual-PD</span>
+</div>
+<div class="bg-surface-container rounded-lg p-2 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">内部硬件哈希 / UID</span>
+<span class="font-body-sm text-body-sm text-error font-mono truncate">SN: 39281A83BF910</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Timestamp with Milliseconds -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between transition-colors" id="item-time">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">原始拍摄微秒时间戳</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 font-mono">2024:10:19 18:21:04.492018+08:00</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">fingerprint</span>
+</div>
+</div>
+<!-- De-identification Configuration Switches -->
+<div class="mt-space-lg flex flex-col">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-title-sm text-title-sm font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+        隐私脱敏模式配置
+      </h3>
+<span class="font-label-sm text-label-sm text-primary font-medium cursor-pointer" onclick="resetDefaults()">恢复推荐配置</span>
+</div>
+<div class="bg-surface-container rounded-2xl p-space-sm flex flex-col gap-1 shadow-sm">
+<!-- Toggle 1: Strip GPS -->
+<label class="flex items-center justify-between p-space-sm rounded-xl hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm flex-1 min-w-0 pr-space-xs">
+<div class="w-9 h-9 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface">擦除 GPS 地理与海拔数据</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">去除经纬度及逆编码地址，保留光学曝光参数</span>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="switch-gps" onchange="updateSanitizePreview()" type="checkbox"/>
+<div class="w-13 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:bg-primary transition-colors flex items-center px-1">
+<div class="w-6 h-6 bg-surface-container-lowest peer-checked:bg-on-primary peer-checked:translate-x-5 rounded-full transition-transform flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary hidden peer-checked:block">check</span>
+</div>
+</div>
+</div>
+</label>
+<!-- Toggle 2: Strip Hardware & Serial -->
+<label class="flex items-center justify-between p-space-sm rounded-xl hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm flex-1 min-w-0 pr-space-xs">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">phonelink_erase</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface">清除设备型号与唯一序列码</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">抹去 Manufacturer, Model, Lens Serial Number</span>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="switch-device" onchange="updateSanitizePreview()" type="checkbox"/>
+<div class="w-13 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:bg-primary transition-colors flex items-center px-1">
+<div class="w-6 h-6 bg-surface-container-lowest peer-checked:bg-on-primary peer-checked:translate-x-5 rounded-full transition-transform flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary hidden peer-checked:block">check</span>
+</div>
+</div>
+</div>
+</label>
+<!-- Toggle 3: Full Metadata Strip -->
+<label class="flex items-center justify-between p-space-sm rounded-xl hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm flex-1 min-w-0 pr-space-xs">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">auto_delete</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface">彻底抹除全部元数据 (深度脱敏)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">清除 ICC 色彩空间、XMP 软件标签、缩略图缓存</span>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer shrink-0">
+<input class="sr-only peer" id="switch-all" onchange="handleFullWipeToggle(this)" type="checkbox"/>
+<div class="w-13 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:bg-primary transition-colors flex items-center px-1">
+<div class="w-6 h-6 bg-surface-container-lowest peer-checked:bg-on-primary peer-checked:translate-x-5 rounded-full transition-transform flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary hidden peer-checked:block">check</span>
+</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Primary Interactive Actions -->
+<div class="mt-space-lg flex flex-col gap-space-sm">
+<button class="w-full h-14 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:scale-[0.99] transition-all" onclick="executeSanitize('save')">
+<span class="material-symbols-outlined text-[20px]">security_update_good</span>
+<span>一键生成安全纯净副本</span>
+<span class="font-label-sm text-label-sm bg-on-primary/20 px-2 py-0.5 rounded-full ml-1">无损重写</span>
+</button>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 h-12 rounded-full bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container font-label-lg text-label-lg flex items-center justify-center gap-1.5 active:scale-[0.99] transition-all" onclick="executeSanitize('share')">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>直接安全分享</span>
+</button>
+<button class="h-12 px-space-md rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center gap-1.5 active:scale-[0.99] transition-all" onclick="viewRawHex()" title="查看元数据树">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+<span>原始 HEX</span>
+</button>
+</div>
+</div>
+<!-- Processing Success SnackBar / State Modal (Inline Simulated) -->
+<div class="hidden mt-space-md bg-inverse-surface text-inverse-on-surface p-space-md rounded-xl flex items-center justify-between shadow-lg" id="toast-banner">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[22px] shrink-0">verified</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium truncate" id="toast-title">脱敏副本已导出至相册</span>
+<span class="font-body-sm text-body-sm text-surface-dim font-mono">耗时: 18ms · 0 字节画质损失</span>
+</div>
+</div>
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm shrink-0" onclick="dismissToast()">
+      查看文件
+    </button>
+</div>
+<!-- Bottom Technical Assurance Badge -->
+<div class="mt-space-lg mb-space-md flex flex-col items-center justify-center text-center px-space-md py-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-lg text-label-lg font-semibold tracking-wide">100% 本地沙盒保护</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-xs">
+      基于 <span class="font-mono text-on-surface font-medium">AndroidX ExifInterface</span> 原生流式通道原地擦写，全过程无需联网，杜绝任何云端回传风险。
+    </p>
+<div class="flex items-center gap-space-md mt-2 pt-2 text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">bolt</span>零内存拷贝</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">lock</span>硬件隔离区执行</span>
+</div>
+</div>
+</div>
+<script>
+  function toggleMapPreview() {
+    const map = document.getElementById('map-preview-container');
+    const btn = document.getElementById('toggle-map-btn');
+    if (!map) return;
+    const isHidden = map.classList.contains('hidden');
+    if (isHidden) {
+      map.classList.remove('hidden');
+      if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-[14px]">map</span><span>收起底图</span>';
+    } else {
+      map.classList.add('hidden');
+      if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-[14px]">map</span><span>查看底图</span>';
+    }
+  }
+
+  function handleFullWipeToggle(wipeCheckbox) {
+    const gpsSw = document.getElementById('switch-gps');
+    const devSw = document.getElementById('switch-device');
+    if (wipeCheckbox.checked) {
+      if (gpsSw) { gpsSw.checked = true; gpsSw.disabled = true; }
+      if (devSw) { devSw.checked = true; devSw.disabled = true; }
+    } else {
+      if (gpsSw) gpsSw.disabled = false;
+      if (devSw) devSw.disabled = false;
+    }
+    updateSanitizePreview();
+  }
+
+  function updateSanitizePreview() {
+    const gpsChecked = document.getElementById('switch-gps')?.checked;
+    const devChecked = document.getElementById('switch-device')?.checked;
+    const allChecked = document.getElementById('switch-all')?.checked;
+
+    const itemGps = document.getElementById('item-gps');
+    const itemDev = document.getElementById('item-device');
+    const itemTime = document.getElementById('item-time');
+
+    if (itemGps) {
+      if (gpsChecked || allChecked) {
+        itemGps.classList.add('opacity-45', 'line-through');
+      } else {
+        itemGps.classList.remove('opacity-45', 'line-through');
+      }
+    }
+
+    if (itemDev) {
+      if (devChecked || allChecked) {
+        itemDev.classList.add('opacity-45', 'line-through');
+      } else {
+        itemDev.classList.remove('opacity-45', 'line-through');
+      }
+    }
+
+    if (itemTime) {
+      if (allChecked) {
+        itemTime.classList.add('opacity-45', 'line-through');
+      } else {
+        itemTime.classList.remove('opacity-45', 'line-through');
+      }
+    }
+  }
+
+  function resetDefaults() {
+    const gpsSw = document.getElementById('switch-gps');
+    const devSw = document.getElementById('switch-device');
+    const allSw = document.getElementById('switch-all');
+
+    if (allSw) { allSw.checked = false; }
+    if (gpsSw) { gpsSw.disabled = false; gpsSw.checked = true; }
+    if (devSw) { devSw.disabled = false; devSw.checked = true; }
+
+    updateSanitizePreview();
+  }
+
+  function executeSanitize(mode) {
+    const toast = document.getElementById('toast-banner');
+    const title = document.getElementById('toast-title');
+    if (!toast) return;
+
+    if (mode === 'save') {
+      if (title) title.innerText = '安全副本已生成：IMG_20241019_clean.heic';
+    } else {
+      if (title) title.innerText = '正在调起系统分享脱敏文件...';
+    }
+
+    toast.classList.remove('hidden');
+    toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function dismissToast() {
+    const toast = document.getElementById('toast-banner');
+    if (toast) toast.classList.add('hidden');
+  }
+
+  function viewRawHex() {
+    alert("ExifInterface Tag Map:\\n[GPSLatitude: 39/1, 59/1, 4820/100]\\n[Model: Pixel 8 Pro]\\n[Make: Google]\\n[ExifVersion: 0232]\\n[Software: AP2A.240805.005]");
+  }
+
+  // Initial UI state setup
+  updateSanitizePreview();
+</script></main></body></html>

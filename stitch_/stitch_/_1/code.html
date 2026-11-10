@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">Unit Converter Detail</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl">
+<!-- 离线就绪与系统状态浮动通知胶囊 -->
+<div class="w-full flex items-center justify-between py-space-xs mb-space-sm">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">cloud_off</span>
+<span class="font-label-sm text-label-sm">本地零延时引擎 · 无需连网</span>
+</div>
+<button class="inline-flex items-center gap-1 text-primary hover:text-on-primary-fixed-variant transition-colors py-1 px-2 rounded-full active:bg-surface-container-high" onclick="showQuickRestoreToast()" type="button">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span class="font-label-sm text-label-sm font-medium">恢复预设示例</span>
+</button>
+</div>
+<!-- 核心空状态精美展示卡片 (Material 3 Tonal Surface) -->
+<div class="relative w-full rounded-[28px] bg-surface-container-low p-space-lg flex flex-col items-center text-center overflow-hidden shadow-sm">
+<!-- 背景柔和光晕装饰 -->
+<div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-gradient-to-br from-primary-fixed-dim/30 to-secondary-container/40 blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-44 h-44 rounded-full bg-gradient-to-tr from-tertiary-fixed/30 to-primary-fixed/20 blur-xl pointer-events-none"></div>
+<!-- 几何现代矢量插画容器 (轻量 SVG，日历/沙漏/星芒元素) -->
+<div class="relative w-28 h-28 my-space-xs flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-surface-container-highest/60 flex items-center justify-center animate-pulse"></div>
+<div class="relative z-10 w-24 h-24 rounded-2xl bg-surface-container-lowest shadow-md flex items-center justify-center">
+<svg class="w-16 h-16 text-primary" fill="none" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<!-- 悬浮日历基底 -->
+<rect fill="#E8DEF9" height="42" rx="10" width="48" x="8" y="14"></rect>
+<path d="M8 24C8 18.4772 12.4772 14 18 14H46C51.5228 14 56 18.4772 56 24V26H8V24Z" fill="#6750A4"></path>
+<circle cx="20" cy="11" fill="#4F378A" r="3"></circle>
+<circle cx="44" cy="11" fill="#4F378A" r="3"></circle>
+<!-- 翻页内芯与高光网格 -->
+<rect fill="#FFFFFF" height="8" rx="2" width="10" x="14" y="32"></rect>
+<rect fill="#FFFFFF" height="8" rx="2" width="10" x="27" y="32"></rect>
+<rect fill="#CFBCFF" height="8" rx="2" width="10" x="40" y="32"></rect>
+<rect fill="#FFFFFF" height="8" rx="2" width="10" x="14" y="43"></rect>
+<rect fill="#E0D2FF" height="8" rx="2" width="10" x="27" y="43"></rect>
+<!-- 动态悬浮沙漏微章 -->
+<g transform="translate(34, 30)">
+<circle cx="15" cy="15" fill="#7D5260" r="13" stroke="#FFFFFF" stroke-width="2"></circle>
+<path d="M11 9H19M11 21H19M12 9C12 13 18 13 18 9M12 21C12 17 18 17 18 21" stroke="#FFD9E3" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="15" cy="16.5" fill="#FFFFFF" r="1"></circle>
+</g>
+<!-- 几何星芒装饰 -->
+<path d="M12 8L13.5 12L17.5 13.5L13.5 15L12 19L10.5 15L6.5 13.5L10.5 12L12 8Z" fill="#FFCBDA"></path>
+<path d="M53 4L54 7L57 8L54 9L53 12L52 9L49 8L52 7L53 4Z" fill="#CFBCFF"></path>
+</svg>
+</div>
+<!-- 漂浮标签小徽章 -->
+<span class="absolute -bottom-1 -right-1 px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm">
+        0 天
+      </span>
+</div>
+<!-- 文本引导区域 -->
+<h2 class="mt-space-md font-headline-sm text-headline-sm text-on-surface font-semibold">
+      还没有添加任何目标或纪念日
+    </h2>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant max-w-sm leading-relaxed">
+      记录生活中的重要时刻，支持公历与农历循环提醒，可一键同步生成桌面 Glance 锁屏与主屏小组件。
+    </p>
+<!-- 核心主要行动按钮 (Filled Button) -->
+<button class="mt-space-lg h-12 px-space-xl rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:opacity-90 hover:shadow-lg transition-all active:scale-[0.98]" onclick="openCreateModal()" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span>新建第一个纪念日</span>
+</button>
+</div>
+<!-- 灵感模板区域 (快捷填入) -->
+<div class="mt-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-title-md text-title-md text-on-surface">灵感模板推荐</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">点击极速创建</span>
+</div>
+<!-- 模板列表网格 (2x2 弹性适应) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- 模板 1: 考研/高考冲刺 -->
+<div class="cursor-pointer group rounded-2xl bg-surface-container p-space-md flex flex-col justify-between transition-all hover:bg-surface-container-high active:scale-[0.99] relative overflow-hidden" onclick="applyTemplate('2025年全国研究生考试', '2025-12-20', '倒计学业目标', 'school')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm">
+            天数倒计
+          </span>
+</div>
+<div class="mt-space-md">
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">考研/高考冲刺倒计时</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            精准核算剩余冲刺天数与专注节点，锁屏看板高优督促。
+          </p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm font-medium gap-1">
+<span>一键套用</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 模板 2: 结婚/恋爱纪念日 -->
+<div class="cursor-pointer group rounded-2xl bg-surface-container p-space-md flex flex-col justify-between transition-all hover:bg-surface-container-high active:scale-[0.99] relative overflow-hidden" onclick="applyTemplate('结婚/恋爱周年纪念', '2023-05-20', '已相伴累计天数', 'favorite')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-tertiary font-label-sm text-label-sm">
+            累计相伴
+          </span>
+</div>
+<div class="mt-space-md">
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-tertiary transition-colors">结婚/恋爱纪念日</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            正向累计已相伴天数，支持每年公历/农历周岁循环提醒。
+          </p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center text-tertiary font-label-sm text-label-sm font-medium gap-1">
+<span>一键套用</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 模板 3: 春节传统节日 -->
+<div class="cursor-pointer group rounded-2xl bg-surface-container p-space-md flex flex-col justify-between transition-all hover:bg-surface-container-high active:scale-[0.99] relative overflow-hidden" onclick="applyTemplate('2026乙巳蛇年春节', '2026-02-17', '农历正月初一', 'celebration')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[22px]">celebration</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-secondary font-label-sm text-label-sm">
+            农历新年
+          </span>
+</div>
+<div class="mt-space-md">
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">春节 / 传统节假日</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            内置农历百年历算法转换，智能核算农历正月初一倒计时。
+          </p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm font-medium gap-1">
+<span>一键套用</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- 模板 4: 证件换发与账单日 -->
+<div class="cursor-pointer group rounded-2xl bg-surface-container p-space-md flex flex-col justify-between transition-all hover:bg-surface-container-high active:scale-[0.99] relative overflow-hidden" onclick="applyTemplate('驾驶证换证提醒', '2027-08-15', '单次周期安全期', 'badge')">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">
+            周期到期
+          </span>
+</div>
+<div class="mt-space-md">
+<h4 class="font-title-sm text-title-sm text-on-surface group-hover:text-primary transition-colors">驾驶证换证/信用卡账单日</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            关键事务单次周期提醒，防止逾期影响个人征信与安全驾驶。
+          </p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center text-primary font-label-sm text-label-sm font-medium gap-1">
+<span>一键套用</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 离线架构与后台可靠性保证卡片 (Tech Spec Card) -->
+<div class="mt-space-lg rounded-2xl bg-surface-container-high p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center gap-2 text-on-surface">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm">本地原生架构保证</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">零常驻后台进程 · 电量友好</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-space-xs">
+<div class="flex items-start gap-2 p-2 rounded-xl bg-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-[20px]">database</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Room 持久化</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">数据本地脱敏保存</span>
+</div>
+</div>
+<div class="flex items-start gap-2 p-2 rounded-xl bg-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">WorkManager</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">精确对齐免耗电</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 底部微交互模拟 Toast / Sheet 容器 (交互动效) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none w-11/12 max-w-sm rounded-full bg-inverse-surface text-inverse-on-surface px-4 py-3 flex items-center gap-3 shadow-xl" id="toastMessage">
+<span class="material-symbols-outlined text-[20px] text-inverse-primary" id="toastIcon">check_circle</span>
+<span class="font-body-md text-body-md truncate" id="toastText">模板数据已装载</span>
+</div>
+</div>
+<script>
+  function triggerToast(text, icon = 'check_circle') {
+    const toast = document.getElementById('toastMessage');
+    const toastText = document.getElementById('toastText');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast) return;
+
+    toastText.innerText = text;
+    toastIcon.innerText = icon;
+
+    toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 2800);
+  }
+
+  function applyTemplate(title, targetDate, note, iconName) {
+    triggerToast(`已快速载入「${title}」草稿`, iconName || 'check_circle');
+  }
+
+  function openCreateModal() {
+    triggerToast('进入新建纪念日向导...', 'edit_calendar');
+  }
+
+  function showQuickRestoreToast() {
+    triggerToast('已自动恢复 3 项推荐预设日程', 'restore');
+  }
+</script></main></body></html>

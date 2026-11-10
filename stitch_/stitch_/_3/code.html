@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">Base64 Encoder Detail</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-10 space-y-space-md">
+<!-- Live Timestamp Tonal Card -->
+<div class="px-margin pt-space-xs">
+<div class="bg-surface-container-high rounded-[28px] p-space-md shadow-sm relative overflow-hidden">
+<!-- Decorative ambient corner glow -->
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+</span>
+<span class="font-label-md text-label-md text-on-surface-variant tracking-wider uppercase">Local Epoch System</span>
+</div>
+<div class="flex items-center bg-surface-container px-space-xs py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-primary mr-1">speed</span>
+<span class="font-label-sm text-label-sm text-primary">0ms 延迟 · 离线</span>
+</div>
+</div>
+<!-- Realtime Digits Display -->
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs flex-wrap">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-semibold tracking-tight text-on-surface tabular-nums" id="epochSec">1714567890</span>
+<span class="font-title-lg text-title-lg text-primary tabular-nums" id="epochMs">.428</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-medium ml-1">毫秒/秒联动</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span id="epochIso">2024-05-01 12:51:30.428 UTC+8</span>
+</div>
+</div>
+<!-- Quick Copy Action Pills -->
+<div class="flex items-center gap-space-xs pt-space-xs mt-space-xs">
+<button class="flex-1 h-10 px-3 bg-secondary-container hover:bg-surface-variant text-on-secondary-container rounded-full flex items-center justify-center gap-1.5 transition-colors active:scale-95" id="copySecBtn">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="font-label-lg text-label-lg">复制秒 (10位)</span>
+</button>
+<button class="flex-1 h-10 px-3 bg-primary text-on-primary rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform" id="copyMsBtn">
+<span class="material-symbols-outlined text-[18px]">copy_all</span>
+<span class="font-label-lg text-label-lg">复制毫秒 (13位)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Dual Workflow Container -->
+<div class="px-margin space-y-space-md">
+<!-- Mode Switch Chips -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="h-8 px-4 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg flex items-center gap-1.5 shadow-sm transition-all" id="tabMode1">
+<span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+          时间戳 → 日期
+        </button>
+<button class="h-8 px-4 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-all" id="tabMode2">
+<span class="material-symbols-outlined text-[16px]">event</span>
+          日期 → 时间戳
+        </button>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface active:bg-surface-container-high" id="resetFormBtn" title="重置">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+<!-- Mode 1 Card: Timestamp to Datetime -->
+<div class="bg-surface-container rounded-[24px] p-space-md space-y-space-md transition-opacity" id="panelMode1">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">tag</span>
+          输入时间戳
+        </h2>
+<!-- Timezone Selector Dropdown Pill -->
+<div class="relative inline-flex items-center">
+<select class="appearance-none bg-surface-container-highest text-on-surface font-label-md text-label-md pl-3 pr-7 py-1.5 rounded-full outline-none focus:bg-surface-container-lowest cursor-pointer" id="tzSelector">
+<option value="Asia/Shanghai">北京时间 (UTC+8)</option>
+<option value="UTC">标准格林威治 (UTC+0)</option>
+<option value="America/New_York">纽约时区 (EST/EDT)</option>
+<option value="Europe/London">伦敦时间 (GMT/BST)</option>
+<option value="Asia/Tokyo">东京时间 (UTC+9)</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute right-2 pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+<!-- Input Field -->
+<div class="relative bg-surface-container-lowest rounded-2xl p-space-sm flex items-center justify-between shadow-sm">
+<div class="flex-1 min-w-0 pr-2">
+<div class="font-label-sm text-label-sm text-outline">毫秒 (13位) 或 秒级 (10位)</div>
+<input class="w-full bg-transparent font-title-lg text-title-lg text-on-surface outline-none tabular-nums mt-0.5" id="inputTs" placeholder="例如 1714567890" type="number" value="1714567890"/>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 bg-surface-container-high hover:bg-secondary-container text-on-surface-variant hover:text-on-secondary-container rounded-lg font-label-sm text-label-sm transition-colors" id="fillNowBtn">
+            当前时间
+          </button>
+</div>
+</div>
+<!-- Conversion Target Preview Box -->
+<div class="bg-surface-container-low rounded-2xl p-space-md space-y-space-xs">
+<div class="text-outline font-label-md text-label-md flex items-center justify-between">
+<span>格式化解析结果</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-md font-label-sm text-label-sm" id="tsUnitBadge">判定为：秒级 (s)</span>
+</div>
+<div class="font-title-lg text-title-lg text-primary font-medium select-all tabular-nums" id="convertedFormatted">
+          2024-05-01 12:51:30
+        </div>
+<div class="grid grid-cols-2 gap-space-sm pt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="bg-surface-container-highest/60 p-2.5 rounded-xl">
+<span class="block text-outline font-label-sm text-label-sm mb-0.5">ISO 8601 标准</span>
+<span class="font-label-md text-label-md text-on-surface truncate block tabular-nums" id="isoResult">2024-05-01T04:51:30Z</span>
+</div>
+<div class="bg-surface-container-highest/60 p-2.5 rounded-xl">
+<span class="block text-outline font-label-sm text-label-sm mb-0.5">周天序数 (Week/Day)</span>
+<span class="font-label-md text-label-md text-on-surface truncate block" id="weekResult">第18周 · 星期三</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mode 2 Card: Datetime to Timestamp -->
+<div class="hidden bg-surface-container rounded-[24px] p-space-md space-y-space-md transition-opacity" id="panelMode2">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+          选择本地日期与时间
+        </h2>
+<span class="text-on-surface-variant font-label-sm text-label-sm">系统时区</span>
+</div>
+<!-- Combined Picker Mock UI for Native Delight -->
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container-lowest p-3 rounded-2xl shadow-sm">
+<label class="block font-label-sm text-label-sm text-outline mb-1">选择日期</label>
+<input class="w-full bg-transparent font-title-sm text-title-sm text-on-surface outline-none cursor-pointer" id="pickerDate" type="date" value="2024-05-01"/>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-2xl shadow-sm">
+<label class="block font-label-sm text-label-sm text-outline mb-1">选择时分秒</label>
+<input class="w-full bg-transparent font-title-sm text-title-sm text-on-surface outline-none cursor-pointer" id="pickerTime" step="1" type="time" value="12:51:30"/>
+</div>
+</div>
+<!-- Generated Timestamp Box -->
+<div class="bg-surface-container-low rounded-2xl p-space-md space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">转换结果 (Unix Epoch)</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">离线即时计算</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-3">
+<div>
+<div class="font-label-sm text-label-sm text-outline">秒级时间戳 (10-bit)</div>
+<div class="font-title-md text-title-md text-on-surface tabular-nums font-semibold" id="outSec">1714567890</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary active:bg-secondary-container" id="copyOutSec">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-3">
+<div>
+<div class="font-label-sm text-label-sm text-outline">毫秒级时间戳 (13-bit)</div>
+<div class="font-title-md text-title-md text-on-surface tabular-nums font-semibold" id="outMs">1714567890000</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary active:bg-secondary-container" id="copyOutMs">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Duration & Diff Span Calculator Section -->
+<div class="px-margin">
+<div class="bg-surface-container-low rounded-[28px] p-space-md space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">hourglass_top</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">时间差与跨度推演</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">计算指定锚点与当前/第二节点的精确跨度</p>
+</div>
+</div>
+</div>
+<!-- Quick Difference Status Tile -->
+<div class="bg-surface-container-lowest p-space-sm rounded-2xl flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">相对当前时刻</span>
+<span class="font-title-md text-title-md text-primary font-medium" id="relativeTimeBadge">约 2 个月前</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-outline">相距天数</span>
+<span class="font-title-md text-title-md text-on-surface font-medium tabular-nums" id="diffDaysBadge">61 天 14 小时</span>
+</div>
+</div>
+<!-- Dual Date Interval Calculator (Collapsible / Visual Grid) -->
+<div class="grid grid-cols-4 gap-2 pt-1">
+<div class="bg-surface-container-high/60 p-2.5 rounded-xl text-center">
+<span class="font-label-sm text-label-sm text-outline block">自然天</span>
+<span class="font-title-sm text-title-sm font-semibold text-on-surface tabular-nums" id="spanDays">61</span>
+</div>
+<div class="bg-surface-container-high/60 p-2.5 rounded-xl text-center">
+<span class="font-label-sm text-label-sm text-outline block">预估工作日</span>
+<span class="font-title-sm text-title-sm font-semibold text-on-surface tabular-nums" id="spanWorkdays">44</span>
+</div>
+<div class="bg-surface-container-high/60 p-2.5 rounded-xl text-center">
+<span class="font-label-sm text-label-sm text-outline block">小时数</span>
+<span class="font-title-sm text-title-sm font-semibold text-on-surface tabular-nums" id="spanHours">1,478</span>
+</div>
+<div class="bg-surface-container-high/60 p-2.5 rounded-xl text-center">
+<span class="font-label-sm text-label-sm text-outline block">总计秒数</span>
+<span class="font-title-sm text-title-sm font-semibold text-primary truncate block tabular-nums" id="spanSeconds">5.32M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Developer Standard Constants Quick Sheet -->
+<div class="px-margin">
+<div class="bg-surface-container-highest/50 rounded-[24px] p-space-md space-y-space-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">data_object</span>
+          开发常用时间常量表
+        </span>
+<span class="font-label-sm text-label-sm text-outline">点击一键填入</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="bg-surface-container-lowest p-2.5 rounded-xl flex items-center justify-between hover:bg-secondary-container transition-colors text-left group" onclick="setTimestampValue(60)">
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-secondary-container">1 分钟 (Minute)</span>
+<span class="font-label-md text-label-md font-semibold text-primary tabular-nums">60 s</span>
+</button>
+<button class="bg-surface-container-lowest p-2.5 rounded-xl flex items-center justify-between hover:bg-secondary-container transition-colors text-left group" onclick="setTimestampValue(3600)">
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-secondary-container">1 小时 (Hour)</span>
+<span class="font-label-md text-label-md font-semibold text-primary tabular-nums">3,600 s</span>
+</button>
+<button class="bg-surface-container-lowest p-2.5 rounded-xl flex items-center justify-between hover:bg-secondary-container transition-colors text-left group" onclick="setTimestampValue(86400)">
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-secondary-container">1 整天 (Day)</span>
+<span class="font-label-md text-label-md font-semibold text-primary tabular-nums">86,400 s</span>
+</button>
+<button class="bg-surface-container-lowest p-2.5 rounded-xl flex items-center justify-between hover:bg-secondary-container transition-colors text-left group" onclick="setTimestampValue(604800)">
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-secondary-container">1 周 (7 Days)</span>
+<span class="font-label-md text-label-md font-semibold text-primary tabular-nums">604,800 s</span>
+</button>
+<button class="bg-surface-container-lowest p-2.5 rounded-xl flex items-center justify-between hover:bg-secondary-container transition-colors text-left group" onclick="setTimestampValue(2592000)">
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-secondary-container">30 天常规月</span>
+<span class="font-label-md text-label-md font-semibold text-primary tabular-nums">2,592,000 s</span>
+</button>
+<button class="bg-surface-container-lowest p-2.5 rounded-xl flex items-center justify-between hover:bg-secondary-container transition-colors text-left group" onclick="setTimestampValue(31536000)">
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-secondary-container">1 自然年 (365d)</span>
+<span class="font-label-md text-label-md font-semibold text-primary tabular-nums">31,536,000 s</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Material 3 Offline Compliance Footer -->
+<div class="px-margin pt-space-xs">
+<div class="flex items-center justify-center gap-2 text-on-surface-variant text-center">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+<span class="font-label-sm text-label-sm tracking-wide">
+        基于 java.time (JSR-310) 现代时区算法，完全离线运行
+      </span>
+</div>
+</div>
+<!-- Floating Toast Feedback -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-full font-label-md text-label-md shadow-lg pointer-events-none opacity-0 transition-opacity duration-200" id="toast">
+    已复制到剪贴板
+  </div>
+</div>
+<script>
+  (function () {
+    // Real-time ticking logic
+    const epochSecEl = document.getElementById('epochSec');
+    const epochMsEl = document.getElementById('epochMs');
+    const epochIsoEl = document.getElementById('epochIso');
+
+    function updateLiveClock() {
+      const now = new Date();
+      const timeMs = now.getTime();
+      const sec = Math.floor(timeMs / 1000);
+      const msRemainder = (timeMs % 1000).toString().padStart(3, '0');
+
+      if (epochSecEl && epochMsEl) {
+        epochSecEl.textContent = sec;
+        epochMsEl.textContent = '.' + msRemainder;
+      }
+      if (epochIsoEl) {
+        epochIsoEl.textContent = now.toLocaleString('zh-CN', { hour12: false }) + ' (本地时刻)';
+      }
+      requestAnimationFrame(updateLiveClock);
+    }
+    requestAnimationFrame(updateLiveClock);
+
+    // Toast helper
+    const toast = document.getElementById('toast');
+    let toastTimeout = null;
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 1600);
+    }
+
+    // Copy handlers
+    function copyText(val, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(val);
+      }
+      showToast(label + '已复制');
+    }
+
+    document.getElementById('copySecBtn')?.addEventListener('click', () => {
+      const nowSec = Math.floor(Date.now() / 1000).toString();
+      copyText(nowSec, '当前秒数 ');
+    });
+
+    document.getElementById('copyMsBtn')?.addEventListener('click', () => {
+      copyText(Date.now().toString(), '当前毫秒数 ');
+    });
+
+    // Tab switcher between Mode 1 and Mode 2
+    const tab1 = document.getElementById('tabMode1');
+    const tab2 = document.getElementById('tabMode2');
+    const panel1 = document.getElementById('panelMode1');
+    const panel2 = document.getElementById('panelMode2');
+
+    tab1?.addEventListener('click', () => {
+      tab1.className = 'h-8 px-4 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg flex items-center gap-1.5 shadow-sm transition-all';
+      tab2.className = 'h-8 px-4 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-all';
+      panel1?.classList.remove('hidden');
+      panel2?.classList.add('hidden');
+    });
+
+    tab2?.addEventListener('click', () => {
+      tab2.className = 'h-8 px-4 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg flex items-center gap-1.5 shadow-sm transition-all';
+      tab1.className = 'h-8 px-4 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center gap-1.5 hover:bg-surface-container-highest transition-all';
+      panel2?.classList.remove('hidden');
+      panel1?.classList.add('hidden');
+    });
+
+    // Mode 1 calculation logic
+    const inputTs = document.getElementById('inputTs');
+    const tzSelector = document.getElementById('tzSelector');
+    const convertedFormatted = document.getElementById('convertedFormatted');
+    const tsUnitBadge = document.getElementById('tsUnitBadge');
+    const isoResult = document.getElementById('isoResult');
+    const weekResult = document.getElementById('weekResult');
+    const relativeTimeBadge = document.getElementById('relativeTimeBadge');
+    const diffDaysBadge = document.getElementById('diffDaysBadge');
+
+    function calculateMode1() {
+      let rawVal = inputTs?.value?.trim() || '';
+      if (!rawVal) {
+        convertedFormatted.textContent = '--';
+        return;
+      }
+      let num = Number(rawVal);
+      if (isNaN(num)) {
+        convertedFormatted.textContent = '无效时间戳';
+        return;
+      }
+
+      let isSeconds = rawVal.length <= 10;
+      tsUnitBadge.textContent = isSeconds ? '判定为：秒级 (10位)' : '判定为：毫秒级 (13位)';
+      let dateObj = isSeconds ? new Date(num * 1000) : new Date(num);
+
+      let tz = tzSelector?.value || 'Asia/Shanghai';
+      try {
+        let formatter = new Intl.DateTimeFormat('zh-CN', {
+          timeZone: tz,
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+        convertedFormatted.textContent = formatter.format(dateObj);
+      } catch (e) {
+        convertedFormatted.textContent = dateObj.toLocaleString('zh-CN', { hour12: false });
+      }
+
+      // Metadata calculation
+      isoResult.textContent = dateObj.toISOString();
+      const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+      weekResult.textContent = `${weekdays[dateObj.getDay()]} · 年序第 ${Math.ceil((dateObj - new Date(dateObj.getFullYear(), 0, 1)) / 86400000)} 天`;
+
+      // Relative difference calculation vs now
+      const diffMs = Date.now() - dateObj.getTime();
+      const absDiffSec = Math.floor(Math.abs(diffMs) / 1000);
+      const isPast = diffMs >= 0;
+      const days = Math.floor(absDiffSec / 86400);
+      const hours = Math.floor((absDiffSec % 86400) / 3600);
+
+      relativeTimeBadge.textContent = isPast ? `${days}天前` : `${days}天后`;
+      diffDaysBadge.textContent = `${days} 天 ${hours} 小时`;
+
+      // Update stat spans
+      document.getElementById('spanDays').textContent = days;
+      document.getElementById('spanWorkdays').textContent = Math.floor(days * 0.71);
+      document.getElementById('spanHours').textContent = Math.floor(absDiffSec / 3600).toLocaleString();
+      document.getElementById('spanSeconds').textContent = (absDiffSec / 1000000).toFixed(2) + 'M';
+    }
+
+    inputTs?.addEventListener('input', calculateMode1);
+    tzSelector?.addEventListener('change', calculateMode1);
+    document.getElementById('fillNowBtn')?.addEventListener('click', () => {
+      inputTs.value = Math.floor(Date.now() / 1000).toString();
+      calculateMode1();
+    });
+
+    // Mode 2: Picker to timestamp
+    const pickerDate = document.getElementById('pickerDate');
+    const pickerTime = document.getElementById('pickerTime');
+    const outSec = document.getElementById('outSec');
+    const outMs = document.getElementById('outMs');
+
+    function calculateMode2() {
+      if (!pickerDate?.value || !pickerTime?.value) return;
+      const dateStr = `${pickerDate.value}T${pickerTime.value}`;
+      const parsed = new Date(dateStr);
+      if (!isNaN(parsed.getTime())) {
+        const sec = Math.floor(parsed.getTime() / 1000);
+        const ms = parsed.getTime();
+        outSec.textContent = sec;
+        outMs.textContent = ms;
+      }
+    }
+
+    pickerDate?.addEventListener('change', calculateMode2);
+    pickerTime?.addEventListener('change', calculateMode2);
+
+    document.getElementById('copyOutSec')?.addEventListener('click', () => {
+      copyText(outSec.textContent, '秒级结果 ');
+    });
+    document.getElementById('copyOutMs')?.addEventListener('click', () => {
+      copyText(outMs.textContent, '毫秒结果 ');
+    });
+
+    // Reset button
+    document.getElementById('resetFormBtn')?.addEventListener('click', () => {
+      inputTs.value = '1714567890';
+      pickerDate.value = '2024-05-01';
+      pickerTime.value = '12:51:30';
+      calculateMode1();
+      calculateMode2();
+      showToast('已重置默认数据');
+    });
+
+    // Expose quick set helper
+    window.setTimestampValue = function (deltaSec) {
+      const nowSec = Math.floor(Date.now() / 1000);
+      inputTs.value = (nowSec + deltaSec).toString();
+      calculateMode1();
+      showToast(`已填入 +${deltaSec}秒 偏移植`);
+    };
+
+    // Initial triggers
+    calculateMode1();
+    calculateMode2();
+  })();
+</script></main></body></html>

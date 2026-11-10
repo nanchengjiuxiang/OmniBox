@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">Network Ping Diagnostic</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+<!-- 温和告警状态条 (Tonal Warning Alert Banner) -->
+<div class="flex items-start gap-space-sm p-space-md rounded-xl bg-tertiary-fixed text-on-tertiary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-tertiary shrink-0 mt-0.5">sensors_off</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-title-sm text-title-sm font-semibold text-on-tertiary-fixed">未检测到硬件地磁计 (Magnetometer)</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary text-on-tertiary">降级运行</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-tertiary-fixed-variant mt-1">
+        本机型物理磁力计芯片未装配或已离线。指南针已自动切换为太阳方位角与 GPS 移动航向推演算法。
+      </p>
+</div>
+</div>
+<!-- 太阳方位罗盘降级拟物仪表盘 (Sun Compass / GPS Bearing Fallback Dial) -->
+<div class="flex flex-col items-center justify-center p-space-lg rounded-2xl bg-surface-container-high relative overflow-hidden shadow-sm">
+<!-- 装饰性渐变与极坐标背景光斑 -->
+<div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-secondary-container/40 blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-primary-fixed/40 blur-2xl pointer-events-none"></div>
+<div class="w-full flex items-center justify-between z-10 mb-space-sm">
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">wb_sunny</span>
+        日晷与航向推演盘
+      </span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant">
+        算法估算 ±3.5°
+      </span>
+</div>
+<!-- 拟物罗盘盘面 SVG (高精几何刻度 + 太阳方位指引) -->
+<div class="relative w-64 h-64 my-space-xs flex items-center justify-center">
+<svg class="w-full h-full text-outline-variant" fill="none" viewbox="0 0 240 240">
+<!-- 外圈主刻度环 -->
+<circle cx="120" cy="120" r="106" stroke="currentColor" stroke-dasharray="3 5" stroke-width="1.5"></circle>
+<circle class="opacity-50" cx="120" cy="120" r="92" stroke="currentColor" stroke-width="0.75"></circle>
+<!-- 4大方位基准线 -->
+<line stroke="#4f378a" stroke-linecap="round" stroke-width="3" x1="120" x2="120" y1="18" y2="30"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="120" x2="120" y1="210" y2="222"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="18" x2="30" y1="120" y2="120"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="210" x2="222" y1="120" y2="120"></line>
+<!-- 太阳方位扇形光束区 (方位角 135° SE 示例) -->
+<path class="opacity-60" d="M 120 120 L 175 175 A 78 78 0 0 0 195 120 Z" fill="#ffd9e3"></path>
+<!-- 方位文字基准 -->
+<text fill="#4f378a" font-size="13" font-weight="700" letter-spacing="1" text-anchor="middle" x="120" y="44">N</text>
+<text fill="#494551" font-size="11" font-weight="600" text-anchor="middle" x="198" y="124">E</text>
+<text fill="#494551" font-size="11" font-weight="600" text-anchor="middle" x="120" y="202">S</text>
+<text fill="#494551" font-size="11" font-weight="600" text-anchor="middle" x="42" y="124">W</text>
+</svg>
+<!-- 旋转航向与太阳投影指示器 (CSS微动画模拟GPS动态) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-700 ease-out" id="solar-dial-pointer" style="transform: rotate(42deg);">
+<!-- 太阳方位图标质感标志 -->
+<div class="absolute -top-1 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-md animate-pulse">
+<span class="material-symbols-outlined text-[18px]">sunny</span>
+</div>
+<div class="w-0.5 h-16 bg-gradient-to-b from-tertiary to-transparent mt-1"></div>
+</div>
+<!-- 地磁指针失效锁死标记 -->
+<div class="absolute bottom-6 flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-highest/90 text-on-surface-variant backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px] text-error">lock</span>
+<span class="font-label-sm text-label-sm">磁极指针锁定</span>
+</div>
+</div>
+<!-- 中心拟物高光圆球 -->
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest shadow-md flex flex-col items-center justify-center border-none z-10">
+<span class="font-title-sm text-title-sm font-bold text-primary">042°</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant -mt-1">北偏东</span>
+</div>
+</div>
+<!-- 模式状态解释 -->
+<div class="w-full mt-space-xs pt-space-xs text-center">
+<span class="font-label-md text-label-md text-secondary font-medium">GPS 移动速度 &gt; 1.2 m/s 时自动校准航向基准</span>
+</div>
+</div>
+<!-- 传感器健康度与降级诊断表 (Sensor Diagnostics) -->
+<div class="flex flex-col p-space-md rounded-2xl bg-surface-container space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary">speed</span>
+        传感器矩阵状态
+      </h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">更新于 刚刚</span>
+</div>
+<div class="space-y-space-xs">
+<!-- 1. 加速度计：在线 -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">screen_rotation</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">加速度计 (Accelerometer)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">三轴重力感应在线 · 水平仪 100% 正常</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+          正常
+        </div>
+</div>
+<!-- 2. 地磁计：离线/缺失 -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">explore_off</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">地磁传感器 (Magnetometer)</div>
+<div class="font-body-sm text-body-sm text-error">硬件驱动未注册 · 无法感应地球磁场</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-error font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+          缺失
+        </div>
+</div>
+<!-- 3. 气压计：降级模式 -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">air</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface">气压计 (Barometer)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">已降级为 GPS WGS-84 椭球高测算</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">cloud_sync</span>
+          GPS模拟
+        </div>
+</div>
+</div>
+</div>
+<!-- 完全可用的核心模块：双轴倾斜水平仪 (Active Dual-Axis Level Widget) -->
+<div class="flex flex-col p-space-md rounded-2xl bg-surface-container-lowest shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">双轴倾斜水平仪 (实时可用)</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-medium">重力引擎已就绪</span>
+</div>
+<!-- 交互式双轴水泡指示器容器 -->
+<div class="flex items-center gap-space-md pt-space-xs">
+<!-- 靶心圆盘 -->
+<div class="relative w-32 h-32 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 overflow-hidden">
+<!-- 靶心刻度同心圆 -->
+<div class="absolute w-24 h-24 rounded-full border border-dashed border-outline-variant"></div>
+<div class="absolute w-14 h-14 rounded-full border border-outline-variant"></div>
+<div class="absolute w-full h-[1px] bg-outline-variant/60"></div>
+<div class="absolute h-full w-[1px] bg-outline-variant/60"></div>
+<!-- 动态水平气泡 (X/Y 偏移) -->
+<div class="absolute w-8 h-8 rounded-full bg-primary/80 shadow-md flex items-center justify-center transition-all duration-300 ease-out" id="level-bubble" style="transform: translate(6px, -4px);">
+<div class="w-2.5 h-2.5 rounded-full bg-on-primary"></div>
+</div>
+</div>
+<!-- 实时双轴数值卡片 -->
+<div class="flex-1 grid grid-cols-2 gap-space-xs">
+<div class="flex flex-col p-space-sm rounded-xl bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">X 轴 (横滚)</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold mt-1">+1.2°</span>
+<span class="font-body-sm text-body-sm text-secondary">水平微倾</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-xl bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Y 轴 (俯仰)</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold mt-1">-0.8°</span>
+<span class="font-body-sm text-body-sm text-secondary">平衡优良</span>
+</div>
+<div class="col-span-2 flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-high/60">
+<span class="font-body-sm text-body-sm text-on-surface-variant">倾角精度：0.05° (高精度)</span>
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline" id="zero-calibrate-btn">置零基准面</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 户外太阳阴影定向实用教程卡片 (Delightful Knowledge Card) -->
+<div class="flex flex-col p-space-md rounded-2xl bg-secondary-fixed text-on-secondary-fixed shadow-sm space-y-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[22px] text-on-secondary-fixed-variant">lightbulb</span>
+<h3 class="font-title-md text-title-md font-semibold text-on-secondary-fixed">无地磁传感器？户外时钟日照法定向</h3>
+</div>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">
+      北半球白天：将当前时针指向太阳所在方向，时针与表盘 12 点刻度之间的角平分线所指方向即为正南方，相反方向即为正北方。
+    </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="inline-flex items-center gap-1 font-label-md text-label-md px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-secondary-fixed font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+        时钟对日法
+      </span>
+<span class="inline-flex items-center gap-1 font-label-md text-label-md px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-secondary-fixed font-medium">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+        GPS移动法(&gt;5km/h)
+      </span>
+</div>
+</div>
+<!-- 底部快速诊断与硬件自愈校准按钮群 -->
+<div class="flex flex-col sm:flex-row gap-space-sm pt-space-xs">
+<button class="flex-1 h-12 flex items-center justify-center gap-2 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm active:scale-[0.98] transition-transform" id="rescan-sensors-btn">
+<span class="material-symbols-outlined text-[20px]" id="rescan-icon">refresh</span>
+<span>重新扫描硬件传感器</span>
+</button>
+<button class="flex-1 h-12 flex items-center justify-center gap-2 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg active:scale-[0.98] transition-transform" id="calibrate-guide-btn">
+<span class="material-symbols-outlined text-[20px]">all_inclusive</span>
+<span>八字校准自愈测试</span>
+</button>
+</div>
+</div>
+<!-- 局部轻量微交互逻辑脚本 -->
+<script>
+  (function() {
+    const rescanBtn = document.getElementById('rescan-sensors-btn');
+    const rescanIcon = document.getElementById('rescan-icon');
+    const pointer = document.getElementById('solar-dial-pointer');
+    const bubble = document.getElementById('level-bubble');
+    const zeroBtn = document.getElementById('zero-calibrate-btn');
+
+    // 重新扫描按钮微交互动画与通知模拟
+    if (rescanBtn && rescanIcon) {
+      rescanBtn.addEventListener('click', () => {
+        rescanIcon.classList.add('animate-spin');
+        rescanBtn.disabled = true;
+        rescanBtn.classList.add('opacity-80');
+        
+        setTimeout(() => {
+          rescanIcon.classList.remove('animate-spin');
+          rescanBtn.disabled = false;
+          rescanBtn.classList.remove('opacity-80');
+          // 触觉轻微转盘抖动模拟
+          if (pointer) {
+            pointer.style.transform = 'rotate(' + (Math.floor(Math.random() * 60) + 20) + 'deg)';
+          }
+        }, 1200);
+      });
+    }
+
+    // 双轴水泡微动交互与归零重置
+    if (zeroBtn && bubble) {
+      zeroBtn.addEventListener('click', () => {
+        bubble.style.transform = 'translate(0px, 0px)';
+        zeroBtn.textContent = '已校准至基准';
+        setTimeout(() => {
+          zeroBtn.textContent = '置零基准面';
+          bubble.style.transform = 'translate(' + (Math.random() * 8 - 4) + 'px, ' + (Math.random() * 8 - 4) + 'px)';
+        }, 2000);
+      });
+    }
+  })();
+</script></main></body></html>

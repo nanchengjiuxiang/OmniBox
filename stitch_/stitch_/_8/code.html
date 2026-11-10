@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fdf8ff;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#fdf8ff","on-primary-fixed-variant":"#4f378a","on-tertiary":"#ffffff","surface-tint":"#6750a4","on-secondary-container":"#686177","primary":"#4f378a","inverse-on-surface":"#f4eff9","on-primary-container":"#e0d2ff","tertiary-fixed-dim":"#eeb8c8","on-primary-fixed":"#22005d","primary-container":"#6750a4","surface-container-low":"#f7f1fc","on-error-container":"#93000a","on-tertiary-fixed-variant":"#633b48","inverse-primary":"#cfbcff","surface-bright":"#fdf8ff","primary-fixed-dim":"#cfbcff","on-primary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#633b48","secondary-container":"#e8def9","surface-container":"#f1ecf7","surface-variant":"#e6e0eb","secondary-fixed-dim":"#ccc2dc","on-error":"#ffffff","on-background":"#1c1b22","error":"#ba1a1a","tertiary-container":"#7d5260","on-surface-variant":"#494551","on-secondary":"#ffffff","on-tertiary-fixed":"#31111d","tertiary-fixed":"#ffd9e3","surface-dim":"#ddd8e3","on-tertiary-container":"#ffcbda","inverse-surface":"#312f37","surface-container-highest":"#e6e0eb","on-secondary-fixed":"#1e192b","surface-container-high":"#ece6f1","secondary":"#625b71","on-secondary-fixed-variant":"#4a4358","surface":"#fdf8ff","outline":"#7a7582","secondary-fixed":"#e8def9","error-container":"#ffdad6","primary-fixed":"#e9ddff","outline-variant":"#cbc4d2","on-surface":"#1c1b22"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-tablet":"1.5rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","space-xl":"2rem","gutter":"1rem","margin-tablet":"1.5rem","space-md":"1rem"},fontFamily:{"label-lg":["Roboto Flex"],"headline-lg-mobile":["Roboto Flex"],"title-md":["Roboto Flex"],"label-sm":["Roboto Flex"],"display-md":["Roboto Flex"],"label-md":["Roboto Flex"],"title-lg":["Roboto Flex"],"body-md":["Roboto Flex"],"body-sm":["Roboto Flex"],"title-sm":["Roboto Flex"],"headline-lg":["Roboto Flex"],"headline-md":["Roboto Flex"],"body-lg":["Roboto Flex"],"display-lg":["Roboto Flex"],"headline-sm":["Roboto Flex"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.15px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"display-md":["45px",{"lineHeight":"52px","letterSpacing":"0px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.5px","fontWeight":"500"}],"title-lg":["22px",{"lineHeight":"28px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.25px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.4px","fontWeight":"400"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.1px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"0px","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0.5px","fontWeight":"400"}],"display-lg":["57px",{"lineHeight":"64px","letterSpacing":"-0.25px","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"0px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-xs flex items-center justify-between"><div class="flex items-center gap-space-xs flex-1 min-w-0 pr-space-sm"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface active:bg-surface-container-highest" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-title-lg text-title-lg text-on-surface truncate">Network Ping Diagnostic</h1></div><div class="flex items-center gap-space-xs"><button aria-label="离线运行状态" class="h-9 px-space-sm flex items-center gap-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors"><span class="material-symbols-outlined text-[18px] text-primary">offline_bolt</span><span class="font-label-sm text-label-sm hidden sm:inline">离线模式</span></button><button aria-label="快捷操作" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant active:bg-surface-container-highest"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
+<!-- Calibration Banner / Sensor Status Notification -->
+<div class="px-margin mt-space-sm">
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm transition-all duration-300" id="calibration-card">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">sensors</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface">地磁高频传感器工作中</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              高精度
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            采用硬件磁力计与陀螺仪多重融合解算。如遇指针偏移，请手持设备在空中做「∞」字形轻转校准。
+          </p>
+</div>
+<button aria-label="关闭提示" class="text-on-surface-variant hover:text-on-surface p-1 rounded-full" id="dismiss-calib-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Compass Viewport & Heading Display -->
+<div class="flex flex-col items-center justify-center px-margin pt-space-md">
+<!-- Big Heading Angle Text & Cardinal Direction -->
+<div class="flex flex-col items-center text-center select-none">
+<div class="flex items-baseline justify-center">
+<span class="font-display-md text-display-md text-on-surface font-semibold tracking-tight tabular-nums" id="heading-degree">342</span>
+<span class="font-headline-sm text-headline-sm text-primary font-medium ml-1">°</span>
+</div>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-title-md text-title-md text-on-surface font-medium" id="heading-direction">西北偏北 · NNW</span>
+<span class="hidden items-center gap-0.5 px-1.5 py-0.2 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm" id="lock-badge">
+<span class="material-symbols-outlined text-[12px]">lock</span>
+          已锁定
+        </span>
+</div>
+</div>
+<!-- Interactive Compass Dial Instrument -->
+<div class="relative w-72 h-72 sm:w-80 sm:h-80 my-space-md flex items-center justify-center">
+<!-- Fixed Compass Needle / Crosshair Indicator on Top -->
+<div class="absolute inset-0 pointer-events-none z-20 flex flex-col items-center justify-between py-1">
+<!-- North Reference Sight Arrow -->
+<div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[12px] border-t-error"></div>
+<div class="w-0.5 h-3 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Outer Dial Background with Soft M3 Tonal Radial Depth -->
+<div class="absolute inset-0 rounded-full bg-surface-container shadow-md flex items-center justify-center overflow-hidden">
+<div class="absolute inset-2 rounded-full bg-surface-container-low shadow-sm"></div>
+<!-- Concentric Subtle Reticle Rings -->
+<div class="absolute w-52 h-52 rounded-full bg-surface-container-high/60"></div>
+<div class="absolute w-36 h-36 rounded-full bg-surface-container-highest/80 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center">
+<!-- Center Direction Cross-Hair -->
+<span class="material-symbols-outlined text-primary text-[28px]" id="needle-icon">navigation</span>
+</div>
+</div>
+</div>
+<!-- Rotating Compass Dial Face (Ticks & Degree Cardinal Marks) -->
+<div class="absolute inset-0 w-full h-full rounded-full transition-transform duration-100 ease-out z-10 origin-center pointer-events-none" id="compass-dial" style="transform: rotate(-342deg);">
+<!-- SVG Generated Ticks -->
+<svg class="w-full h-full text-on-surface-variant/40" viewbox="0 0 320 320">
+<g transform="translate(160,160)">
+<!-- Major Cardinal Lines & Sub-ticks in Circle -->
+<line class="text-error" stroke="currentColor" stroke-width="2.5" x1="0" x2="0" y1="-148" y2="-132"></line>
+<line class="text-on-surface" stroke="currentColor" stroke-width="2.5" x1="148" x2="132" y1="0" y2="0"></line>
+<line class="text-on-surface" stroke="currentColor" stroke-width="2.5" x1="0" x2="0" y1="148" y2="132"></line>
+<line class="text-on-surface" stroke="currentColor" stroke-width="2.5" x1="-148" x2="-132" y1="0" y2="0"></line>
+<!-- Intermediate 30/45 deg tick marks -->
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(30)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line class="text-primary" stroke="currentColor" stroke-width="2" transform="rotate(45)" x1="0" x2="0" y1="-148" y2="-140"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(60)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(120)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line class="text-primary" stroke="currentColor" stroke-width="2" transform="rotate(135)" x1="0" x2="0" y1="-148" y2="-140"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(150)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(210)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line class="text-primary" stroke="currentColor" stroke-width="2" transform="rotate(225)" x1="0" x2="0" y1="-148" y2="-140"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(240)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(300)" x1="0" x2="0" y1="-148" y2="-138"></line>
+<line class="text-primary" stroke="currentColor" stroke-width="2" transform="rotate(315)" x1="0" x2="0" y1="-148" y2="-140"></line>
+<line stroke="currentColor" stroke-width="1.5" transform="rotate(330)" x1="0" x2="0" y1="-148" y2="-138"></line>
+</g>
+</svg>
+<!-- Cardinal Labels (Positioned on the dial circle) -->
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-title-sm text-title-sm font-bold text-error">N</span>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-title-sm text-title-sm font-bold text-on-surface">E</span>
+<span class="absolute bottom-2 left-1/2 -translate-x-1/2 font-title-sm text-title-sm font-bold text-on-surface">S</span>
+<span class="absolute left-3 top-1/2 -translate-y-1/2 font-title-sm text-title-sm font-bold text-on-surface">W</span>
+</div>
+<!-- Bearing Target Ring (Lock state overlay) -->
+<div class="hidden absolute inset-0 rounded-full border-4 border-error/50 pointer-events-none animate-pulse" id="bearing-target"></div>
+</div>
+</div>
+<!-- Dual-Axis Bubble Incline Level (水平仪视窗) -->
+<div class="px-margin mt-space-xs">
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">straighten</span>
+<span class="font-title-sm text-title-sm text-on-surface">双轴倾斜水平仪</span>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="level-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span id="level-badge-text">偏离水平</span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-space-md items-center">
+<!-- Circular 2D Bubble Window -->
+<div class="col-span-5 flex justify-center">
+<div class="relative w-28 h-28 rounded-full bg-surface-container-highest shadow-inner flex items-center justify-center overflow-hidden">
+<!-- Center Bullseye Rings -->
+<div class="absolute w-12 h-12 rounded-full bg-surface-container-high"></div>
+<div class="absolute w-6 h-6 rounded-full bg-surface-container shadow-sm"></div>
+<!-- Crosshairs -->
+<div class="absolute w-full h-[1px] bg-outline-variant/60"></div>
+<div class="absolute h-full w-[1px] bg-outline-variant/60"></div>
+<!-- Floating Bubble -->
+<div class="absolute w-6 h-6 rounded-full bg-primary/80 shadow-md transition-all duration-75 ease-out flex items-center justify-center text-on-primary text-[10px]" id="bubble-dot" style="transform: translate(4px, -6px);">
+<div class="w-2 h-2 rounded-full bg-on-primary/70"></div>
+</div>
+</div>
+</div>
+<!-- Incline Angles X/Y and Reset Indicator -->
+<div class="col-span-7 flex flex-col justify-center gap-space-xs">
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">X 轴</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">横向倾角</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold tabular-nums" id="angle-x-val">+1.2°</span>
+</div>
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">Y 轴</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">俯仰倾角</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold tabular-nums" id="angle-y-val">-2.4°</span>
+</div>
+<div class="flex items-center justify-between px-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>水平基准面: 机身背面</span>
+<span class="flex items-center gap-0.5 text-primary">
+<span class="material-symbols-outlined text-[14px]">vibration</span>
+              归零触觉反馈
+            </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sensor Fusion Telemetry Cards (磁场、海拔、经纬度) -->
+<div class="px-margin mt-space-md">
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Magnetic Field Intensity -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">地磁感应强度</span>
+<span class="material-symbols-outlined text-primary text-[18px]">explore</span>
+</div>
+<div class="mt-space-sm">
+<div class="flex items-baseline">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tabular-nums">48.6</span>
+<span class="font-label-md text-label-md text-on-surface-variant ml-1">μT</span>
+</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">环境磁场正常</span>
+</div>
+</div>
+</div>
+<!-- Altitude (Barometer/GNSS Fusion) -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">解算海拔高度</span>
+<span class="material-symbols-outlined text-primary text-[18px]">altitude</span>
+</div>
+<div class="mt-space-sm">
+<div class="flex items-baseline">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tabular-nums">1,248</span>
+<span class="font-label-md text-label-md text-on-surface-variant ml-1">m</span>
+</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[12px]">speed</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">气压 1013.2 hPa</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Geographic Coordinates & True/Magnetic North Picker -->
+<div class="mt-space-sm bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-title-sm text-title-sm text-on-surface">WGS-84 空间定位</span>
+</div>
+<!-- Format Toggle Chip -->
+<button class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1 transition-all" id="coord-toggle-btn">
+<span class="material-symbols-outlined text-[14px]">swap_horiz</span>
+<span id="coord-format-label">度分秒 (DMS)</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-space-sm mt-space-sm">
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">纬度 Latitude</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold mt-0.5 block tabular-nums" id="lat-val">39° 54' 15" N</span>
+</div>
+<div class="bg-surface-container rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">经度 Longitude</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold mt-0.5 block tabular-nums" id="lng-val">116° 23' 29" E</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-space-xs">
+<span>磁偏角: -6° 24' (偏西)</span>
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          真北校正已激活
+        </span>
+</div>
+</div>
+</div>
+<!-- Action Toolbar / Quick Controls (Sticky Bottom Anchor within flow) -->
+<div class="px-margin mt-space-lg">
+<div class="flex items-center gap-space-sm">
+<!-- Bearing Lock Toggle Button -->
+<button class="flex-1 h-12 rounded-full bg-secondary-container hover:bg-secondary-fixed-dim text-on-secondary-container active:scale-[0.98] transition-all flex items-center justify-center gap-space-xs font-label-lg text-label-lg shadow-sm" id="lock-btn">
+<span class="material-symbols-outlined text-[20px]" id="lock-icon">lock_open</span>
+<span id="lock-text">锁定当前方位角</span>
+</button>
+<!-- Flashlight / SOS Utility Button -->
+<button aria-label="应急手电照明" class="h-12 w-12 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface active:scale-[0.98] transition-all flex items-center justify-center shadow-sm shrink-0" id="flash-btn">
+<span class="material-symbols-outlined text-[22px]" id="flash-icon">flashlight_on</span>
+</button>
+<!-- Level Calibration Zeroing -->
+<button aria-label="重置水平基准" class="h-12 w-12 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface active:scale-[0.98] transition-all flex items-center justify-center shadow-sm shrink-0" id="zero-level-btn">
+<span class="material-symbols-outlined text-[22px]">exposure_zero</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (function initCompassLevelInteractive() {
+    let currentHeading = 342;
+    let isLocked = false;
+    let lockedHeading = null;
+    let isDMSFormat = true;
+    let isFlashlightActive = false;
+
+    // Element references
+    const dial = document.getElementById('compass-dial');
+    const headingDegEl = document.getElementById('heading-degree');
+    const headingDirEl = document.getElementById('heading-direction');
+    const lockBtn = document.getElementById('lock-btn');
+    const lockIcon = document.getElementById('lock-icon');
+    const lockText = document.getElementById('lock-text');
+    const lockBadge = document.getElementById('lock-badge');
+    const bearingTarget = document.getElementById('bearing-target');
+    const coordToggleBtn = document.getElementById('coord-toggle-btn');
+    const coordFormatLabel = document.getElementById('coord-format-label');
+    const latVal = document.getElementById('lat-val');
+    const lngVal = document.getElementById('lng-val');
+    const bubbleDot = document.getElementById('bubble-dot');
+    const angleXVal = document.getElementById('angle-x-val');
+    const angleYVal = document.getElementById('angle-y-val');
+    const levelBadge = document.getElementById('level-badge');
+    const levelBadgeText = document.getElementById('level-badge-text');
+    const flashBtn = document.getElementById('flash-btn');
+    const flashIcon = document.getElementById('flash-icon');
+    const zeroLevelBtn = document.getElementById('zero-level-btn');
+    const dismissCalibBtn = document.getElementById('dismiss-calib-btn');
+    const calibrationCard = document.getElementById('calibration-card');
+
+    // Direction calculation helper
+    function getCardinal(deg) {
+      const directions = [
+        '正北 · N', '东北偏北 · NNE', '东北 · NE', '东北偏东 · ENE',
+        '正东 · E', '东南偏东 · ESE', '东南 · SE', '东南偏南 · SSE',
+        '正南 · S', '西南偏南 · SSW', '西南 · SW', '西南偏西 · WSW',
+        '正西 · W', '西北偏西 · WNW', '西北 · NW', '西北偏北 · NNW'
+      ];
+      const index = Math.round(deg / 22.5) % 16;
+      return directions[index];
+    }
+
+    // Update compass view
+    function updateCompass(heading) {
+      currentHeading = (heading + 360) % 360;
+      headingDegEl.textContent = Math.round(currentHeading);
+      headingDirEl.textContent = getCardinal(currentHeading);
+      if (dial) {
+        dial.style.transform = `rotate(${-currentHeading}deg)`;
+      }
+    }
+
+    // Dismiss calibration warning card
+    if (dismissCalibBtn && calibrationCard) {
+      dismissCalibBtn.addEventListener('click', () => {
+        calibrationCard.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+          calibrationCard.parentElement.remove();
+        }, 300);
+      });
+    }
+
+    // Bearing lock action
+    if (lockBtn) {
+      lockBtn.addEventListener('click', () => {
+        isLocked = !isLocked;
+        if (isLocked) {
+          lockedHeading = currentHeading;
+          lockBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+          lockBtn.classList.add('bg-error-container', 'text-on-error-container');
+          lockIcon.textContent = 'lock';
+          lockText.textContent = `锁定在 ${Math.round(lockedHeading)}° (点击解锁)`;
+          lockBadge.classList.remove('hidden');
+          lockBadge.classList.add('inline-flex');
+          bearingTarget.classList.remove('hidden');
+          // Provide subtle visual haptic
+          if (navigator.vibrate) navigator.vibrate([20]);
+        } else {
+          lockBtn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+          lockBtn.classList.remove('bg-error-container', 'text-on-error-container');
+          lockIcon.textContent = 'lock_open';
+          lockText.textContent = '锁定当前方位角';
+          lockBadge.classList.add('hidden');
+          lockBadge.classList.remove('inline-flex');
+          bearingTarget.classList.add('hidden');
+        }
+      });
+    }
+
+    // Coordinates DMS vs Decimal Toggle
+    if (coordToggleBtn) {
+      coordToggleBtn.addEventListener('click', () => {
+        isDMSFormat = !isDMSFormat;
+        if (isDMSFormat) {
+          coordFormatLabel.textContent = '度分秒 (DMS)';
+          latVal.textContent = "39° 54' 15\" N";
+          lngVal.textContent = "116° 23' 29\" E";
+        } else {
+          coordFormatLabel.textContent = '十进制 (DD)';
+          latVal.textContent = '39.9042° N';
+          lngVal.textContent = '116.3914° E';
+        }
+      });
+    }
+
+    // Level bubble physics simulation & orientation handling
+    let offsetX = 4;
+    let offsetY = -6;
+
+    function applyLevelBubble(x, y) {
+      // Clamp within 44px radius
+      const maxRadius = 40;
+      const dist = Math.sqrt(x * x + y * y);
+      let renderX = x;
+      let renderY = y;
+      if (dist > maxRadius) {
+        renderX = (x / dist) * maxRadius;
+        renderY = (y / dist) * maxRadius;
+      }
+
+      bubbleDot.style.transform = `translate(${renderX}px, ${renderY}px)`;
+      angleXVal.textContent = `${renderX >= 0 ? '+' : ''}${(renderX * 0.3).toFixed(1)}°`;
+      angleYVal.textContent = `${renderY >= 0 ? '+' : ''}${(renderY * 0.3).toFixed(1)}°`;
+
+      const isBalanced = Math.abs(renderX) < 2.5 && Math.abs(renderY) < 2.5;
+      if (isBalanced) {
+        levelBadge.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        levelBadge.classList.add('bg-primary-fixed', 'text-on-primary-fixed');
+        levelBadgeText.textContent = '精准水平 (0°)';
+      } else {
+        levelBadge.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        levelBadge.classList.remove('bg-primary-fixed', 'text-on-primary-fixed');
+        levelBadgeText.textContent = '偏离水平';
+      }
+    }
+
+    // Zero out / calibrate level button
+    if (zeroLevelBtn) {
+      zeroLevelBtn.addEventListener('click', () => {
+        offsetX = 0;
+        offsetY = 0;
+        applyLevelBubble(0, 0);
+        if (navigator.vibrate) navigator.vibrate([30, 20, 30]);
+      });
+    }
+
+    // Flashlight Toggle Interaction
+    if (flashBtn) {
+      flashBtn.addEventListener('click', () => {
+        isFlashlightActive = !isFlashlightActive;
+        if (isFlashlightActive) {
+          flashBtn.classList.remove('bg-surface-container-high', 'text-on-surface');
+          flashBtn.classList.add('bg-primary', 'text-on-primary');
+          flashIcon.textContent = 'flashlight_off';
+        } else {
+          flashBtn.classList.add('bg-surface-container-high', 'text-on-surface');
+          flashBtn.classList.remove('bg-primary', 'text-on-primary');
+          flashIcon.textContent = 'flashlight_on';
+        }
+      });
+    }
+
+    // Sensor Fusion DeviceOrientation / Fallback Smooth Wander
+    if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+      window.addEventListener('deviceorientation', (e) => {
+        if (e.alpha !== null && !isLocked) {
+          // WebKit compass heading or standard alpha
+          const heading = e.webkitCompassHeading || (360 - e.alpha);
+          updateCompass(heading);
+        }
+        if (e.gamma !== null && e.beta !== null) {
+          applyLevelBubble(e.gamma * 1.5, (e.beta - 45) * 1.2);
+        }
+      });
+    } else {
+      // Elegant subtle organic drift when running on simulated/desktop platforms
+      let step = 0;
+      setInterval(() => {
+        if (!isLocked) {
+          step += 0.04;
+          const wobble = Math.sin(step) * 2.2;
+          const subtleHeading = (342 + wobble + 360) % 360;
+          updateCompass(subtleHeading);
+          
+          const bubbleX = 4 + Math.sin(step * 1.3) * 3;
+          const bubbleY = -6 + Math.cos(step * 0.9) * 2.5;
+          applyLevelBubble(bubbleX, bubbleY);
+        }
+      }, 50);
+    }
+  })();
+</script></main></body></html>

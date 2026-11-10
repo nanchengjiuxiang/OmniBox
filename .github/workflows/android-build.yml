@@ -1,5 +1,7 @@
 name: OmniBox Android Build
 
+# 仓库根是整个工作区，Android 工程位于 OmniBox/ 子目录；
+# 所有 run 步骤由 defaults.run.working-directory 切到该目录执行。
 # 云端出 APK：零本机 Android SDK。
 # 默认产物 = 可直接 adb 安装/侧载的 debug APK（自动 debug 签名，不需要任何 Secrets）。
 # 需要上架级 release 包时在 workflow_dispatch 勾选 build_release 并配置 4 个签名 Secrets。
@@ -30,6 +32,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: OmniBox
     # 不要在这里覆盖 ANDROID_HOME：android-actions/setup-android 会把 SDK 装到
     # runner 预置的 /usr/local/lib/android/sdk 并写入环境变量，手动覆盖会让 SDK 找不到。
 
@@ -167,7 +172,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: omnibox-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: OmniBox/app/build/outputs/apk/debug/*.apk
           if-no-files-found: warn
           retention-days: 14
 
@@ -177,8 +182,8 @@ jobs:
         with:
           name: omnibox-release
           path: |
-            app/build/outputs/apk/release/*.apk
-            app/build/outputs/bundle/release/*.aab
+            OmniBox/app/build/outputs/apk/release/*.apk
+            OmniBox/app/build/outputs/bundle/release/*.aab
           if-no-files-found: warn
           retention-days: 30
 
@@ -188,7 +193,7 @@ jobs:
         with:
           name: omnibox-build-reports
           path: |
-            **/build/reports/**
-            **/build/test-results/**
+            OmniBox/**/build/reports/**
+            OmniBox/**/build/test-results/**
           if-no-files-found: ignore
           retention-days: 7
