@@ -1,6 +1,6 @@
-# 实现进度与已知偏差（2026-11-10，P6/P7 收口）
+# 实现进度与已知偏差（2026-11-10，P8 探索页收口）
 
-**结论：13 款工具全部真实可用，P6（前台服务、Glance 小组件）与 P7（release 签名包、单测、覆盖比对）已收口。**
+**结论：13 款工具全部真实可用，P6（前台服务、Glance 小组件）、P7（release 签名包、单测、覆盖比对）与 P8（探索 · 精选导航）已收口。**
 本机 JDK 17 + Android SDK 35 + Gradle 8.9 环境下 `assembleDebug` / `assembleRelease` / `bundleRelease` / `test` 全部通过。
 
 ## 里程碑
@@ -14,7 +14,8 @@
 | P4 | 传感器类工具与降级页 | ✅ 指南针 / 分贝计完成 |
 | P5 | 转盘 / 倒计时与 Room 持久化 | ✅ 完成 |
 | **P6** | **前台服务、Glance 小组件** | **✅ 本次完成（转码前台服务 + 倒计时/二维码两个小组件）** |
-| **P7** | **单测、release 签名包、覆盖比对报告** | **✅ 本次完成（113 条单测 / 签名 APK + AAB / 32 屏文案覆盖报告）** |
+| P7 | 单测、release 签名包、覆盖比对报告 | ✅ 完成（144 条单测 / 签名 APK + AAB / 32 屏文案覆盖报告） |
+| **P8** | **探索 · 精选导航（新增需求）** | **✅ 本次完成（30 个站点 / 10 个分类 / 收藏与自建站点 / Custom Tabs / 无痕模式）** |
 
 ## 13 款工具
 
@@ -57,7 +58,7 @@
 | `feature:countdown` | `CountdownBootReceiver.kt` | 开机 / 应用更新后从 Room 读回事件并重建闹钟 |
 | `app` | `widget/CountdownWidget.kt`、`widget/QrWidget.kt`、`widget/WidgetEntryPoint.kt`、`widget/CountdownWidgetRefreshReceiver.kt` | 两个 Glance 小组件 + Hilt EntryPoint + 数据变更刷新 |
 | `app` | `res/xml/countdown_widget_info.xml`、`res/xml/qr_widget_info.xml` | 小组件尺寸、预览、更新周期 |
-| 各模块 | `src/test/java/**/*Test.kt` | 113 条 JVM 单测（引擎层，无 Android 依赖） |
+| 各模块 | `src/test/java/**/*Test.kt` | 144 条 JVM 单测（引擎层，无 Android 依赖；其中探索 31 条） |
 | `scripts` | `check-screens.py` | 设计稿 → 实现的中文文案覆盖比对 |
 | 根目录 | `SCREEN_COVERAGE.md` | 上者生成的 32 屏覆盖率报告 |
 
@@ -77,7 +78,7 @@
 | 密码、单位、时间戳、文本箱 2 屏、开发者箱 | 6 | ✅ |
 | `omnibox_offline_utility_suite` | 1 | 计划裁定为旧版首页副本，不实现 |
 
-## 权限与降级矩阵（零 INTERNET 不变）
+## 权限与降级矩阵（网络权限仅限探索页）
 
 | 权限 | 申请时机 | 拒绝后的真实行为 | 对应设计稿降级页 |
 |---|---|---|---|
@@ -86,6 +87,8 @@
 | `ACCESS_FINE_LOCATION`（可选） | 用户点「校准真北」才申请 | 保持磁北，明示「真北需定位授权」，不伪造偏角 | `compass_degraded` |
 | `POST_NOTIFICATIONS`（13+） | 打开「提醒」开关时申请 | 事件仍可保存与页内倒计时，仅提醒不可用且界面明示 | 倒计时编辑器内提示 |
 | `SCHEDULE_EXACT_ALARM`（12+） | 设置提醒时 | 捕获 `SecurityException`，退回非精确闹钟并提示可能延迟 | 同上 |
+| `INTERNET` | 探索页加载站点图标、打开外链 | 断网时导航目录照常浏览，卡片顶部提示「当前无网络」；图标退化为首字母头像 | 探索页顶部提示条 |
+| `ACCESS_NETWORK_STATE` | 进入探索页 / 回到前台时查询一次 | 仅用于显示离线提示，不影响任何工具功能 | 同上 |
 
 硬件特性全部 `required="false"`：无磁力计 / 无麦克风 / 无相机的设备走到对应降级分支，不崩溃。
 
@@ -99,6 +102,33 @@
 | 开机重建提醒 | `CountdownBootReceiver` 在 `BOOT_COMPLETED` / `MY_PACKAGE_REPLACED` 时从 Room 读回 `notifyEnabled` 事件并重新下单闹钟（AlarmManager 的闹钟不跨重启存活） |
 | 引擎单测 | 113 条 JVM 用例覆盖密码熵/字符集、单位往返与温度基准、时间戳与时区、摘要标准向量、加权抽样分布、周年边界、dB 换算、采样率计算 |
 
+## P8：探索 · 精选导航
+
+设计稿是一页「探索」外链导航，本次整页落地为独立模块 `feature:explore`，底部导航从 3 Tab 扩为 4 Tab（工具 / 探索 / 常用 / 设置）。
+
+| 能力 | 真实行为 |
+|---|---|
+| 精选目录 | 30 个站点，覆盖 AI 助手 / AI 图像 / AI 视频 / AI 办公 / 影视 / 音乐 / 二次元 / 阅读 / 游戏 10 个分类；地址入库前逐个 HTTP 探活 |
+| 搜索 | 本地即时过滤，命中名称、简介、域名、分类名与标签；无网络也能用 |
+| 分类筛选 | Chips 上的数字由注册表实时计算，不写死设计稿演示值 |
+| 收藏 | 落本机 DataStore（`omnibox_explore`），卡片星标切换后立即出现在顶部「我的收藏」快捷栏；「最近打开」按真实顺序排列，最长 12 条 |
+| 提交站点 | 弹窗输入网址 + 名称 + 分类；`normalizeUrl` 统一补 `https://`、拒绝非 http(s)/无域名输入；重复站点、内置站点直接拒绝并给出原因 |
+| 打开方式 | 默认 Chrome Custom Tabs（保留地址栏、证书与安全标识）；关闭开关则走系统默认浏览器；两者都失败时提示「先安装浏览器」 |
+| 无痕沙盒 | 打开后不写最近打开记录、任务栈加 `FLAG_ACTIVITY_NO_HISTORY`，并立即清空已有足迹；界面明示「Cookie 与历史仍由浏览器管理」，不谎称能控制浏览器 |
+| 站点图标 | `https://<host>/favicon.ico`，4 秒超时 + 256 KB 上限 + 内存/磁盘双缓存；失败退化为首字母头像，绝不显示破图 |
+| 离线提示 | 进页与回前台各查一次网络状态，断网时显示提示条，目录仍可浏览 |
+
+**同时修掉的两个「有入口无去处」**
+
+1. 探索页的收藏原先只能点星、没有列表可回看，`favoriteEntries` 是死代码——现在顶部常驻「我的收藏」快捷栏，星标即刻可见可点。
+2. 「常用」页的置顶工具链路（Room `favorites` 表 + `HomeEvent.ToggleFavorite`）早就写好了，但界面上一直没有触发点，页面永远是空的——工具卡右侧补上星标按钮，首页与常用页都能切换，空态文案改为指向真实操作。
+
+**与设计稿的刻意差异**
+
+1. 设计稿里指向盗版影视站与影子图书馆（Z-Lib、厂长资源等）的入口未接入，替换为同分类的合规站点（哔哩哔哩、豆瓣、央视网、微信读书、鸠摩搜索等）；
+2. 条目标签只写可核验属性（免费 / 免费额度 / 开源 / 需登录），不使用「最强」「神器」类无法证伪的营销词；
+3. 「无痕」只承诺本机不留痕，不承诺浏览器侧无痕——Custom Tabs 没有公开的隐私模式开关，写清楚比写得爽重要。
+
 ## 新增依赖与体积
 
 | 依赖 | 版本 | 用途 | 是否引入网络权限 |
@@ -107,27 +137,28 @@
 | `androidx.camera:camera-core/camera2/lifecycle/view` | 1.3.4 | 相机预览与帧分析 | 否 |
 | `androidx.exifinterface:exifinterface` | 1.3.7 | 读取/校验 EXIF | 否 |
 | `androidx.glance:glance-appwidget` | 1.1.1 | 桌面小组件（P6） | 否 |
+| `androidx.browser:browser` | 1.8.0 | 探索页 Chrome Custom Tabs 跳转（P8） | 需要 `INTERNET`（已声明，仅探索页使用） |
 
-体积：debug APK 23.0 MB（未混淆、含调试符号），release APK **4.9 MB**（R8 + 资源压缩后约为 debug 的 21%），release AAB 8.7 MB。
-**未引入** FFmpeg-Kit、ML Kit、Coil/Glide、任何网络库：前三者会显著增大包体或注入 `INTERNET`，后者违反零权限承诺。
+体积：debug APK 23.2 MB（未混淆、含调试符号），release APK **5.0 MB**（R8 + 资源压缩后约为 debug 的 22%），release AAB 8.8 MB。
+**未引入** FFmpeg-Kit、ML Kit、Coil/Glide、HTTP 客户端（OkHttp/Retrofit）：前两者会显著增大包体，图片库与网络栈对本项目没有必要——站点图标用 `HttpURLConnection` + `LruCache` 三十行解决，探索页也没有任何 JSON 接口需要解析。
 
 ## 已验证项
 
 | 项 | 结果 |
 |---|---|
 | `./gradlew :app:assembleDebug` | BUILD SUCCESSFUL，0 编译错误 0 警告 |
-| `./gradlew test` | BUILD SUCCESSFUL，18 个测试类 / 113 条用例 × 2 个变体 = 226 次执行，0 失败 0 错误 0 跳过 |
+| `./gradlew test` | BUILD SUCCESSFUL，12 个测试类 / 144 条用例 × 2 个变体 = 288 次执行，0 失败 0 错误 0 跳过 |
 | `./gradlew :app:assembleRelease :app:bundleRelease` | BUILD SUCCESSFUL，R8 混淆 + 资源压缩生效 |
-| `bash scripts/verify-release.sh` | 全部通过：签名 v1/v2/v3、权限清单、合并 Manifest 无 INTERNET、哈希留档 |
-| `python scripts/check-project.py` | 0 错误 0 警告（18 模块 / 13 条注册 / 95 个编译单元） |
+| `bash scripts/verify-release.sh` | 全部通过：签名 v1/v2/v3、网络权限策略、合并 Manifest 含预期网络权限、哈希留档 |
+| `python scripts/check-project.py` | 0 错误 0 警告（19 模块 / 13 条注册 / 106 个编译单元） |
 | `python scripts/check-screens.py` | 32 屏 / 1354 条设计文案 / 命中 835，总覆盖率 **61.7%** |
-| `aapt dump permissions` | CAMERA、RECORD_AUDIO、ACCESS_FINE/COARSE_LOCATION、POST_NOTIFICATIONS、VIBRATE、SCHEDULE_EXACT_ALARM、USE_EXACT_ALARM、RECEIVE_BOOT_COMPLETED、FOREGROUND_SERVICE、FOREGROUND_SERVICE_DATA_SYNC、WAKE_LOCK；**无 INTERNET / ACCESS_NETWORK_STATE** |
+| `aapt dump permissions` | INTERNET、ACCESS_NETWORK_STATE、CAMERA、RECORD_AUDIO、ACCESS_FINE/COARSE_LOCATION、POST_NOTIFICATIONS、VIBRATE、SCHEDULE_EXACT_ALARM、USE_EXACT_ALARM、RECEIVE_BOOT_COMPLETED、FOREGROUND_SERVICE、FOREGROUND_SERVICE_DATA_SYNC、WAKE_LOCK；无 ACCESS_WIFI_STATE 等额外网络权限 |
 | release 包内组件 | `CountdownReminderReceiver` / `CountdownBootReceiver` / 两个 Glance `*WidgetReceiver`（带 `android.appwidget.provider` 元数据）/ `TranscodeService`（`foregroundServiceType=dataSync`）均存活 |
 | 签名 | `CN=OmniBox, OU=Offline Tool Suite, O=OmniBox, L=Hangzhou, ST=Zhejiang, C=CN`，RSA 4096，有效期 10000 天 |
-| debug 产物 | `app-debug.apk` 23,003,561 字节（含 Glance 后 +1.5 MB），`CN=Android Debug`，包名 `com.omnibox.debug` |
-| release 产物 | `app-release.apk` **4,911,767 字节**（R8 后约为 debug 的 23%）、`app-release.aab` 8,691,098 字节，包名 `com.omnibox` |
-| SHA-256（release APK） | `d65d780297d6507ce4524fb3b98c8999a9a9116859dc2e906cd7a9608331c7d8` |
-| SHA-256（release AAB） | `02e18f292100fac2ad488cf62c7ab1f7d66156d730f797e8cd894c8a5ce9aea2` |
+| debug 产物 | `app-debug.apk` 23,388,104 字节（含探索页后 +385 KB），`CN=Android Debug`，包名 `com.omnibox.debug` |
+| release 产物 | `app-release.apk` **4,999,076 字节**（R8 后约为 debug 的 21%）、`app-release.aab` 8,842,244 字节，包名 `com.omnibox` |
+| SHA-256（release APK） | `cfce1662acb626d5f7383dfca2a3d346cc43e4b72417429a38780361bad4f9f3` |
+| SHA-256（release AAB） | `370aebaf8c11a03aff2e8bc831ae347e39dd01436fd1d83e36c7a95e9cfb33d3` |
 
 ## 已知偏差与取舍（均可复现、均有代码注释）
 

@@ -3,7 +3,7 @@
 """OmniBox 工程静态自检（不需要 JDK / Android SDK 即可运行）。
 
 用法：python scripts/check-project.py
-检查：模块拓扑、Gradle alias、Kotlin package/括号、零网络权限、注册表完整性、设计基线覆盖。
+检查：模块拓扑、Gradle alias、Kotlin package/括号、网络权限策略、注册表完整性、设计基线覆盖。
 """
 import os
 import re
@@ -140,13 +140,25 @@ for p in kt_files:
         if stripped.count(op) != stripped.count(cl):
             issues.append(f'{rel(p)} {name}不配对: {stripped.count(op)} vs {stripped.count(cl)}')
 
-# 4. 零网络权限（源码 Manifest）
+# 4. 网络权限策略（源码 Manifest）
+# 探索页需要 INTERNET 加载站点图标、ACCESS_NETWORK_STATE 做离线提示；
+# 这两项只能由 app 模块统一声明，feature 模块禁止自行声明，避免「某个工具偷偷联网」。
+NETWORK_PERMS = ('android.permission.INTERNET', 'android.permission.ACCESS_NETWORK_STATE')
+APP_MANIFEST = 'app/src/main/AndroidManifest.xml'
+declared = set()
 for mf in glob.glob('**/src/main/AndroidManifest.xml', recursive=True):
     s = open(mf, encoding='utf-8').read()
-    for line in s.splitlines():
-        if 'android.permission.INTERNET' in line and 'tools:node="remove"' not in line:
-            issues.append(f'{rel(mf)} 声明了 INTERNET 权限')
-info.append('源码 Manifest 零网络权限检查完成（发布前仍需检查 merged_manifests）')
+    for perm in NETWORK_PERMS:
+        if perm in s:
+            declared.add((rel(mf), perm))
+            if rel(mf) != APP_MANIFEST:
+                issues.append(f'{rel(mf)} 不应声明 {perm}（网络权限只在 app 模块声明）')
+missing = [p for p in NETWORK_PERMS if (APP_MANIFEST, p) not in declared]
+if missing:
+    issues.append(f'app Manifest 缺少网络权限声明: {missing}')
+if os.path.isfile(APP_MANIFEST) and '<queries>' not in open(APP_MANIFEST, encoding='utf-8').read():
+    issues.append('app Manifest 缺少 <queries> 浏览器可见性声明（Android 11+ 无法判断浏览器是否存在）')
+info.append('网络权限策略检查完成：INTERNET 仅用于探索页外链与图标，工具本体仍全离线')
 
 # 5. 工具注册表完整性
 modules = glob.glob('feature/*/src/main/java/**/*ToolModule.kt', recursive=True)

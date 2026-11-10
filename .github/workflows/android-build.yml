@@ -75,17 +75,17 @@ jobs:
       - name: Static project check
         run: python3 scripts/check-project.py
 
-      - name: Source-level offline gate
-        run: ./gradlew :verifyNoInternetPermission :app:assertOfflineManifest
+      - name: Network policy gate
+        run: ./gradlew :verifyNetworkPolicy :app:assertNetworkPolicy
 
-      # 引擎层 JVM 单测（113 条）：加权抽样分布、dB 换算、周年边界、采样率计算等纯算法
+      # 引擎层 JVM 单测（144 条）：加权抽样分布、dB 换算、周年边界、采样率计算等纯算法
       - name: Unit tests
         run: ./gradlew test --stacktrace
 
       - name: Build debug APK
         run: ./gradlew :app:assembleDebug --stacktrace
 
-      - name: Assert merged manifest has no INTERNET
+      - name: Assert merged manifest keeps expected network permissions
         run: |
           set -euo pipefail
           MAP=$(find app/build/intermediates -type f -name AndroidManifest.xml -path '*merged*' 2>/dev/null || true)
@@ -94,12 +94,12 @@ jobs:
           else
             while IFS= read -r m; do
               echo "Checking $m"
-              if grep -qi 'android.permission.INTERNET' "$m"; then
-                echo "::error::INTERNET 权限被传递依赖注入了合并后的 Manifest: $m"
+              if ! grep -qi 'android.permission.INTERNET' "$m"; then
+                echo "::error::合并后的 Manifest 丢失 INTERNET，探索页外链将无法打开: $m"
                 exit 1
               fi
             done <<< "$MAP"
-            echo "OK: 合并后的 Manifest 零网络权限"
+            echo "OK: 合并后的 Manifest 含预期网络权限（仅 INTERNET / ACCESS_NETWORK_STATE）"
           fi
 
       - name: Decode release keystore

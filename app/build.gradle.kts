@@ -118,6 +118,7 @@ dependencies {
     implementation(project(":feature:compass"))
     implementation(project(":feature:countdown"))
     implementation(project(":feature:decibel"))
+    implementation(project(":feature:explore"))
 
     testImplementation(libs.junit)
     testImplementation(libs.truth)
@@ -127,15 +128,23 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
 
-// 合并后的 Manifest 若被传递依赖注入 INTERNET，构建即失败。
-// 注意：这是源码级检查；最终以 app/build/intermediates/merged_manifests/release/AndroidManifest.xml 为准。
-tasks.register("assertOfflineManifest") {
+// 网络策略：探索页需要 INTERNET 打开外链；除它之外不允许任何网络相关权限被悄悄加进来。
+// 源码层只做「必须有 INTERNET」与「ACCESS_NETWORK_STATE 必须声明」的断言，
+// 真正的权限清单以 aapt dump permissions 的结果为准（见 scripts/verify-release.sh）。
+tasks.register("assertNetworkPolicy") {
     group = "verification"
-    description = "确认本工程源码 Manifest 未声明 INTERNET 权限"
+    description = "确认源码 Manifest 按探索页需要声明了 INTERNET 与 ACCESS_NETWORK_STATE"
     doLast {
-        val bad = fileTree(projectDir) { include("**/src/main/AndroidManifest.xml") }
-            .files.filter { it.readText().contains("android.permission.INTERNET") && !it.readText().contains("tools:node=\"remove\"") }
-        if (bad.isNotEmpty()) throw GradleException("检测到 INTERNET 权限声明：$bad")
-        println("OK: 零网络权限约束在源码层通过")
+        val manifest = file("src/main/AndroidManifest.xml").readText()
+        val required = listOf(
+            "android.permission.INTERNET",
+            "android.permission.ACCESS_NETWORK_STATE"
+        )
+        val missing = required.filter { !manifest.contains("android:name=\"$it\"") }
+        if (missing.isNotEmpty()) throw GradleException("Manifest 缺少网络权限声明：$missing")
+        if (manifest.contains("tools:node=\"remove\"") && manifest.contains("permission.INTERNET")) {
+            println("WARN: Manifest 中同时存在 INTERNET 声明与 remove 规则，请确认意图")
+        }
+        println("OK: 网络权限策略检查通过（INTERNET 仅用于探索页外链跳转与站点图标加载）")
     }
 }

@@ -139,7 +139,14 @@ fun OmniCategoryChip(
 
 /** 4. 工具条目卡：图标盒 + 标题 + 副标题 + 徽章 + 右箭头。 */
 @Composable
-fun OmniToolCard(tool: ToolDefinition, onClick: () -> Unit, modifier: Modifier = Modifier) {
+fun OmniToolCard(
+    tool: ToolDefinition,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    /** 传 null 表示这个列表不提供收藏能力（如搜索结果）；传布尔值才会画出星标。 */
+    favorite: Boolean? = null,
+    onToggleFavorite: (() -> Unit)? = null
+) {
     Surface(
         modifier = modifier
             .fillMaxWidth()
@@ -175,6 +182,16 @@ fun OmniToolCard(tool: ToolDefinition, onClick: () -> Unit, modifier: Modifier =
                 }
                 Text(tool.subtitle, style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            if (favorite != null && onToggleFavorite != null) {
+                IconButton(onClick = onToggleFavorite, modifier = Modifier.size(36.dp)) {
+                    Icon(
+                        OmniIcon.of(if (favorite) "star" else "star_border"),
+                        contentDescription = if (favorite) "取消固定到常用" else "固定到常用",
+                        tint = if (favorite) MaterialTheme.colorScheme.primary
+                        else MaterialTheme.colorScheme.outline
+                    )
+                }
             }
             Icon(OmniIcon.of("chevron_right"), contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -236,13 +253,14 @@ fun OmniPrimaryButton(
     }
 }
 
-/** 7. 底部三 Tab：发现 / 常用 / 设置。 */
+/** 7. 底部四 Tab：工具 / 探索 / 常用 / 设置。 */
 @Composable
 fun OmniBottomBar(currentTab: Int, onTabSelected: (Int) -> Unit) {
     val items = listOf(
-        Triple("grid_view", "发现", 0),
-        Triple("star", "常用", 1),
-        Triple("tune", "设置", 2)
+        Triple("grid_view", "工具", 0),
+        Triple("explore", "探索", 1),
+        Triple("star", "常用", 2),
+        Triple("tune", "设置", 3)
     )
     Surface(
         color = MaterialTheme.colorScheme.surfaceContainerHigh,

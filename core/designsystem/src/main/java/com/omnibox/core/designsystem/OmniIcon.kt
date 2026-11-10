@@ -40,6 +40,7 @@ object OmniIcon {
         "bolt" -> Icons.Filled.Bolt
         "grid_view" -> Icons.Filled.GridView
         "star", "favorite" -> Icons.Filled.Star
+        "star_border", "favorite_border" -> Icons.Filled.StarBorder
         "settings" -> Icons.Filled.Settings
         "more_vert" -> Icons.Filled.MoreVert
         "person" -> Icons.Filled.Person

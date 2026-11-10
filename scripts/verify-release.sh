@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 发布前验证：签名 / 版本 / 权限 / 零 INTERNET / 哈希留档
+# 发布前验证：签名 / 版本 / 权限策略 / 哈希留档
 # 用法: bash scripts/verify-release.sh [apk路径]
 set -u
 APK="${1:-app/build/outputs/apk/release/app-release.apk}"
@@ -29,17 +29,28 @@ echo "== 2. Badging =="
 echo "== 3. 权限清单 =="
 PERMS=$("$AAPT" dump permissions "$APK")
 echo "$PERMS"
-if echo "$PERMS" | grep -qi "android.permission.INTERNET"; then
-  echo "FAIL: APK 含 INTERNET 权限，违反零网络权限约束"; exit 1
+# 网络权限策略：探索页需要 INTERNET + ACCESS_NETWORK_STATE；其余网络类权限一律视为异常回注。
+for required in android.permission.INTERNET android.permission.ACCESS_NETWORK_STATE; do
+  if ! echo "$PERMS" | grep -qi "$required"; then
+    echo "FAIL: 缺少 $required（探索页外链与离线提示需要）"; exit 1
+  fi
+done
+EXTRA_NET=$(echo "$PERMS" | grep -oiE 'android\.permission\.(ACCESS_WIFI_STATE|CHANGE_NETWORK_STATE|CHANGE_WIFI_STATE|ACCESS_BACKGROUND_LOCATION_EXTRA|READ_PHONE_STATE)' || true)
+if [ -n "$EXTRA_NET" ]; then
+  echo "WARN: 出现非预期网络相关权限，请复核来源：$EXTRA_NET"
 fi
+echo "OK: 网络权限符合策略（INTERNET 仅用于探索页外链与图标）"
 
 echo "== 4. 合并 Manifest 复核 =="
 MANIFEST=$(find app/build/intermediates -path '*merged_manifests*release*AndroidManifest.xml' 2>/dev/null | head -1)
 if [ -n "$MANIFEST" ]; then
-  if grep -qi 'android.permission.INTERNET' "$MANIFEST"; then
-    echo "FAIL: 合并 Manifest 含 INTERNET 权限"; exit 1
+  if ! grep -qi 'android.permission.INTERNET' "$MANIFEST"; then
+    echo "FAIL: 合并 Manifest 丢失 INTERNET（探索页外链会打不开）"; exit 1
   fi
-  echo "OK: $MANIFEST 无 INTERNET"
+  if grep -q 'tools:node="remove"' "$MANIFEST"; then
+    echo "WARN: 合并 Manifest 仍含 tools:node=\"remove\" 规则，请确认没有误移除网络权限"
+  fi
+  echo "OK: $MANIFEST 含预期网络权限"
 else
   echo "WARN: 未找到合并 Manifest，请先执行 assembleRelease"
 fi

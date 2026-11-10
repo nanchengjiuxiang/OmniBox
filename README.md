@@ -20,6 +20,7 @@ OmniBox/
 │   └── data/                  ToolCatalog(@IntoSet) / Room / DataStore 偏好
 ├── feature/
 │   ├── home/                  首页 + 常用 + 设置 + 工具设置 + 历史 + 搜索（6 屏）
+│   ├── explore/               探索 · 精选导航（30 站点外链目录 / 我的收藏 / 自定义站点 / Chrome Custom Tabs）
 │   ├── password/              SecureRandom 密码生成器
 │   ├── timestamp/             java.time 双向换算
 │   ├── texttools/             文本全能箱 + 开发者箱（含空态）
@@ -54,7 +55,7 @@ Windows 用 `gradlew.bat`。本机环境路径与 CI 用法见 `BUILD.md`。
 
 - **MVI**：`StateFlow<UiState>` + `sealed UiEvent`，ViewModel 不把异常抛到 UI。
 - **ToolRegistry**：13 个 feature 模块用 Hilt `@IntoSet` 贡献 `ToolDefinition`，首页/收藏/搜索/设置的计数与列表全部由 `ToolCatalog` 驱动，杜绝「界面写 13 款、实际只有 12 款功能」。
-- **零网络权限**：主 Manifest 用 `tools:node="remove"` 移除传递依赖注入的 `INTERNET`；发布前检查合并产物。
+- **网络边界**：只有探索页用 `INTERNET`（打开外链、拉站点图标）与 `ACCESS_NETWORK_STATE`（离线提示）；页面由系统浏览器 / Chrome Custom Tabs 渲染，App 不内置 WebView、不代理内容。13 款工具本体仍是纯本地运算。
 - **隐私**：`allowBackup=false` + 全量排除备份规则；密码本体、音频字节、相机帧不落盘；历史只记元信息。
 - **深链**：`omnibox://tool/{tool_id}` 直达工具页。
 
@@ -64,15 +65,15 @@ Windows 用 `gradlew.bat`。本机环境路径与 CI 用法见 `BUILD.md`。
 
 | 任务 | 结果 |
 |---|---|
-| `./gradlew :app:assembleDebug` | ✅ 0 错误 0 警告，`app-debug.apk` 23.0 MB，`CN=Android Debug`，可直接 `adb install` |
-| `./gradlew test` | ✅ 18 个测试类 / 113 条用例 × 2 变体 = 226 次执行，0 失败 |
-| `./gradlew :app:assembleRelease :app:bundleRelease` | ✅ `app-release.apk` 4.9 MB（R8 + 资源压缩）、`app-release.aab` 8.7 MB，RSA 4096 签名 |
-| `bash scripts/verify-release.sh` | ✅ 签名 v1/v2/v3、权限清单、合并 Manifest 无 INTERNET、SHA-256 留档 |
+| `./gradlew :app:assembleDebug` | ✅ 0 错误 0 警告，`app-debug.apk` 23.4 MB，`CN=Android Debug`，可直接 `adb install` |
+| `./gradlew test` | ✅ 12 个测试类 / 144 条用例 × 2 变体 = 288 次执行，0 失败（探索模块新增 31 条） |
+| `./gradlew :app:assembleRelease :app:bundleRelease` | ✅ `app-release.apk` 5.0 MB（R8 + 资源压缩）、`app-release.aab` 8.8 MB，RSA 4096 签名 |
+| `bash scripts/verify-release.sh` | ✅ 签名 v1/v2/v3、网络权限策略（INTERNET + ACCESS_NETWORK_STATE）、合并 Manifest 复核、SHA-256 留档 |
 | `python scripts/check-project.py` | ✅ 0 错误 0 警告 |
 | `python scripts/check-screens.py` | 32 屏 / 1354 条设计文案 / 命中 835，覆盖率 61.7%（口径见 `SCREEN_COVERAGE.md`） |
 
-`minSdk 26 / targetSdk 35 / compileSdk 35`；合并后的 Manifest 已核验**不含任何网络权限**，
-两个源码级门禁 `:verifyNoInternetPermission`、`:app:assertOfflineManifest` 均通过。
+`minSdk 26 / targetSdk 35 / compileSdk 35`；合并后的 Manifest 只含 `INTERNET` 与 `ACCESS_NETWORK_STATE` 两项网络权限，
+源码级门禁 `:verifyNetworkPolicy`、`:app:assertNetworkPolicy` 与 `scripts/verify-release.sh` 均通过。
 
 ## 当前进度
 
@@ -80,5 +81,6 @@ P0–P7 全部完成：**13 款工具真实可用**，33 屏中 32 屏有对应�
 权限全部按需申请、拒绝即走设计稿降级页，工程内已无占位页。
 
 - P6：转码 `dataSync` 前台服务（真实进度通知 + 取消）、倒计时与二维码两个 Glance 小组件、开机重建提醒。
-- P7：113 条引擎单测接入 CI、release 签名 APK/AAB、32 屏文案覆盖报告。
+- P7：144 条引擎单测接入 CI、release 签名 APK/AAB、32 屏文案覆盖报告。
+- P8：**探索 · 精选导航**——30 个真实站点（10 个分类）+ 收藏 + 自建站点 + 无痕沙盒 + Chrome Custom Tabs，站点图标真实拉取、失败退化为字母头像。
 - 已知偏差（如营销文案不搬进 App、无逐屏像素比对、release keystore 为本机自建）逐项记录在 `IMPLEMENTATION_STATUS.md`。

@@ -76,6 +76,8 @@ object ScreenId {
 
 object Routes {
     const val HOME = "home"
+    /** 探索 · 精选导航：外链目录与收藏，独立于本地工具注册表。 */
+    const val EXPLORE = "explore"
     const val FAVORITES = "favorites"
     const val SETTINGS = "settings"
     const val TOOL_SETTINGS = "tool_settings"

@@ -100,14 +100,15 @@ CI 用 5 个 Secrets：`OMNIBOX_KS_B64`（keystore 文件的 base64 内容）、
 
 ## 5. release 构建要点
 
-已在 `app/build.gradle.kts` 固化：R8 代码压缩 + 资源收缩、`proguard-rules.pro`（Hilt/Room/协程/Glance/ZXing keep 规则）、ABI 过滤 `arm64-v8a` + `armeabi-v7a`、签名 v1/v2/v3、`assertOfflineManifest` 门禁任务。
+已在 `app/build.gradle.kts` 固化：R8 代码压缩 + 资源收缩、`proguard-rules.pro`（Hilt/Room/协程/Glance/ZXing keep 规则）、ABI 过滤 `arm64-v8a` + `armeabi-v7a`、签名 v1/v2/v3、`assertNetworkPolicy` 门禁任务（只允许 app 模块声明 INTERNET / ACCESS_NETWORK_STATE）。
 
 ## 6. 发布前验证（缺一不可）
 
 ```bash
-# 1) 合并后的 Manifest 必须查不到 INTERNET（传递依赖注入检查）
+# 1) 合并后的 Manifest 必须含 INTERNET（探索页外链与站点图标依赖它），且不应出现额外网络权限
 M=$(find app/build/intermediates -type f -name AndroidManifest.xml -path '*merged*' | head -1)
-grep -i "android.permission.INTERNET" "$M" && echo "FAIL" || echo "OK"
+grep -qi "android.permission.INTERNET" "$M" && echo "OK: INTERNET 在" || echo "FAIL: 丢了 INTERNET"
+grep -oiE "android\.permission\.(ACCESS_WIFI_STATE|CHANGE_NETWORK_STATE|READ_PHONE_STATE)" "$M" | sort -u
 
 # 2) 签名与证书
 apksigner verify --verbose --print-certs app/build/outputs/apk/release/app-release.apk
@@ -129,7 +130,7 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 
 ## 7. 五个容易踩的坑
 
-1. **零 INTERNET 权限可能被依赖偷偷加回**：ML Kit / Firebase 系传递依赖会在 Manifest 合并时注入 `INTERNET`。主 Manifest 已用 `tools:node="remove"` 显式移除，但发布前必须检查合并产物并选 bundled 模型依赖。AGP 8.7 的实际路径是 `app/build/intermediates/merged_manifest/<variant>/process…Manifest/AndroidManifest.xml`（**单数 `merged_manifest`**），用 §6 的 `find -path '*merged*'` 通配最稳。注意 `:verifyNoInternetPermission` 门禁**会正确排除** `tools:node="remove"` 的防御性声明，别把它当成违规删掉。
+1. **网络权限的边界要守住**：探索页需要 `INTERNET`（打开外链、拉站点图标）与 `ACCESS_NETWORK_STATE`（离线提示），因此这两项由 app 模块统一声明；一旦有 feature 模块也声明，`:verifyNetworkPolicy` 会直接失败——这是为了防止某个工具悄悄联网。AGP 8.7 的合并清单实际路径是 `app/build/intermediates/merged_manifests/<variant>/process…Manifest/AndroidManifest.xml`，用 §6 的 `find -path '*merged*'` 通配最稳。注意：**不要**再把 `INTERNET` 用 `tools:node="remove"` 移除，那会让探索页所有外链点不开。
 2. **离线资源必须随包**：Roboto Flex 变量字体、Material Symbols 图标、农历表（1900–2100）、离线汇率快照、WHO 噪声对照表、ML Kit bundled 模型全部进 `assets/res`，禁止运行时下载。设计包的 32 张 `screen.png` 是验收素材，**不要打进 APK**。
 3. **NDK `.so` 分包**：若 P2 验证后保留 FFmpeg-Kit / libwebp，用 `splits.abi` 出分 ABI 包；交 AAB 时由 Play 自动拆分。
 4. **R8 keep 规则**：Hilt 生成类、Room 实体、kotlinx/ZXing 反射、JNI 方法名都要写进 `proguard-rules.pro`，否则混淆后功能与界面对不上。
@@ -173,8 +174,8 @@ workflow 会把 `OMNIBOX_KS_B64` 解码到 `$RUNNER_TEMP/omnibox-release.jks` �
 
 - `python3 scripts/check-project.py` 静态自检
 - `./gradlew test` 引擎层单测（失败即红）
-- `:verifyNoInternetPermission` + `:app:assertOfflineManifest` 源码级零网络权限
-- 构建后扫描 `merged*` 的 `AndroidManifest.xml`，发现 `INTERNET` 即失败
+- `:verifyNetworkPolicy` + `:app:assertNetworkPolicy` 源码级网络权限边界（只允许 app 模块声明）
+- 构建后扫描 `merged*` 的 `AndroidManifest.xml`，缺 `INTERNET` 即失败（说明外链会打不开）
 - `apksigner verify --verbose --print-certs` + SHA-256 留档
 - 失败时上传 `**/build/reports/**` 便于排查编译错误
 - `gradle/actions/setup-gradle@v4` 缓存依赖；`concurrency` 取消重复构建；45 分钟超时

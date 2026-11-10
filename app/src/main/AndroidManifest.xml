@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
-      OmniBox 的核心承诺：零网络权限。
-      任何传递依赖（ML Kit / Firebase 系）在 Manifest 合并阶段注入的 INTERNET 在此显式移除。
-      发布前还需检查 app/build/intermediates/merged_manifests/release/AndroidManifest.xml。
+      网络权限：仅服务于「探索 · 精选导航」。
+      - INTERNET：加载站点 favicon；外链本身由系统浏览器 / Chrome Custom Tabs 打开，App 不代理页面。
+      - ACCESS_NETWORK_STATE：离线时给出提示，而不是让用户对着一张点了没反应的卡片猜。
+      除这两项外，工具本体（13 款）全部离线运行，不上传任何数据。
     -->
-    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- 运行时权限：全部为「按需申请 + 拒绝即降级」，任意一项被拒都不影响其他工具 -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -29,6 +29,23 @@
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
     <uses-feature android:name="android.hardware.sensor.compass" android:required="false" />
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+
+    <!--
+      Android 11+ 包可见性：探索页需要判断设备上是否有能打开 http(s) 的浏览器。
+      只声明 VIEW + http(s)，不申请 QUERY_ALL_PACKAGES。
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="http" />
+        </intent>
+    </queries>
 
     <application
         android:name=".OmniBoxApplication"

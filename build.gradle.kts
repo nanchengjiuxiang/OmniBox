@@ -1,5 +1,5 @@
 // OmniBox 根构建脚本
-// 约束：不引入任何网络请求库 / 统计 / 广告 SDK；release 产物最终 Manifest 不得含 INTERNET。
+// 约束：不引入统计 / 广告 SDK；网络权限只服务探索页外链，工具本体保持离线。
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
@@ -13,26 +13,39 @@ tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
 
-// 发布门禁：检查合并后的 Manifest 是否意外带入 INTERNET 权限。
-// 在 CI 中于 assembleRelease / bundleRelease 之后执行 :verifyNoInternetPermission。
-tasks.register("verifyNoInternetPermission") {
+// 网络策略门禁：探索页需要 INTERNET（外链跳转 + 站点图标）与 ACCESS_NETWORK_STATE（离线提示）。
+// 规则：这两项只允许在 app 模块声明；feature / core 模块出现即失败，避免某个工具私自联网。
+// 在 CI 中于 assembleRelease / bundleRelease 之后执行 :verifyNetworkPolicy。
+tasks.register("verifyNetworkPolicy") {
     group = "verification"
-    description = "校验所有模块的 AndroidManifest.xml 源码均未声明 INTERNET 权限"
+    description = "确认网络权限只在 app 模块声明，且 feature/core 模块不私自联网"
+    val appManifest = layout.projectDirectory.file("app/src/main/AndroidManifest.xml").asFile
     doLast {
-        // 注意：主 Manifest 用 <uses-permission ... tools:node="remove" /> 显式移除
-        // 传递依赖注入的 INTERNET，这一行是「防御性声明」而非「申请权限」，必须排除，
-        // 否则 CI 的源码级门禁会把自己的防御措施误判为违规并中断构建。
-        val offenders = fileTree(rootDir) { include("**/src/main/AndroidManifest.xml") }
-            .files.filter { mf ->
-                mf.readLines().any { line ->
-                    line.contains("android.permission.INTERNET") &&
-                        !line.contains("tools:node=\"remove\"")
+        val perms = listOf(
+            "android.permission.INTERNET",
+            "android.permission.ACCESS_NETWORK_STATE"
+        )
+        val offenders = mutableListOf<String>()
+        fileTree(rootDir) {
+            include("**/src/main/AndroidManifest.xml")
+            exclude("**/build/**")
+        }.files
+            .filter { it.absolutePath != appManifest.absolutePath }
+            .forEach { mf ->
+                val text = mf.readText()
+                perms.filter { text.contains(it) }.forEach { perm ->
+                    offenders += "${mf.relativeTo(rootDir).invariantSeparatorsPath} -> $perm"
                 }
             }
         if (offenders.isNotEmpty()) {
-            throw GradleException("发现 INTERNET 权限申请，违反零网络权限约束：\n" +
-                offenders.joinToString("\n") { it.absolutePath })
+            throw GradleException("网络权限只允许在 app 模块声明，以下模块违规：\n" +
+                offenders.joinToString("\n"))
         }
-        println("OK: 源码 Manifest 均不含 INTERNET 权限申请（remove 声明已正确排除）")
+        val appText = appManifest.readText()
+        val missing = perms.filter { !appText.contains(it) }
+        if (missing.isNotEmpty()) {
+            throw GradleException("app Manifest 缺少网络权限声明：$missing")
+        }
+        println("OK: 网络权限策略通过（INTERNET 仅用于探索页外链与图标，工具本体离线）")
     }
 }

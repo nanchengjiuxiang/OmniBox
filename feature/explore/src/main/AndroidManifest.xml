@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 探索模块不声明任何权限：网络权限统一由 app 模块持有，避免子模块私自联网 -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" />

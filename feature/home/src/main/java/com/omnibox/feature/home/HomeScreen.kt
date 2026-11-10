@@ -40,8 +40,9 @@ fun HomeRoute(
         bottomBar = {
             OmniBottomBar(currentTab = 0) { index ->
                 when (index) {
-                    1 -> onNavigate(Routes.FAVORITES)
-                    2 -> onNavigate(Routes.SETTINGS)
+                    1 -> onNavigate(Routes.EXPLORE)
+                    2 -> onNavigate(Routes.FAVORITES)
+                    3 -> onNavigate(Routes.SETTINGS)
                     else -> Unit
                 }
             }
@@ -59,8 +60,9 @@ fun HomeRoute(
                     title = "万能工具箱",
                     offlineBadge = true
                 ) {
-                    Text("Explore", style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary)
+                    Text("探索", style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.clickable { onNavigate(Routes.EXPLORE) })
                     IconButton(onClick = { onSearch(state.query) }) {
                         Icon(OmniIcon.of("search"), contentDescription = "搜索")
                     }
@@ -104,7 +106,7 @@ fun HomeRoute(
                             tint = MaterialTheme.colorScheme.onPrimaryContainer)
                         Spacer(Modifier.width(12.dp))
                         Column(Modifier.weight(1f)) {
-                            Text("纯本地离线优先 · ${state.totalCount} 款精选工具就绪",
+                            Text("核心工具全程本地 · ${state.totalCount} 款就绪",
                                 style = MaterialTheme.typography.titleSmall,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer)
                             Spacer(Modifier.height(4.dp))
@@ -113,7 +115,7 @@ fun HomeRoute(
                                     modifier = Modifier.size(14.dp),
                                     tint = MaterialTheme.colorScheme.onPrimaryContainer)
                                 Spacer(Modifier.width(4.dp))
-                                Text("零网络权限", style = MaterialTheme.typography.labelSmall,
+                                Text("无需联网即可使用", style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.onPrimaryContainer)
                             }
                         }
@@ -204,7 +206,9 @@ fun HomeRoute(
                     OmniToolCard(
                         tool = tool,
                         onClick = { onOpenTool(tool) },
-                        modifier = Modifier.padding(horizontal = OmniDimens.ScreenPadding, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = OmniDimens.ScreenPadding, vertical = 4.dp),
+                        favorite = tool.id in state.favorites,
+                        onToggleFavorite = { viewModel.onEvent(HomeEvent.ToggleFavorite(tool.id)) }
                     )
                 }
             }

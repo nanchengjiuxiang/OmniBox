@@ -146,7 +146,7 @@ fun QrcodeRoute(onBack: () -> Unit) {
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         OmniTopBar(
-            title = "Scan Recognize",
+            title = "扫码识别",
             subtitle = "纯本地解析 · 零网络请求",
             navigationIcon = OmniIcon.of("arrow_back"),
             onNavigationClick = onBack

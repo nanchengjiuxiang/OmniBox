@@ -23,6 +23,7 @@ import com.omnibox.core.model.Routes
 import com.omnibox.feature.compass.CompassRoute
 import com.omnibox.feature.countdown.CountdownRoute
 import com.omnibox.feature.decibel.DecibelRoute
+import com.omnibox.feature.explore.ExploreRoute
 import com.omnibox.feature.exif.ExifRoute
 import com.omnibox.feature.formatconverter.FormatConverterRoute
 import com.omnibox.feature.home.*
@@ -62,22 +63,25 @@ private fun AppNavHost(navController: NavHostController, startToolId: String?) {
         composable(Routes.HOME) {
             HomeRoute(
                 onOpenTool = { navController.navigate(it.route) },
-                onNavigate = { navController.navigate(it) },
+                onNavigate = { navController.switchTab(it) },
                 onSearch = { q -> navController.navigate(Routes.search(q)) }
             )
+        }
+        composable(Routes.EXPLORE) {
+            ExploreRoute(onNavigate = { navController.switchTab(it) })
         }
         composable(Routes.FAVORITES) {
             FavoritesRoute(
                 onOpenTool = { navController.navigate(it.route) },
-                onNavigate = { navController.navigate(it) },
-                onBack = { navController.navigate(Routes.HOME) }
+                onNavigate = { navController.switchTab(it) },
+                onBack = { navController.switchTab(Routes.HOME) }
             )
         }
         composable(Routes.SETTINGS) {
             SettingsRoute(
                 versionName = BuildConfig.VERSION_DISPLAY,
-                onNavigate = { navController.navigate(it) },
-                onBack = { navController.navigate(Routes.HOME) }
+                onNavigate = { navController.switchTab(it) },
+                onBack = { navController.switchTab(Routes.HOME) }
             )
         }
         composable(Routes.TOOL_SETTINGS) {
@@ -147,6 +151,18 @@ private fun AppNavHost(navController: NavHostController, startToolId: String?) {
  * 排期中的工具占位页：明确告知状态，不伪造控件、不显示假数据。
  * 对应《开发计划》§11 的 P2–P7 里程碑，接入真实实现后逐个移除分支。
  */
+/**
+ * 底部 Tab 之间的切换：以 HOME 为锚点弹栈，避免「工具 → 探索 → 常用 → 探索」把返回栈越堆越长。
+ * launchSingleTop + restoreState 保证重复点同一个 Tab 不会重复入栈，也不会丢页面状态。
+ */
+private fun NavHostController.switchTab(route: String) {
+    navigate(route) {
+        popUpTo(Routes.HOME) { inclusive = false }
+        launchSingleTop = true
+        restoreState = true
+    }
+}
+
 @Composable
 private fun PendingToolScreen(toolId: String, onBack: () -> Unit) {
     val appVm: AppViewModel = hiltViewModel()

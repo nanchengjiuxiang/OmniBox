@@ -36,14 +36,14 @@ fun FavoritesRoute(
     val launches by shell.totalLaunches.collectAsState()
 
     Scaffold(
-        bottomBar = { OmniBottomBar(1) { i -> when (i) { 0 -> onBack(); 2 -> onNavigate(Routes.SETTINGS); else -> Unit } } }
+        bottomBar = { OmniBottomBar(2) { i -> when (i) { 0 -> onBack(); 1 -> onNavigate(Routes.EXPLORE); 3 -> onNavigate(Routes.SETTINGS); else -> Unit } } }
     ) { padding ->
         LazyColumn(
             Modifier.fillMaxSize().padding(padding).background(MaterialTheme.colorScheme.surface),
             contentPadding = PaddingValues(bottom = OmniDimens.Grid3)
         ) {
             item {
-                OmniTopBar(title = "Favorites", subtitle = "OmniBox · 离线极速引擎") {
+                OmniTopBar(title = "常用", subtitle = "收藏的工具与最近使用") {
                     IconButton(onClick = { onNavigate(Routes.SEARCH_RESULT) }) {
                         Icon(OmniIcon.of("search"), contentDescription = "搜索")
                     }
@@ -82,15 +82,20 @@ fun FavoritesRoute(
             }
             if (state.favoriteTools.isEmpty()) {
                 item {
-                    Text("尚未固定工具，去「发现」长按或在工具详情页收藏。",
+                    Text("尚未固定工具：在「工具」页的工具卡上点星标即可固定到这里。",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(horizontal = OmniDimens.ScreenPadding, vertical = 12.dp))
                 }
             } else {
                 items(state.favoriteTools, key = { it.id }) { tool ->
-                    OmniToolCard(tool, { onOpenTool(tool) },
-                        Modifier.padding(horizontal = OmniDimens.ScreenPadding, vertical = 4.dp))
+                    OmniToolCard(
+                        tool = tool,
+                        onClick = { onOpenTool(tool) },
+                        modifier = Modifier.padding(horizontal = OmniDimens.ScreenPadding, vertical = 4.dp),
+                        favorite = true,
+                        onToggleFavorite = { home.onEvent(HomeEvent.ToggleFavorite(tool.id)) }
+                    )
                 }
             }
             item {
@@ -119,7 +124,7 @@ fun FavoritesRoute(
                 }
             }
             item {
-                Text("纯本地 Room 数据库持久化 · 历史记录与收藏不出设备 · 零云端同步风险",
+                Text("纯本地 Room 数据库持久化 · 历史记录与收藏不出设备 · 无云端同步",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(OmniDimens.ScreenPadding))
@@ -143,13 +148,13 @@ fun SettingsRoute(
     val permissions = remember(message) { shell.permissionStatuses() }
 
     Scaffold(
-        bottomBar = { OmniBottomBar(2) { i -> when (i) { 0 -> onBack(); 1 -> onNavigate(Routes.FAVORITES); else -> Unit } } }
+        bottomBar = { OmniBottomBar(3) { i -> when (i) { 0 -> onBack(); 1 -> onNavigate(Routes.EXPLORE); 2 -> onNavigate(Routes.FAVORITES); else -> Unit } } }
     ) { padding ->
         LazyColumn(
             Modifier.fillMaxSize().padding(padding).background(MaterialTheme.colorScheme.surface),
             contentPadding = PaddingValues(bottom = OmniDimens.Grid3)
         ) {
-            item { OmniTopBar(title = "Settings", subtitle = "OmniBox · 离线极速引擎") }
+            item { OmniTopBar(title = "设置", subtitle = "偏好、权限与关于") }
             item {
                 OmniInfoCard(
                     icon = "terminal",
@@ -157,7 +162,7 @@ fun SettingsRoute(
                     value = versionName,
                     lines = listOf(
                         "原生极速工具箱 · 纯本地沙盒架构",
-                        "纯本地离线优先 · 零 INTERNET 权限",
+                        "核心工具纯本地运算 · 探索页外链交给系统浏览器",
                         "Material You 动态色彩 · Android 14 就绪",
                         "基于 Jetpack Compose + Hilt + Room 的纯原生架构工具箱"
                     )
@@ -205,7 +210,7 @@ fun SettingsRoute(
                     OmniInfoRow(label, "透明审计系统权限，无越权调用与静默常驻",
                         if (granted) "已按需授权" else "未授权")
                 }
-                OmniInfoRow("网络回传", "无 INTERNET 权限", "0 B/s")
+                OmniInfoRow("网络用途", "仅探索页外链跳转，不上传任何数据", "浏览器代收")
             }
             item {
                 Row(Modifier.fillMaxWidth().padding(horizontal = OmniDimens.ScreenPadding)) {
@@ -215,8 +220,8 @@ fun SettingsRoute(
                 }
             }
             item {
-                Text("离线纯粹性承诺：所有偏好参数仅持久化到本机 DataStore，"
-                    + "无任何远程同步与打点上传。",
+                Text("隐私承诺：所有偏好与收藏仅持久化到本机 DataStore，"
+                    + "无账号体系、无远程同步、无埋点上传。",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(OmniDimens.ScreenPadding))
@@ -410,7 +415,7 @@ fun SearchResultRoute(
 
     LazyColumn(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         item {
-            OmniTopBar(title = "Tool Execution Workspace", offlineBadge = false,
+            OmniTopBar(title = "工具检索", subtitle = "本地关键词索引 · 无需联网", offlineBadge = false,
                 navigationIcon = OmniIcon.of("arrow_back"), onNavigationClick = onBack)
         }
         item {
