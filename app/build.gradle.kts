@@ -98,6 +98,8 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
+    // 桌面小组件：Glance 只做本地渲染与点击，不引入任何网络栈
+    implementation(libs.androidx.glance.appwidget)
 
     implementation(project(":core:common"))
     implementation(project(":core:model"))

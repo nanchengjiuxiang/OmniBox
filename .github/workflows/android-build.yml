@@ -78,6 +78,10 @@ jobs:
       - name: Source-level offline gate
         run: ./gradlew :verifyNoInternetPermission :app:assertOfflineManifest
 
+      # 引擎层 JVM 单测（113 条）：加权抽样分布、dB 换算、周年边界、采样率计算等纯算法
+      - name: Unit tests
+        run: ./gradlew test --stacktrace
+
       - name: Build debug APK
         run: ./gradlew :app:assembleDebug --stacktrace
 

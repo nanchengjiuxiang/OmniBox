@@ -21,3 +21,6 @@ keystore.properties
 /app/release/
 # 验收素材（32 张设计截图）不进版本库也不进 APK
 /design-baseline/
+
+# 发布门禁生成的哈希留档（本地产物）
+release-sha256.txt

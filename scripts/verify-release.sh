@@ -9,14 +9,25 @@ BT=$(ls -d "$SDK"/build-tools/* 2>/dev/null | sort -V | tail -1)
 if [ -z "$BT" ]; then echo "未找到 build-tools"; exit 1; fi
 if [ ! -f "$APK" ]; then echo "APK 不存在: $APK"; exit 1; fi
 
+# Windows 的 build-tools 里是可执行脚本带后缀（aapt.exe / apksigner.bat），
+# Linux/macOS 无后缀。这里按实际存在的文件挑，避免在中文路径下被 shell 当成不存在。
+pick() {
+  for cand in "$BT/$1.exe" "$BT/$1.bat" "$BT/$1"; do
+    [ -f "$cand" ] && { echo "$cand"; return 0; }
+  done
+  return 1
+}
+APKSIGNER=$(pick apksigner) || { echo "未找到 apksigner"; exit 1; }
+AAPT=$(pick aapt) || { echo "未找到 aapt"; exit 1; }
+
 echo "== 1. 签名 =="
-"$BT/apksigner" verify --verbose --print-certs "$APK" || exit 1
+"$APKSIGNER" verify --verbose --print-certs "$APK" || exit 1
 
 echo "== 2. Badging =="
-"$BT/aapt" dump badging "$APK" | head -8
+"$AAPT" dump badging "$APK" | head -8
 
 echo "== 3. 权限清单 =="
-PERMS=$("$BT/aapt" dump permissions "$APK")
+PERMS=$("$AAPT" dump permissions "$APK")
 echo "$PERMS"
 if echo "$PERMS" | grep -qi "android.permission.INTERNET"; then
   echo "FAIL: APK 含 INTERNET 权限，违反零网络权限约束"; exit 1

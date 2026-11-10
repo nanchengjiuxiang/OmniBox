@@ -58,7 +58,9 @@ object TextEngine {
         CleanOp.LOWER -> input.lowercase(Locale.getDefault())
         CleanOp.TITLE -> input.lowercase(Locale.getDefault())
             .split(" ").joinToString(" ") { it.replaceFirstChar { ch -> ch.titlecase(Locale.getDefault()) } }
-        CleanOp.UNIQUE_LINES -> input.lines().distinct().joinToString("\n")
+        // 去重复行：保留首次出现顺序；末尾换行会被 lines() 拆出一个空串，
+        // 去重后 join 会多出一个尾随换行，这里统一去掉，避免结果比原文多一行空行
+        CleanOp.UNIQUE_LINES -> input.lines().distinct().joinToString("\n").trimEnd('\n')
     }
 
     const val SAMPLE = "OmniBox 离线工具箱\n\n支持哈希摘要、Base64 与文本清洗。\n支持哈希摘要、Base64 与文本清洗。\n"

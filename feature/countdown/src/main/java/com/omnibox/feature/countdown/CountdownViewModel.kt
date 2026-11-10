@@ -1,10 +1,7 @@
 package com.omnibox.feature.countdown
 
 import android.Manifest
-import android.app.AlarmManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.ContextCompat
@@ -206,7 +203,9 @@ class CountdownViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val rowId = countdownDao.upsert(entity)
             val saved = entity.copy(id = if (entity.id == 0L) rowId else entity.id)
-            if (notify) scheduleAlarm(saved) else cancelAlarm(saved.id)
+            if (notify) CountdownAlarmScheduler.schedule(appContext, saved) else CountdownAlarmScheduler.cancel(appContext, saved.id)
+            // 数据变了就刷新桌面小组件，避免桌面显示 15 分钟前的旧值
+            notifyCountdownWidgetChanged(appContext)
         }
         _uiState.update {
             it.copy(
@@ -219,8 +218,9 @@ class CountdownViewModel @Inject constructor(
 
     private fun delete(id: Long) {
         viewModelScope.launch(Dispatchers.IO) {
-            cancelAlarm(id)
+            CountdownAlarmScheduler.cancel(appContext, id)
             countdownDao.delete(id)
+            notifyCountdownWidgetChanged(appContext)
         }
         _uiState.update { s ->
             val remaining = s.events.filter { it.id != id }
@@ -249,7 +249,10 @@ class CountdownViewModel @Inject constructor(
             colorToken = kind.token,
             createdAt = now
         )
-        viewModelScope.launch(Dispatchers.IO) { countdownDao.upsert(entity) }
+        viewModelScope.launch(Dispatchers.IO) {
+            countdownDao.upsert(entity)
+            notifyCountdownWidgetChanged(appContext)
+        }
         _uiState.update { it.copy(message = "已创建「${kind.title}」") }
     }
 
@@ -260,41 +263,4 @@ class CountdownViewModel @Inject constructor(
             ContextCompat.checkSelfPermission(
                 appContext, Manifest.permission.POST_NOTIFICATIONS
             ) == PackageManager.PERMISSION_GRANTED
-
-    /* ---------- AlarmManager 真实调度 ---------- */
-
-    private fun reminderIntent(eventId: Long, title: String): PendingIntent {
-        val intent = Intent(appContext, CountdownReminderReceiver::class.java).apply {
-            putExtra(CountdownReminderReceiver.EXTRA_EVENT_ID, eventId)
-            putExtra(CountdownReminderReceiver.EXTRA_TITLE, title)
-        }
-        return PendingIntent.getBroadcast(
-            appContext,
-            eventId.toInt(),
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-    }
-
-    private fun scheduleAlarm(entity: CountdownEventEntity) {
-        CountdownReminderReceiver.ensureNotificationChannel(appContext)
-        val now = System.currentTimeMillis()
-        val trigger = CountdownEngine.nextOccurrence(
-            entity.targetEpochMillis, entity.repeatYearly, now
-        )
-        if (trigger <= now) return
-        val manager = appContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val pi = reminderIntent(entity.id, entity.title)
-        // Android 12+ 若未获精确闹钟特殊权限，退回系统允许的免耗电闹钟（仍是真实闹钟）
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms()) {
-            manager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, trigger, pi)
-        } else {
-            manager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, trigger, pi)
-        }
-    }
-
-    private fun cancelAlarm(eventId: Long) {
-        val manager = appContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        manager.cancel(reminderIntent(eventId, ""))
-    }
 }

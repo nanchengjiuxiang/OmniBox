@@ -124,8 +124,10 @@ for p in kt_files:
         issues.append(f'{rel(p)} 缺少 package 声明')
         continue
     expected = os.path.dirname(p).replace('/', '.').replace('\\', '.')
-    # 去掉 src/main/java 或 src/main/kotlin 前缀
-    for seg in ['src.main.java.', 'src.main.kotlin.']:
+    # 去掉 src/main/java、src/main/kotlin、src/test/java、src/androidTest/java 前缀
+    for seg in ['src.main.java.', 'src.main.kotlin.',
+                'src.test.java.', 'src.test.kotlin.',
+                'src.androidTest.java.', 'src.androidTest.kotlin.']:
         idx = expected.find(seg)
         if idx >= 0:
             expected = expected[idx + len(seg):]

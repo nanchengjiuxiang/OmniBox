@@ -59,9 +59,13 @@ JDK 25 的 class 文件主版本号是 69，Gradle 8.9 / Kotlin 2.0 会在解析
 
 ```bash
 ./gradlew :app:assembleDebug      # 调试包：自动 debug 签名，adb 安装自测
+./gradlew test                    # 引擎层 JVM 单测（113 条 × debug/release 两变体）
 ./gradlew :app:assembleRelease    # 正式 APK：国内商店 / 侧载
 ./gradlew :app:bundleRelease      # AAB：Google Play（Play App Signing 再拆分签名）
 ```
+
+本机实测体积：debug 23.0 MB、release APK **4.9 MB**（R8 + 资源压缩后约为 debug 的 21%）、release AAB 8.7 MB。
+打包后建议直接跑门禁：`ANDROID_HOME=<SDK> bash scripts/verify-release.sh`（脚本会自动挑 `apksigner`/`aapt` 的 `.exe`/`.bat` 后缀，Windows 与 Linux 通用）。
 
 产物：
 
@@ -96,7 +100,7 @@ CI 用 5 个 Secrets：`OMNIBOX_KS_B64`（keystore 文件的 base64 内容）、
 
 ## 5. release 构建要点
 
-已在 `app/build.gradle.kts` 固化：R8 代码压缩 + 资源收缩、`proguard-rules.pro`（Hilt/Room/协程/JNI/ZXing keep 规则）、ABI 过滤 `arm64-v8a` + `armeabi-v7a`、签名 v1/v2/v3、`assertOfflineManifest` 门禁任务。
+已在 `app/build.gradle.kts` 固化：R8 代码压缩 + 资源收缩、`proguard-rules.pro`（Hilt/Room/协程/Glance/ZXing keep 规则）、ABI 过滤 `arm64-v8a` + `armeabi-v7a`、签名 v1/v2/v3、`assertOfflineManifest` 门禁任务。
 
 ## 6. 发布前验证（缺一不可）
 
@@ -168,6 +172,7 @@ workflow 会把 `OMNIBOX_KS_B64` 解码到 `$RUNNER_TEMP/omnibox-release.jks` �
 ### CI 里已固化的门禁
 
 - `python3 scripts/check-project.py` 静态自检
+- `./gradlew test` 引擎层单测（失败即红）
 - `:verifyNoInternetPermission` + `:app:assertOfflineManifest` 源码级零网络权限
 - 构建后扫描 `merged*` 的 `AndroidManifest.xml`，发现 `INTERNET` 即失败
 - `apksigner verify --verbose --print-certs` + SHA-256 留档

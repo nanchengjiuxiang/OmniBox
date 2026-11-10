@@ -91,6 +91,13 @@ interface TranscodeDao {
 
     @Insert
     suspend fun insertOutput(output: ConversionOutputEntity): Long
+
+    /**
+     * 进程被杀后，内存里的转码协程不可能恢复，但任务记录会停在 running/queued。
+     * 应用下次启动时把它们标记为失败，避免报告页出现永远转圈的僵尸任务。
+     */
+    @Query("UPDATE transcode_tasks SET status = 'failed', finishedAt = :now WHERE status IN ('queued', 'running')")
+    suspend fun failInterrupted(now: Long): Int
 }
 
 @Dao

@@ -29,6 +29,17 @@
 -keepclasseswithmembernames class * { native <methods>; }
 -keep class com.omnibox.**.jni.** { *; }
 
+# ---- Glance 桌面小组件 ----
+# Glance 通过 receiver 的 glanceAppWidget 属性反射创建 GlanceAppWidget 实例，
+# 并依赖 AppWidgetSession / 组合运行时；这些符号混淆后会在添加小组件时崩溃。
+-keep class androidx.glance.** { *; }
+-dontwarn androidx.glance.**
+-keep class * extends androidx.glance.appwidget.GlanceAppWidgetReceiver { *; }
+-keep class * extends androidx.glance.appwidget.GlanceAppWidget { *; }
+-keepclassmembers class * {
+    androidx.glance.appwidget.GlanceAppWidget getGlanceAppWidget();
+}
+
 # ---- ZXing / CameraX / ML Kit（P2 预留）----
 -dontwarn com.google.zxing.**
 -keep class com.google.zxing.** { *; }

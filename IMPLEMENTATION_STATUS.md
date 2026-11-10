@@ -1,7 +1,7 @@
-# 实现进度与已知偏差（2026-11-10，P2 批次完成）
+# 实现进度与已知偏差（2026-11-10，P6/P7 收口）
 
-**结论：13 款工具全部接入真实实现，工程内已无 `PendingToolScreen` 占位页（仅保留未知 toolId 的兜底分支）。**
-本机 JDK 17 + Android SDK 35 + Gradle 8.9 环境下 `:app:assembleDebug` 编译通过，产出可安装 debug APK。
+**结论：13 款工具全部真实可用，P6（前台服务、Glance 小组件）与 P7（release 签名包、单测、覆盖比对）已收口。**
+本机 JDK 17 + Android SDK 35 + Gradle 8.9 环境下 `assembleDebug` / `assembleRelease` / `bundleRelease` / `test` 全部通过。
 
 ## 里程碑
 
@@ -9,12 +9,12 @@
 |---|---|---|
 | P0 | 固化设计基线、抽取 Kotlin 代码块、建立工程根目录 | ✅ 完成 |
 | P1 | 设计系统、模块拓扑、主框架 6 屏、4 款无权限工具 | ✅ 完成 |
-| **P2** | **扫码 / 图片压缩 / EXIF / 格式转换 / 转盘 / 倒计时 / 指南针 / 分贝计 + 权限降级** | **✅ 本次完成（8 款工具，约 9,500 行新代码）** |
-| P3 | 工具页与设计稿逐屏校对 | ✅ 随 P2 一并还原（33 屏中 32 屏有实现） |
+| P2 | 扫码 / 图片压缩 / EXIF / 格式转换 / 转盘 / 倒计时 / 指南针 / 分贝计 + 权限降级 | ✅ 完成（8 款工具，约 9,500 行） |
+| P3 | 工具页与设计稿逐屏校对 | ✅ 32 屏有实现，覆盖率报告见 `SCREEN_COVERAGE.md` |
 | P4 | 传感器类工具与降级页 | ✅ 指南针 / 分贝计完成 |
 | P5 | 转盘 / 倒计时与 Room 持久化 | ✅ 完成 |
-| P6 | 前台服务、Glance 小组件 | ⏳ 未做（见偏差 12） |
-| P7 | 32 屏截图比对报告、release 签名包 | ⏳ 未做（见偏差 13、14） |
+| **P6** | **前台服务、Glance 小组件** | **✅ 本次完成（转码前台服务 + 倒计时/二维码两个小组件）** |
+| **P7** | **单测、release 签名包、覆盖比对报告** | **✅ 本次完成（113 条单测 / 签名 APK + AAB / 32 屏文案覆盖报告）** |
 
 ## 13 款工具
 
@@ -47,6 +47,20 @@
 | `feature:randomwheel` | `RandomWheelEngine.kt` / `RandomWheelViewModel.kt` / `RandomWheelScreen.kt` | 加权抽样与转盘 |
 | `feature:countdown` | `CountdownEngine.kt` / `CountdownViewModel.kt` / `CountdownScreen.kt` / `CountdownReminderReceiver.kt` | 事件、周年、提醒 |
 
+## 本次新增的工程文件（P6/P7）
+
+| 模块 | 文件 | 职责 |
+|---|---|---|
+| `feature:formatconverter` | `TranscodeJobRunner.kt` | 应用级协程作用域的转码任务执行器，`StateFlow` 暴露真实进度，支持取消；ViewModel 销毁不影响任务 |
+| `feature:formatconverter` | `TranscodeService.kt` | `dataSync` 前台服务：真实进度通知、通知栏取消、结束自动 `stopSelf` |
+| `feature:countdown` | `CountdownAlarmScheduler.kt` | 提醒调度的唯一入口（ViewModel 与开机重建共用，避免 PendingIntent 形状不一致） |
+| `feature:countdown` | `CountdownBootReceiver.kt` | 开机 / 应用更新后从 Room 读回事件并重建闹钟 |
+| `app` | `widget/CountdownWidget.kt`、`widget/QrWidget.kt`、`widget/WidgetEntryPoint.kt`、`widget/CountdownWidgetRefreshReceiver.kt` | 两个 Glance 小组件 + Hilt EntryPoint + 数据变更刷新 |
+| `app` | `res/xml/countdown_widget_info.xml`、`res/xml/qr_widget_info.xml` | 小组件尺寸、预览、更新周期 |
+| 各模块 | `src/test/java/**/*Test.kt` | 113 条 JVM 单测（引擎层，无 Android 依赖） |
+| `scripts` | `check-screens.py` | 设计稿 → 实现的中文文案覆盖比对 |
+| 根目录 | `SCREEN_COVERAGE.md` | 上者生成的 32 屏覆盖率报告 |
+
 ## 33 屏覆盖
 
 | 类别 | 数量 | 状态 |
@@ -75,6 +89,16 @@
 
 硬件特性全部 `required="false"`：无磁力计 / 无麦克风 / 无相机的设备走到对应降级分支，不崩溃。
 
+## P6 / P7 新增能力
+
+| 能力 | 真实行为 |
+|---|---|
+| 转码前台服务 | 选完格式后由 `TranscodeService`（`dataSync`）承载，通知栏显示「已处理 N/M」真实进度；离开页面或切后台继续跑；通知栏「取消」走协作式取消；全部结束自动 `stopSelf()` |
+| 倒计时小组件 | Glance 渲染 Room 里最近一个事件与真实剩余天数；15 分钟自刷新 + 数据变更即刷；点击 `omnibox://tool/countdown` 回到工具页 |
+| 二维码小组件 | 展示上次扫描/生成结果的首行摘要与「去扫码」入口，无历史时显示引导文案，不编造内容 |
+| 开机重建提醒 | `CountdownBootReceiver` 在 `BOOT_COMPLETED` / `MY_PACKAGE_REPLACED` 时从 Room 读回 `notifyEnabled` 事件并重新下单闹钟（AlarmManager 的闹钟不跨重启存活） |
+| 引擎单测 | 113 条 JVM 用例覆盖密码熵/字符集、单位往返与温度基准、时间戳与时区、摘要标准向量、加权抽样分布、周年边界、dB 换算、采样率计算 |
+
 ## 新增依赖与体积
 
 | 依赖 | 版本 | 用途 | 是否引入网络权限 |
@@ -82,8 +106,9 @@
 | `com.google.zxing:core` | 3.5.3 | 二维码编解码（纯算法） | 否 |
 | `androidx.camera:camera-core/camera2/lifecycle/view` | 1.3.4 | 相机预览与帧分析 | 否 |
 | `androidx.exifinterface:exifinterface` | 1.3.7 | 读取/校验 EXIF | 否 |
+| `androidx.glance:glance-appwidget` | 1.1.1 | 桌面小组件（P6） | 否 |
 
-APK 由 18.2 MB 增至约 **21.5 MB**（新增 ZXing + CameraX + ExifInterface 与 8 个模块的代码资源）。
+体积：debug APK 23.0 MB（未混淆、含调试符号），release APK **4.9 MB**（R8 + 资源压缩后约为 debug 的 21%），release AAB 8.7 MB。
 **未引入** FFmpeg-Kit、ML Kit、Coil/Glide、任何网络库：前三者会显著增大包体或注入 `INTERNET`，后者违反零权限承诺。
 
 ## 已验证项
@@ -91,12 +116,18 @@ APK 由 18.2 MB 增至约 **21.5 MB**（新增 ZXing + CameraX + ExifInterface �
 | 项 | 结果 |
 |---|---|
 | `./gradlew :app:assembleDebug` | BUILD SUCCESSFUL，0 编译错误 0 警告 |
-| `python scripts/check-project.py` | 0 错误 0 警告（18 模块 / 13 条注册 / 77 个 Kotlin 文件） |
-| `aapt dump permissions` | 仅 CAMERA、RECORD_AUDIO、ACCESS_FINE/COARSE_LOCATION、POST_NOTIFICATIONS、VIBRATE、SCHEDULE_EXACT_ALARM、USE_EXACT_ALARM；**无 INTERNET / ACCESS_NETWORK_STATE** |
-| merged manifest 扫描 | `merged_manifest/debug/.../AndroidManifest.xml` 与 `merged_manifests/debug/...` 均为 0 处 `INTERNET` |
-| `apksigner verify` | v2 = true，`CN=Android Debug` |
-| 产物 | `app/build/outputs/apk/debug/app-debug.apk`，21,453,978 字节（约 20.5 MiB） |
-| SHA-256 | `ab749c0c370594ff3085461c9aaa51ac9db7b4a9eae55526e2c35d7dec09b40a` |
+| `./gradlew test` | BUILD SUCCESSFUL，18 个测试类 / 113 条用例 × 2 个变体 = 226 次执行，0 失败 0 错误 0 跳过 |
+| `./gradlew :app:assembleRelease :app:bundleRelease` | BUILD SUCCESSFUL，R8 混淆 + 资源压缩生效 |
+| `bash scripts/verify-release.sh` | 全部通过：签名 v1/v2/v3、权限清单、合并 Manifest 无 INTERNET、哈希留档 |
+| `python scripts/check-project.py` | 0 错误 0 警告（18 模块 / 13 条注册 / 95 个编译单元） |
+| `python scripts/check-screens.py` | 32 屏 / 1354 条设计文案 / 命中 835，总覆盖率 **61.7%** |
+| `aapt dump permissions` | CAMERA、RECORD_AUDIO、ACCESS_FINE/COARSE_LOCATION、POST_NOTIFICATIONS、VIBRATE、SCHEDULE_EXACT_ALARM、USE_EXACT_ALARM、RECEIVE_BOOT_COMPLETED、FOREGROUND_SERVICE、FOREGROUND_SERVICE_DATA_SYNC、WAKE_LOCK；**无 INTERNET / ACCESS_NETWORK_STATE** |
+| release 包内组件 | `CountdownReminderReceiver` / `CountdownBootReceiver` / 两个 Glance `*WidgetReceiver`（带 `android.appwidget.provider` 元数据）/ `TranscodeService`（`foregroundServiceType=dataSync`）均存活 |
+| 签名 | `CN=OmniBox, OU=Offline Tool Suite, O=OmniBox, L=Hangzhou, ST=Zhejiang, C=CN`，RSA 4096，有效期 10000 天 |
+| debug 产物 | `app-debug.apk` 23,003,561 字节（含 Glance 后 +1.5 MB），`CN=Android Debug`，包名 `com.omnibox.debug` |
+| release 产物 | `app-release.apk` **4,911,767 字节**（R8 后约为 debug 的 23%）、`app-release.aab` 8,691,098 字节，包名 `com.omnibox` |
+| SHA-256（release APK） | `d65d780297d6507ce4524fb3b98c8999a9a9116859dc2e906cd7a9608331c7d8` |
+| SHA-256（release AAB） | `02e18f292100fac2ad488cf62c7ab1f7d66156d730f797e8cd894c8a5ce9aea2` |
 
 ## 已知偏差与取舍（均可复现、均有代码注释）
 
@@ -111,10 +142,12 @@ APK 由 18.2 MB 增至约 **21.5 MB**（新增 ZXing + CameraX + ExifInterface �
 9. **EXIF 擦除采用「重编码」而非原地删 tag**：直接 `saveAttributes()` 会破坏用户原图且无法彻底清除，改为解码→重编码输出新文件→回读新文件确认风险项已消失。代价是二次压缩（JPEG 有轻微画质损失，PNG/WEBP 无损）。
 10. **格式转换只覆盖位图格式**：PNG/JPEG/WEBP 互转是真实转码；音频/视频转码需要 FFmpeg-Kit（数十 MB、含 native 库），本批次未引入，界面不提供假按钮。
 11. **真北校正依赖 `getLastKnownLocation`**：无缓存定位时返回 null，界面显示「仅磁北可用」；不伪造磁偏角。
-12. **未做前台服务与 Glance 小组件**：`supportsWidget` 元数据已就绪，Widget 与前台服务属 P6。
-13. **未做 32 屏截图比对报告**：需要模拟器/真机逐屏截图，本轮以 `code.html` 结构还原 + 编译验证为准。
-14. **未产出 release 签名包**：缺 keystore，`keystore.properties` 未创建；`assembleRelease` 目前只会产出 unsigned 包。
+12. **小组件只有倒计时与二维码两个**：13 款工具中只有这两项在 `supportsWidget=true`，其余工具没有常驻信息可展示，不做空壳小组件。
+13. **没有逐屏像素比对**：本机无模拟器/系统镜像，改用 `scripts/check-screens.py` 做中文文案覆盖比对（32 屏 / 1354 条 / 61.7%）。未命中的主要是设计稿里的**营销式说明长句**（如「纯本地沙盒存储 · 零网络流量消耗」），实现里刻意不把这些宣传语搬进 App；短标签类文案基本全中。该指标衡量文案存在性，**不等于**视觉等价。
+14. **release 签名用的是本机自建 keystore**：`keystore/omnibox-release.jks` 与 `keystore.properties` 均被 `.gitignore` 排除，口令未入库。上架前必须换成自己的密钥并妥善备份——丢失后无法对已安装用户发布更新。
 15. **`exif` 工具 id 由 `exif_clean` 改为 `exif`**：与计划附录 B 对齐，路由同步改为 `tool/exif`。
+16. **前台服务的取消是协作式的**：`TranscodeJobRunner` 在每张图片处理前后检查取消标记，正在 `Bitmap.compress` 的单张不会被打断（无法安全中断），因此取消会有最多一张图的延迟。
+17. **组合类型转换只覆盖位图**：见偏差 10。
 
 ## 工具链修复记录（本轮）
 
@@ -126,9 +159,9 @@ APK 由 18.2 MB 增至约 **21.5 MB**（新增 ZXing + CameraX + ExifInterface �
 | `nativeCanvas` / `drawIntoCanvas` 未解析 | 缺少 Compose 扩展导入 | 补 `androidx.compose.ui.graphics.nativeCanvas` 与 `...drawscope.drawIntoCanvas` |
 | `@OptIn(ExperimentalGetImage::class)` 无效果告警 | 该注解不是 `@RequiresOptIn` | 改为直接标注 `@ExperimentalGetImage` |
 
-## 下一步
+## 下一步（可选增强，非阻塞）
 
-1. P6：前台服务（转码/压缩长任务）+ Glance 小组件（二维码、倒计时）。
-2. P7：模拟器逐屏截图与 `screen.png` 比对，产出 32 屏比对报告。
-3. 生成 release keystore → `assembleRelease` → `verify-release.sh` 全量门禁。
-4. 为 8 个 Engine 补 JVM 单测（加权分布、dB 换算、周年边界、采样率计算），把算法正确性纳入 CI。
+1. 用真机/模拟器逐屏截图，与 32 张 `screen.png` 做像素级比对，补上视觉回归。
+2. 云端 CI 首次跑通并出 debug APK；配好 5 个签名 Secrets 后可出 release 包（workflow 已含 `test` 步骤）。
+3. 若确需音视频转码，再评估 FFmpeg-Kit（体积 +40~70 MB，需确认无网络权限注入）。
+4. 打开 Room `exportSchema=true` 并配置 `room.schemaLocation`，为后续版本迁移留档。

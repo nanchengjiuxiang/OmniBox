@@ -12,7 +12,7 @@
 
 ```
 OmniBox/
-├── app/                       Application、MainActivity、AppNavHost、签名、混淆、资源
+├── app/                       Application、MainActivity、AppNavHost、Glance 小组件、签名、混淆、资源
 ├── core/
 │   ├── designsystem/          Color/Type/Shape/Dimens/Theme + OmniIcon + 7 个基础组件
 │   ├── common/                OmniResult / Dispatcher / Formatters
@@ -31,11 +31,12 @@ OmniBox/
 │   ├── compass/               磁力计/重力融合罗盘 + 水平仪 + 真北校正
 │   ├── decibel/               AudioRecord 声压级 / Leq / WHO 对照
 │   ├── randomwheel/           SecureRandom 加权抽样 + Canvas 转盘
-│   └── countdown/             Room 事件 + 年度重复 + AlarmManager 提醒
+│   └── countdown/             Room 事件 + 年度重复 + AlarmManager 提醒 + 开机重建
 ├── reference/kt/              从设计包抽取的 26 个 Kotlin 代码块（参考，不参与编译）
-├── scripts/                   环境自检 / 静态自检 / 发布前校验
+├── scripts/                   环境自检 / 静态自检 / 发布前校验 / 设计稿文案覆盖比对
 ├── .github/workflows/         GitHub Actions 云构建（零本机 SDK 也能出 APK）
 ├── BUILD.md                   构建、签名、发布、CI 与本机 SDK 安装记录
+├── SCREEN_COVERAGE.md         32 屏设计文案覆盖报告（脚本生成）
 └── IMPLEMENTATION_STATUS.md   当前实现进度与已知偏差
 ```
 
@@ -59,16 +60,25 @@ Windows 用 `gradlew.bat`。本机环境路径与 CI 用法见 `BUILD.md`。
 
 ## 构建状态（2026-11-10）
 
-本机 JDK 17.0.21 + Android SDK（Platform 35 / Build-Tools 35.0.0）+ Gradle 8.9 Wrapper 齐备，
-`:app:assembleDebug` **真实编译通过**（0 错误 0 警告），产出 `app-debug.apk`（约 21.2 MB，v2 debug 签名，可直接 `adb install`）。
-`apksigner verify` 通过；`minSdk 26 / targetSdk 35 / compileSdk 35`；合并后的 Manifest 已核验**不含任何网络权限**。
-两个源码级门禁 `:verifyNoInternetPermission`、`:app:assertOfflineManifest` 均通过。
+本机 JDK 17.0.21 + Android SDK（Platform 35 / Build-Tools 35.0.0）+ Gradle 8.9 Wrapper 齐备：
 
-首次真实编译暴露并修掉了 5 处静态自检查不出的问题（中文路径开关、`ndk{}` 层级、模块依赖、Compose 测试依赖、缺失路由常量），
-逐项记录在 `IMPLEMENTATION_STATUS.md`。
+| 任务 | 结果 |
+|---|---|
+| `./gradlew :app:assembleDebug` | ✅ 0 错误 0 警告，`app-debug.apk` 23.0 MB，`CN=Android Debug`，可直接 `adb install` |
+| `./gradlew test` | ✅ 18 个测试类 / 113 条用例 × 2 变体 = 226 次执行，0 失败 |
+| `./gradlew :app:assembleRelease :app:bundleRelease` | ✅ `app-release.apk` 4.9 MB（R8 + 资源压缩）、`app-release.aab` 8.7 MB，RSA 4096 签名 |
+| `bash scripts/verify-release.sh` | ✅ 签名 v1/v2/v3、权限清单、合并 Manifest 无 INTERNET、SHA-256 留档 |
+| `python scripts/check-project.py` | ✅ 0 错误 0 警告 |
+| `python scripts/check-screens.py` | 32 屏 / 1354 条设计文案 / 命中 835，覆盖率 61.7%（口径见 `SCREEN_COVERAGE.md`） |
+
+`minSdk 26 / targetSdk 35 / compileSdk 35`；合并后的 Manifest 已核验**不含任何网络权限**，
+两个源码级门禁 `:verifyNoInternetPermission`、`:app:assertOfflineManifest` 均通过。
 
 ## 当前进度
 
-P0–P5 已完成：**13 款工具全部接入真实实现**，33 屏中 32 屏有对应界面（唯一例外是计划裁定不实现的旧版首页副本），
-权限全部按需申请、拒绝即走设计稿降级页，工程内已无占位页。P6（前台服务 / Glance 小组件）与
-P7（截图比对、release 签名包）尚未开始，逐项记录在 `IMPLEMENTATION_STATUS.md`。
+P0–P7 全部完成：**13 款工具真实可用**，33 屏中 32 屏有对应界面（唯一例外是计划裁定不实现的旧版首页副本），
+权限全部按需申请、拒绝即走设计稿降级页，工程内已无占位页。
+
+- P6：转码 `dataSync` 前台服务（真实进度通知 + 取消）、倒计时与二维码两个 Glance 小组件、开机重建提醒。
+- P7：113 条引擎单测接入 CI、release 签名 APK/AAB、32 屏文案覆盖报告。
+- 已知偏差（如营销文案不搬进 App、无逐屏像素比对、release keystore 为本机自建）逐项记录在 `IMPLEMENTATION_STATUS.md`。
